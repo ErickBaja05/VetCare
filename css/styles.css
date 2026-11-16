@@ -1,0 +1,308 @@
+/* ==========================================================================
+   VetCare - Base Arquitectónica ("La Roca")
+   Enfoque: Mobile First
+   Breakpoints:
+     - Base : móviles (< 768px)
+     - md   : tablets (>= 768px)
+     - lg   : escritorio (>= 1024px)
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap');
+
+/* --------------------------------------------------------------------------
+   1. Design Tokens (Variables globales)
+   -------------------------------------------------------------------------- */
+:root {
+    /* Colores principales */
+    --color-primary: #0E7490;
+    --color-primary-hover: #155E75;
+    --color-secondary: #1E293B;
+
+    /* Navegación */
+    --color-nav-bg: #0F172A;
+    --color-nav-border: #1E293B;
+    --color-nav-text: #F8FAFC;
+    --color-nav-muted: #94A3B8;
+
+    /* Superficies y bordes */
+    --color-bg: #F8FAFC;
+    --color-surface: #FFFFFF;
+    --color-border: #E2E8F0;
+    --color-border-strong: #CBD5E1;
+
+    /* Textos */
+    --color-text: #0F172A;
+    --color-text-muted: #475569;
+    --color-white: #FFFFFF;
+
+    /* Estados semánticos */
+    --color-info: #0369A1;
+    --color-info-bg: #E0F2FE;
+    --color-success: #15803D;
+    --color-success-bg: #DCFCE7;
+    --color-warning: #92400E;
+    --color-warning-bg: #FEF3C7;
+    --color-danger: #B91C1C;
+    --color-danger-bg: #FEE2E2;
+
+    /* Tipografía */
+    --font-base: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-display: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+
+    --fs-xs: 0.75rem;
+    /* 12px */
+    --fs-sm: 0.875rem;
+    /* 14px */
+    --fs-base: 1rem;
+    /* 16px */
+    --fs-md: 1.125rem;
+    /* 18px */
+    --fs-lg: 1.25rem;
+    /* 20px */
+    --fs-xl: 1.5rem;
+    /* 24px */
+    --fs-2xl: 1.875rem;
+    /* 30px */
+
+    /* Escala de espaciado */
+    --space-1: 0.25rem;
+    /* 4px */
+    --space-2: 0.5rem;
+    /* 8px */
+    --space-3: 0.75rem;
+    /* 12px */
+    --space-4: 1rem;
+    /* 16px */
+    --space-6: 1.5rem;
+    /* 24px */
+    --space-8: 2rem;
+    /* 32px */
+
+    /* Geometría y dimensiones */
+    --radius-sm: 0.25rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --sidebar-width: 16rem;
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset y reglas base
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-base);
+    font-size: var(--fs-base);
+    line-height: 1.5;
+    color: var(--color-text);
+    background-color: var(--color-bg);
+    min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--font-display);
+    line-height: 1.25;
+}
+
+a {
+    color: var(--color-primary);
+    text-decoration: none;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+img,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+/* Accesibilidad básica */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
+:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* --------------------------------------------------------------------------
+   3. Esqueleto del Layout (Móvil primero: barra superior -> Escritorio: sidebar)
+   -------------------------------------------------------------------------- */
+.app-layout {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.app-sidebar {
+    background-color: var(--color-nav-bg);
+    color: var(--color-nav-text);
+    position: sticky;
+    top: 0;
+    z-index: 40;
+}
+
+.app-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.page-header {
+    padding: var(--space-4);
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.page-content {
+    flex: 1;
+    padding: var(--space-4);
+}
+
+.page-footer {
+    padding: var(--space-4);
+    background-color: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    font-size: var(--fs-xs);
+    color: var(--color-text-muted);
+    text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   4. Sistema de Grilla (12 columnas, Mobile First)
+   -------------------------------------------------------------------------- */
+.grid-12 {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: var(--space-4);
+}
+
+.grid-12>* {
+    grid-column: span 12;
+    min-width: 0;
+}
+
+/* Tablet (>= 768px) */
+@media (min-width: 768px) {
+
+    .page-header,
+    .page-content {
+        padding: var(--space-6);
+    }
+
+    .col-md-4 {
+        grid-column: span 4;
+    }
+
+    .col-md-6 {
+        grid-column: span 6;
+    }
+
+    .col-md-8 {
+        grid-column: span 8;
+    }
+
+    .col-md-12 {
+        grid-column: span 12;
+    }
+}
+
+/* Escritorio (>= 1024px) */
+@media (min-width: 1024px) {
+    .app-layout {
+        flex-direction: row;
+    }
+
+    .app-sidebar {
+        width: var(--sidebar-width);
+        height: 100vh;
+        overflow-y: auto;
+        flex-shrink: 0;
+    }
+
+    .page-header {
+        padding: var(--space-6) var(--space-8);
+    }
+
+    .page-content {
+        padding: var(--space-8);
+    }
+
+    .col-lg-3 {
+        grid-column: span 3;
+    }
+
+    .col-lg-4 {
+        grid-column: span 4;
+    }
+
+    .col-lg-6 {
+        grid-column: span 6;
+    }
+
+    .col-lg-8 {
+        grid-column: span 8;
+    }
+
+    .col-lg-9 {
+        grid-column: span 9;
+    }
+
+    .col-lg-12 {
+        grid-column: span 12;
+    }
+}
+
+
+/*INICIO ESTILOS ERICK*/
+
+
+
+
+/*FIN ESTILOS ERICK*/
+
+
+
+/*INICIO ESTILOS FRANCIEL*/
+
+
+
+
+/*FIN ESTILOS FRANCIEL*/
+
+
+
+/*INICIO ESTILOS SABINA*/
+
+
+
+
+/*FIN ESTILOS SABINA*/
+
+
+/*INICIO ESTILOS ANDRÉS*/
+
+
+
+
+/*FIN ESTILOS ANDRÉS*/
