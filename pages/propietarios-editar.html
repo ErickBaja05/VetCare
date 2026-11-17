@@ -6,153 +6,155 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="VetCare - Editar datos de propietario en la Clínica Veterinaria Huellitas.">
     <title>Editar propietario | VetCare - Clínica Huellitas</title>
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 
-<body>
-    <nav aria-label="Navegación principal">
-        <input type="checkbox" id="nav-toggle">
+<body class="app-layout">
+    <nav class="app-sidebar d-flex flex-column" aria-label="Navegación principal">
+        <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
 
-        <div>
-            <a href="recepcionista-dashboard.html">
-                <span aria-hidden="true">VC</span>
-                <span>VetCare</span>
-                <span>Recepción</span>
+        <div class="d-flex items-center justify-between gap-2 p-4 border-bottom nav-border">
+            <a href="recepcionista-dashboard.html" class="d-flex items-center gap-2">
+                <span class="brand-mark d-inline-flex items-center justify-center rounded-md bg-primary text-white fw-extrabold" aria-hidden="true">VC</span>
+                <span class="fs-lg fw-extrabold text-white">VetCare</span>
+                <span class="fs-xs fw-semibold text-uppercase text-nav-muted border nav-border rounded-sm px-2">Recepción</span>
             </a>
 
-            <label for="nav-toggle">
-                <span>☰ Menú</span>
-                <span>✕ Cerrar</span>
+            <label for="nav-toggle" class="nav-toggle">
+                <span class="nav-toggle-open">☰ Menú</span>
+                <span class="nav-toggle-close">✕ Cerrar</span>
             </label>
         </div>
 
-        <div id="nav-menu">
-            <div>
-                <span>Recepción</span>
-                <ul>
+        <div class="nav-collapse" id="nav-menu">
+            <div class="flex-1 p-3">
+                <span class="d-flex fs-xs fw-bold text-uppercase text-nav-muted px-3 py-2">Recepción</span>
+                <ul class="d-flex flex-column gap-1">
                     <li>
-                        <a href="recepcionista-dashboard.html">Panel principal</a>
+                        <a href="recepcionista-dashboard.html" class="nav-link">Panel principal</a>
                     </li>
                     <li>
-                        <a href="propietarios-listado.html" aria-current="page">Propietarios</a>
+                        <a href="propietarios-listado.html" class="nav-link active" aria-current="page">Propietarios</a>
                     </li>
                     <li>
-                        <a href="mascotas-listado.html">Mascotas</a>
+                        <a href="mascotas-listado.html" class="nav-link">Mascotas</a>
                     </li>
                     <li>
-                        <a href="citas-listado.html">Citas</a>
+                        <a href="citas-listado.html" class="nav-link">Citas</a>
                     </li>
                 </ul>
             </div>
 
-            <div>
-                <div>
-                    <span>Ana Torres</span>
-                    <span>Recepcionista</span>
+            <div class="navbar-user d-flex items-center justify-between gap-3 px-4 py-3">
+                <div class="d-flex flex-column">
+                    <span class="fs-sm fw-semibold text-white">Ana Torres</span>
+                    <span class="fs-xs text-nav-muted">Recepcionista</span>
                 </div>
-                <a href="../index.html">Cerrar sesión</a>
+                <a href="../index.html" class="navbar-logout">Cerrar sesión</a>
             </div>
         </div>
     </nav>
 
-    <main>
-        <header>
-            <div>
+    <main class="app-main">
+        <header class="page-header">
+            <div class="d-flex flex-column gap-1">
                 <nav aria-label="Breadcrumb">
-                    <ol>
-                        <li>
+                    <ol class="breadcrumbs">
+                        <li class="breadcrumb-item">
                             <a href="recepcionista-dashboard.html">Inicio</a>
                         </li>
-                        <li>
+                        <li class="breadcrumb-item">
                             <a href="propietarios-listado.html">Propietarios</a>
                         </li>
-                        <li aria-current="page">
+                        <li class="breadcrumb-item" aria-current="page">
                             Editar propietario
                         </li>
                     </ol>
                 </nav>
 
-                <h1>Editar propietario</h1>
-                <p>Actualice los datos de Carlos Mendoza.</p>
+                <h1 class="fs-xl">Editar propietario</h1>
+                <p class="fs-sm text-muted">Actualice los datos de Carlos Mendoza.</p>
             </div>
 
-            <a href="propietarios-listado.html">Volver al listado</a>
+            <a href="propietarios-listado.html" class="btn btn-outline">Volver al listado</a>
         </header>
 
-        <div>
-            <section aria-labelledby="form-editar-propietario-title">
-                <form action="propietarios-listado.html" method="get">
-                    <div>
-                        <h2 id="form-editar-propietario-title">Datos del propietario</h2>
-                        <span>Activo</span>
+        <div class="page-content grid-12">
+            <section class="col-lg-8" aria-labelledby="form-editar-propietario-title">
+                <form action="propietarios-listado.html" method="get" class="card bg-surface border rounded-lg">
+                    <div class="card-header">
+                        <h2 id="form-editar-propietario-title" class="card-title">Datos del propietario</h2>
+                        <span class="badge badge-success">Activo</span>
                     </div>
 
-                    <div>
-                        <fieldset>
-                            <legend>Información personal y contacto</legend>
-                            <div>
-                                <div>
-                                    <label for="cedula">Cédula</label>
-                                    <input type="text" id="cedula" name="cedula" value="1712345678" required
-                                        pattern="[0-9]{10}" minlength="10" maxlength="10" inputmode="numeric"
+                    <div class="card-body">
+                        <fieldset class="form-fieldset mb-4">
+                            <legend class="form-legend">Información personal y contacto</legend>
+                            <div class="grid-12">
+                                <div class="d-flex flex-column gap-1 col-md-6">
+                                    <label for="cedula" class="fs-sm fw-semibold required">Cédula</label>
+                                    <input type="text" id="cedula" name="cedula" class="form-control" value="1712345678"
+                                        required pattern="[0-9]{10}" minlength="10" maxlength="10" inputmode="numeric"
                                         autocomplete="off">
-                                    <small>10 dígitos numéricos sin guiones.</small>
+                                    <small class="fs-xs text-muted">10 dígitos numéricos sin guiones.</small>
                                 </div>
 
-                                <div>
-                                    <label for="nombres">Nombres y apellidos</label>
-                                    <input type="text" id="nombres" name="nombres" value="Carlos Mendoza" required
-                                        pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,50}" minlength="2" maxlength="50"
-                                        autocomplete="name">
+                                <div class="d-flex flex-column gap-1 col-md-6">
+                                    <label for="nombres" class="fs-sm fw-semibold required">Nombres y apellidos</label>
+                                    <input type="text" id="nombres" name="nombres" class="form-control"
+                                        value="Carlos Mendoza" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ\s]{2,50}"
+                                        minlength="2" maxlength="50" autocomplete="name">
                                 </div>
 
-                                <div>
-                                    <label for="celular">Teléfono celular</label>
-                                    <input type="tel" id="celular" name="celular" value="0998765432" required
-                                        pattern="09[0-9]{8}" minlength="10" maxlength="10" inputmode="tel"
-                                        autocomplete="tel">
+                                <div class="d-flex flex-column gap-1 col-md-6">
+                                    <label for="celular" class="fs-sm fw-semibold required">Teléfono celular</label>
+                                    <input type="tel" id="celular" name="celular" class="form-control"
+                                        value="0998765432" required pattern="09[0-9]{8}" minlength="10" maxlength="10"
+                                        inputmode="tel" autocomplete="tel">
                                 </div>
 
-                                <div>
-                                    <label for="correo">Correo electrónico</label>
-                                    <input type="email" id="correo" name="correo" value="carlos.mendoza@email.com"
-                                        required maxlength="80" autocomplete="email">
+                                <div class="d-flex flex-column gap-1 col-md-6">
+                                    <label for="correo" class="fs-sm fw-semibold required">Correo electrónico</label>
+                                    <input type="email" id="correo" name="correo" class="form-control"
+                                        value="carlos.mendoza@email.com" required maxlength="80" autocomplete="email">
                                 </div>
 
-                                <div>
-                                    <label for="direccion">Dirección</label>
-                                    <input type="text" id="direccion" name="direccion"
+                                <div class="d-flex flex-column gap-1">
+                                    <label for="direccion" class="fs-sm fw-semibold required">Dirección</label>
+                                    <input type="text" id="direccion" name="direccion" class="form-control"
                                         value="Av. Amazonas N24-196 y Colón, Quito" required minlength="5"
                                         maxlength="200" autocomplete="address-line1">
                                 </div>
                             </div>
                         </fieldset>
 
-                        <div>
-                            <button type="submit">Guardar cambios</button>
-                            <a href="propietarios-listado.html">Cancelar</a>
+                        <div class="btn-group mt-2">
+                            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                            <a href="propietarios-listado.html" class="btn btn-outline">Cancelar</a>
                         </div>
                     </div>
                 </form>
             </section>
 
-            <aside aria-labelledby="mascotas-vinculadas-title">
-                <div>
-                    <div>
-                        <h2 id="mascotas-vinculadas-title">Mascotas vinculadas</h2>
+            <aside class="col-lg-4" aria-labelledby="mascotas-vinculadas-title">
+                <div class="card bg-surface border rounded-lg">
+                    <div class="card-header">
+                        <h2 id="mascotas-vinculadas-title" class="card-title">Mascotas vinculadas</h2>
                     </div>
-                    <div>
-                        <dl>
-                            <div>
-                                <dt>Nombre</dt>
-                                <dd>Toby</dd>
+                    <div class="card-body">
+                        <dl class="data-list">
+                            <div class="data-item">
+                                <dt class="data-label">Nombre</dt>
+                                <dd class="data-value">Toby</dd>
                             </div>
-                            <div>
-                                <dt>Especie y raza</dt>
-                                <dd>Perro &middot; Golden Retriever</dd>
+                            <div class="data-item">
+                                <dt class="data-label">Especie y raza</dt>
+                                <dd class="data-value">Perro &middot; Golden Retriever</dd>
                             </div>
-                            <div>
-                                <dt>Peso</dt>
-                                <dd>28.5 kg</dd>
+                            <div class="data-item">
+                                <dt class="data-label">Peso</dt>
+                                <dd class="data-value">28.5 kg</dd>
                             </div>
                         </dl>
                     </div>
@@ -160,7 +162,7 @@
             </aside>
         </div>
 
-        <footer>
+        <footer class="page-footer">
             <p>&copy; 2026 Clínica Veterinaria Huellitas &middot; VetCare &middot; Quito, Ecuador</p>
         </footer>
     </main>
