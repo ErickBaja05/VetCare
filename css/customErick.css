@@ -1,0 +1,10 @@
+.brand-mark {
+    width: 2rem;
+    height: 2rem;
+    font-size: var(--fs-sm);
+}
+
+.logo {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
