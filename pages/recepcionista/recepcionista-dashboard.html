@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="../../css/normalize.css" as="style">
+    <link rel="preload" href="../../css/styles.css" as="style">
+    <link rel="stylesheet" href="../../css/normalize.css">
+    <link rel="stylesheet" href="../../css/styles.css">
+    <link rel="stylesheet" href="../../css/customErick.css">
+    <title>Panel Principal Recepcionista</title>
+
+</head>
+
+<body>
+    <div class="app-layout">
+
+        <header class="app-header">
+            <p>Panel principal</p>
+
+            <p>Panel principal</p>
+
+            <p>Resumen de citas, propietarios y mascotas de la clínica</p>
+
+        </header>
+        <nav class="app-sidebar d-flex flex-column" aria-label="Navegación principal">
+
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-hidden-focusable="true">
+
+
+            <div class="d-flex items-center justify-between gap-2 p-4 border-bottom nav-border">
+
+                <div class="d-flex items-center gap-2">
+
+                    <span
+                        class="brand-mark d-inline-flex items-center justify-center rounded-md bg-primary text-white fw-extrabold"
+                        aria-hidden="true">VC</span>
+
+                    <span class="fs-lg fw-extrabold text-white">VetCare</span>
+
+                    <span
+                        class="fs-xs fw-semibold text-uppercase text-nav-muted border nav-border rounded-sm px-2">Recepción</span>
+
+                </div>
+
+
+
+                <label for="nav-toggle" class="nav-toggle">
+
+                    <span class="nav-toggle-open">☰ Menú</span>
+
+                    <span class="nav-toggle-close">✕ Cerrar</span>
+
+                </label>
+
+            </div>
+
+
+
+            <div class="nav-collapse" id="nav-menu">
+
+                <div class="flex-1 p-3">
+
+                    <span class="d-flex fs-xs fw-bold text-uppercase text-nav-muted px-3 py-2">Recepción</span>
+
+                    <ul class="d-flex flex-column gap-1">
+
+                        <li>
+
+                            <a href="panel-principal.html" class="nav-link active">Panel principal</a>
+
+                        </li>
+
+                        <li>
+
+                            <a href="Propietario_dashboard.html" class="nav-link " aria-current="page">Propietarios</a>
+
+                        </li>
+
+                        <li>
+
+                            <a href="Mascotas_dashboard.html" class="nav-link">Mascotas</a>
+
+                        </li>
+
+                        <li>
+
+                            <a href="Citas_dashboard.html" class="nav-link">Citas</a>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+
+                <div class="navbar-user d-flex items-center justify-between gap-3 px-4 py-3">
+
+                    <div class="d-flex flex-column">
+
+                        <span class="fs-sm fw-semibold text-white">Ana Torres</span>
+
+                        <span class="fs-xs text-nav-muted">Recepcionista</span>
+
+                    </div>
+
+                    <a href="cerrar_sesion.html" class="navbar-logout">Cerrar sesión</a>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </div>
+
+
+
+
+</body>
+
+</html>
