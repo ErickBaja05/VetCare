@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VetCare - Confirmar eliminación de propietario en la Clínica Veterinaria Huellitas.">
+    <title>Eliminar propietario | VetCare - Clínica Huellitas</title>
+</head>
+
+<body>
+    <nav aria-label="Navegación principal">
+        <input type="checkbox" id="nav-toggle">
+
+        <div>
+            <a href="recepcionista-dashboard.html">
+                <span aria-hidden="true">VC</span>
+                <span>VetCare</span>
+                <span>Recepción</span>
+            </a>
+
+            <label for="nav-toggle">
+                <span>☰ Menú</span>
+                <span>✕ Cerrar</span>
+            </label>
+        </div>
+
+        <div id="nav-menu">
+            <div>
+                <span>Recepción</span>
+                <ul>
+                    <li>
+                        <a href="recepcionista-dashboard.html">Panel principal</a>
+                    </li>
+                    <li>
+                        <a href="propietarios-listado.html" aria-current="page">Propietarios</a>
+                    </li>
+                    <li>
+                        <a href="mascotas-listado.html">Mascotas</a>
+                    </li>
+                    <li>
+                        <a href="citas-listado.html">Citas</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <div>
+                    <span>Ana Torres</span>
+                    <span>Recepcionista</span>
+                </div>
+                <a href="../index.html">Cerrar sesión</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <header>
+            <div>
+                <nav aria-label="Breadcrumb">
+                    <ol>
+                        <li>
+                            <a href="recepcionista-dashboard.html">Inicio</a>
+                        </li>
+                        <li>
+                            <a href="propietarios-listado.html">Propietarios</a>
+                        </li>
+                        <li aria-current="page">
+                            Eliminar propietario
+                        </li>
+                    </ol>
+                </nav>
+
+                <h1>Eliminar propietario</h1>
+                <p>Confirme la eliminación del registro de Carlos Mendoza.</p>
+            </div>
+
+            <a href="propietarios-listado.html">Volver al listado</a>
+        </header>
+
+        <div>
+            <section aria-labelledby="confirmar-eliminar-title">
+                <form action="propietarios-listado.html" method="get">
+                    <div>
+                        <h2 id="confirmar-eliminar-title">Confirmar eliminación</h2>
+                    </div>
+
+                    <div>
+                        <p role="alert">
+                            Esta acción no se puede deshacer.
+                        </p>
+
+                        <dl>
+                            <div>
+                                <dt>Cédula</dt>
+                                <dd>1712345678</dd>
+                            </div>
+                            <div>
+                                <dt>Propietario</dt>
+                                <dd>Carlos Mendoza</dd>
+                            </div>
+                            <div>
+                                <dt>Teléfono</dt>
+                                <dd>0998765432</dd>
+                            </div>
+                            <div>
+                                <dt>Correo</dt>
+                                <dd>carlos.mendoza@email.com</dd>
+                            </div>
+                            <div>
+                                <dt>Dirección</dt>
+                                <dd>Av. Amazonas N24-196 y Colón, Quito</dd>
+                            </div>
+                            <div>
+                                <dt>Mascotas vinculadas</dt>
+                                <dd>Toby (Perro, Golden Retriever)</dd>
+                            </div>
+                        </dl>
+
+                        <div>
+                            <input type="checkbox" id="confirmar-eliminar-propietario" name="confirmar" required>
+                            <label for="confirmar-eliminar-propietario">Confirmo que deseo eliminar este propietario de forma permanente.</label>
+                        </div>
+
+                        <div>
+                            <button type="submit">Eliminar</button>
+                            <a href="propietarios-listado.html">Cancelar</a>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Clínica Veterinaria Huellitas &middot; VetCare &middot; Quito, Ecuador</p>
+        </footer>
+    </main>
+</body>
+
+</html>
