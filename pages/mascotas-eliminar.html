@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VetCare - Confirmar eliminación de mascota en la Clínica Veterinaria Huellitas.">
+    <title>Eliminar mascota | VetCare - Clínica Huellitas</title>
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/customAndres.css">
+</head>
+
+<body class="app-layout">
+    <nav class="app-sidebar d-flex flex-column" aria-label="Navegación principal">
+        <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+
+        <div class="d-flex items-center justify-between gap-2 p-4 border-bottom nav-border">
+            <a href="recepcionista-dashboard.html" class="d-flex items-center gap-2 no-underline">
+                <span class="brand-mark d-inline-flex items-center justify-center rounded-md bg-primary text-white fw-extrabold" aria-hidden="true">VC</span>
+                <span class="fs-lg fw-extrabold text-white">VetCare</span>
+                <span class="fs-xs fw-semibold text-uppercase text-nav-muted border nav-border rounded-sm px-2">Recepción</span>
+            </a>
+
+            <label for="nav-toggle" class="nav-toggle">
+                <span class="nav-toggle-open">☰ Menú</span>
+                <span class="nav-toggle-close">✕ Cerrar</span>
+            </label>
+        </div>
+
+        <div class="nav-collapse" id="nav-menu">
+            <div class="flex-1 p-3">
+                <span class="d-flex fs-xs fw-bold text-uppercase text-nav-muted px-3 py-2">Recepción</span>
+                <ul class="d-flex flex-column gap-1">
+                    <li>
+                        <a href="recepcionista-dashboard.html" class="nav-link">Panel principal</a>
+                    </li>
+                    <li>
+                        <a href="propietarios-listado.html" class="nav-link">Propietarios</a>
+                    </li>
+                    <li>
+                        <a href="mascotas-listado.html" class="nav-link active" aria-current="page">Mascotas</a>
+                    </li>
+                    <li>
+                        <a href="citas-listado.html" class="nav-link">Citas</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="navbar-user d-flex items-center justify-between gap-3 px-4 py-3">
+                <div class="d-flex flex-column">
+                    <span class="fs-sm fw-semibold text-white">Ana Torres</span>
+                    <span class="fs-xs text-nav-muted">Recepcionista</span>
+                </div>
+                <a href="../index.html" class="navbar-logout">Cerrar sesión</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="app-main">
+        <header class="page-header">
+            <div class="d-flex flex-column gap-1">
+                <nav aria-label="Breadcrumb">
+                    <ol class="breadcrumbs">
+                        <li class="breadcrumb-item">
+                            <a href="recepcionista-dashboard.html">Inicio</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="mascotas-listado.html">Mascotas</a>
+                        </li>
+                        <li class="breadcrumb-item" aria-current="page">
+                            Eliminar mascota
+                        </li>
+                    </ol>
+                </nav>
+
+                <h1 class="fs-xl">Eliminar mascota</h1>
+                <p class="fs-sm text-muted">Confirme la eliminación del registro de Toby.</p>
+            </div>
+
+            <a href="mascotas-listado.html" class="btn btn-outline">Volver al listado</a>
+        </header>
+
+        <div class="page-content grid-12">
+            <section class="col-lg-12 form-centered" aria-labelledby="confirmar-eliminar-mascota-title">
+                <form action="mascotas-listado.html" method="get" class="card bg-surface border rounded-lg">
+                    <div class="card-header">
+                        <h2 id="confirmar-eliminar-mascota-title" class="card-title">Confirmar eliminación</h2>
+                    </div>
+
+                    <div class="card-body d-flex flex-column gap-4">
+                        <p class="alert alert-warning" role="alert">
+                            Esta acción no se puede deshacer.
+                        </p>
+
+                        <dl class="data-list">
+                            <div class="data-item">
+                                <dt class="data-label">Mascota</dt>
+                                <dd class="data-value">Toby</dd>
+                            </div>
+                            <div class="data-item">
+                                <dt class="data-label">Especie y raza</dt>
+                                <dd class="data-value">Perro &middot; Golden Retriever</dd>
+                            </div>
+                            <div class="data-item">
+                                <dt class="data-label">Sexo</dt>
+                                <dd class="data-value">Macho</dd>
+                            </div>
+                            <div class="data-item">
+                                <dt class="data-label">Fecha de nacimiento</dt>
+                                <dd class="data-value">10/04/2021</dd>
+                            </div>
+                            <div class="data-item">
+                                <dt class="data-label">Peso</dt>
+                                <dd class="data-value">28.5 kg</dd>
+                            </div>
+                            <div class="data-item">
+                                <dt class="data-label">Propietario</dt>
+                                <dd class="data-value">Carlos Mendoza</dd>
+                            </div>
+                        </dl>
+
+                        <div class="d-flex items-center gap-2">
+                            <input type="checkbox" id="confirmar-eliminar-mascota" name="confirmar"
+                                class="form-check-input" required>
+                            <label for="confirmar-eliminar-mascota" class="fs-sm">Confirmo que deseo eliminar esta mascota de forma permanente.</label>
+                        </div>
+
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                            <a href="mascotas-listado.html" class="btn btn-outline">Cancelar</a>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+
+        <footer class="page-footer">
+            <p>&copy; 2026 Clínica Veterinaria Huellitas &middot; VetCare &middot; Quito, Ecuador</p>
+        </footer>
+    </main>
+</body>
+
+</html>
