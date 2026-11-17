@@ -10,36 +10,47 @@
 
 <body class="app-layout">
     <nav class="app-sidebar d-flex flex-column" aria-label="Navegación principal">
-        <div class="d-flex items-center gap-2 p-4 border-bottom nav-border">
-            <span class="brand-mark d-inline-flex items-center justify-center rounded-md bg-primary text-white fw-extrabold" aria-hidden="true">VC</span>
-            <span class="fs-lg fw-extrabold text-white">VetCare</span>
-            <span class="fs-xs fw-semibold text-uppercase text-nav-muted border nav-border rounded-sm px-2">Recepción</span>
-        </div>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-hidden-focusable="true">
 
-        <div class="flex-1 p-3">
-            <span class="d-flex fs-xs fw-bold text-uppercase text-nav-muted px-3 py-2">Recepción</span>
-            <ul class="d-flex flex-column gap-1">
-                <li>
-                    <a href="panel-principal.html" class="nav-link">Panel principal</a>
-                </li>
-                <li>
-                    <a href="Propietario_dashboard.html" class="nav-link active" aria-current="page">Propietarios</a>
-                </li>
-                <li>
-                    <a href="Mascotas_dashboard.html" class="nav-link">Mascotas</a>
-                </li>
-                <li>
-                    <a href="Citas_dashboard.html" class="nav-link">Citas</a>
-                </li>
-            </ul>
-        </div>
-
-        <div class="navbar-user d-flex items-center justify-between gap-3 px-4 py-3">
-            <div class="d-flex flex-column">
-                <span class="fs-sm fw-semibold text-white">Ana Torres</span>
-                <span class="fs-xs text-nav-muted">Recepcionista</span>
+        <div class="d-flex items-center justify-between gap-2 p-4 border-bottom nav-border">
+            <div class="d-flex items-center gap-2">
+                <span class="brand-mark d-inline-flex items-center justify-center rounded-md bg-primary text-white fw-extrabold" aria-hidden="true">VC</span>
+                <span class="fs-lg fw-extrabold text-white">VetCare</span>
+                <span class="fs-xs fw-semibold text-uppercase text-nav-muted border nav-border rounded-sm px-2">Recepción</span>
             </div>
-            <a href="cerrar_sesion.html" class="navbar-logout">Cerrar sesión</a>
+
+            <label for="nav-toggle" class="nav-toggle">
+                <span class="nav-toggle-open">☰ Menú</span>
+                <span class="nav-toggle-close">✕ Cerrar</span>
+            </label>
+        </div>
+
+        <div class="nav-collapse" id="nav-menu">
+            <div class="flex-1 p-3">
+                <span class="d-flex fs-xs fw-bold text-uppercase text-nav-muted px-3 py-2">Recepción</span>
+                <ul class="d-flex flex-column gap-1">
+                    <li>
+                        <a href="panel-principal.html" class="nav-link">Panel principal</a>
+                    </li>
+                    <li>
+                        <a href="Propietario_dashboard.html" class="nav-link active" aria-current="page">Propietarios</a>
+                    </li>
+                    <li>
+                        <a href="Mascotas_dashboard.html" class="nav-link">Mascotas</a>
+                    </li>
+                    <li>
+                        <a href="Citas_dashboard.html" class="nav-link">Citas</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="navbar-user d-flex items-center justify-between gap-3 px-4 py-3">
+                <div class="d-flex flex-column">
+                    <span class="fs-sm fw-semibold text-white">Ana Torres</span>
+                    <span class="fs-xs text-nav-muted">Recepcionista</span>
+                </div>
+                <a href="cerrar_sesion.html" class="navbar-logout">Cerrar sesión</a>
+            </div>
         </div>
     </nav>
 
@@ -67,8 +78,8 @@
             <a href="propietarios-listado.html" class="btn btn-outline">Volver al listado</a>
         </header>
 
-        <div class="page-content grid-12">
-            <section class="col-lg-8" aria-labelledby="form-propietario-title">
+        <div class="page-content grid-12 ">
+            <section class="col-lg-12" aria-labelledby="form-propietario-title">
                 <form action="propietarios-listado.html" method="get" class="card bg-surface border rounded-lg">
                     <div class="p-4 border-bottom">
                         <h2 id="form-propietario-title" class="fs-md">Datos del propietario</h2>
