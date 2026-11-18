@@ -14,3 +14,7 @@
 .table-wrapper {
     overflow-x: auto;
 }
+
+a {
+    color: var(--color-primary);
+}

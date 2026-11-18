@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preload" href="../../../css/normalize.css" as="style">
+        <link rel="preload" href="../../../css/styles.css" as="style">
+        <link rel="stylesheet" href="../../../css/normalize.css">
+        <link rel="stylesheet" href="../../../css/styles.css">
+        <link rel="stylesheet" href="../../../css/customErick.css">
+        <title>Listado de Propietarios</title>
+
+    </head>
+</head>
+
+<body>
+    <div class="app-layout">
+        <nav class="app-sidebar d-flex flex-column" aria-label="Navegación principal">
+
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-hidden-focusable="true">
+
+
+            <div class="d-flex items-center justify-between gap-2 p-4 border-bottom nav-border">
+
+                <div class="d-flex items-center gap-2">
+
+                    <span
+                        class="brand-mark d-inline-flex items-center justify-center rounded-md bg-primary text-white fw-extrabold"
+                        aria-hidden="true">VC</span>
+
+                    <span class="fs-lg fw-extrabold text-white">VetCare</span>
+
+                    <span
+                        class="fs-xs fw-semibold text-uppercase text-nav-muted border nav-border rounded-sm px-2">Recepción</span>
+
+                </div>
+
+
+
+                <label for="nav-toggle" class="nav-toggle">
+
+                    <span class="nav-toggle-open">☰ Menú</span>
+
+                    <span class="nav-toggle-close">✕ Cerrar</span>
+
+                </label>
+
+            </div>
+
+
+
+            <div class="nav-collapse" id="nav-menu">
+
+                <div class="flex-1 p-3">
+
+                    <span class="d-flex fs-xs fw-bold text-uppercase text-nav-muted px-3 py-2">Recepción</span>
+
+                    <ul class="d-flex flex-column gap-1">
+
+                        <li>
+
+                            <a href="../recepcionista-dashboard.html" class="nav-link ">Panel principal</a>
+
+                        </li>
+
+                        <li>
+
+                            <a href="Propietario_dashboard.html" class="nav-link active "
+                                aria-current="page">Propietarios</a>
+
+                        </li>
+
+                        <li>
+
+                            <a href="../mascotas/mascotas-listado.html" class="nav-link">Mascotas</a>
+
+                        </li>
+
+                        <li>
+
+                            <a href="Citas_dashboard.html" class="nav-link">Citas</a>
+
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+
+                <div class="navbar-user d-flex items-center justify-between gap-3 px-4 py-3">
+
+                    <div class="d-flex flex-column">
+
+                        <span class="fs-sm fw-semibold text-white">Ana Torres</span>
+
+                        <span class="fs-xs text-nav-muted">Recepcionista</span>
+
+                    </div>
+
+                    <a href="cerrar_sesion.html" class="navbar-logout">Cerrar sesión</a>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+        <main class="app-main">
+            <header class="page-header">
+
+                <div>
+                    <nav aria-label="Migas de pan">
+                        <ul class="breadcrumbs">
+                            <li class="breadcrumb-item"><a href="../recepcionista-dashboard.html">Inicio</a></li>
+                            <li class="breadcrumb-item">Propietarios</li>
+                        </ul>
+                    </nav>
+                    <h1 class="page-title">Propietarios</h1>
+                    <p class="page-subtitle">Consulte, registre o actualice los datos de los clientes.</p>
+                </div>
+
+                <div>
+                    <a href="propietario-formulario.html" class="btn btn-primary">Nuevo propietario</a>
+                </div>
+            </header>
+
+            <section class="page-content">
+
+                <div class="d-flex flex-column gap-6">
+                    <section class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Buscar Propietarios</h2>
+                        </div>
+
+
+                        <form class="card-body grid-12 items-end" action="propietarios-listado.html" method="get">
+
+                            <div class="form-group mb-0 col-md-8 col-lg-9">
+                                <label for="buscar-propietario" class="form-label">
+                                    Cédula o nombre del propietario
+                                </label>
+                                <input type="search" class="form-control" id="buscar-propietario" maxlength="100"
+                                    placeholder="Ej: Erick Bajaña / 1752844322">
+                            </div>
+
+                            <div class="btn-group col-md-4 col-lg-3">
+                                <button type="submit" class="btn btn-primary">Buscar</button>
+                                <a href="propietarios-listado.html" class="btn btn-outline">Limpiar</a>
+                            </div>
+
+                        </form>
+                    </section>
+
+                    <section class="card">
+                        <div class="card-header">
+
+                            <h2 class="card-title">Listado de Propietarios</h2>
+                            <p class="text-muted">6 registros</p>
+
+                        </div>
+                        <div class="table-wrapper">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Cédula</th>
+                                        <th scope="col"> Propietario</th>
+                                        <th scope="col">Teléfono</th>
+                                        <th scope="col">Correo</th>
+                                        <th scope="col">Dirección</th>
+                                        <th scope="col">Mascotas</th>
+                                        <th scope="col">Acciones</th>
+                                    </tr>
+
+                                </thead>
+                                <tbody>
+
+                                    <tr>
+                                        <th scope="row" data-label="Cédula">1712345678</th>
+                                        <td data-label="Propietario">Carlos Mendoza</td>
+                                        <td data-label="Teléfono">0998765432</td>
+                                        <td data-label="Correo">carlos.mendoza@email.com</td>
+                                        <td data-label="Dirección">Av. Amazonas N24-196, Quito</td>
+                                        <td data-label="Mascotas">
+                                            <p class="badge badge-programada">Toby</p>
+                                        </td>
+                                        <td data-label="Acciones">
+                                            <div class="table-actions">
+                                                <a href="#" class="btn btn-outline btn-sm">Editar</a>
+                                                <a href="#" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" data-label="Cédula">1723456789</th>
+                                        <td data-label="Propietario">María López</td>
+                                        <td data-label="Teléfono">0987654321</td>
+                                        <td data-label="Correo">maria.lopez@email.com</td>
+                                        <td data-label="Dirección">Av. Los Shyris N34-120, Quito</td>
+                                        <td data-label="Mascotas">
+                                            <p class="badge badge-programada">Luna</p>
+                                        </td>
+                                        <td data-label="Acciones">
+                                            <div class="table-actions">
+                                                <a href="#" class="btn btn-outline btn-sm">Editar</a>
+                                                <a href="#" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" data-label="Cédula">1711223344</th>
+                                        <td data-label="Propietario">Juan Pérez</td>
+                                        <td data-label="Teléfono">0991122334</td>
+                                        <td data-label="Correo">juan.perez@email.com</td>
+                                        <td data-label="Dirección">Av. 6 de Diciembre N18-45, Quito</td>
+                                        <td data-label="Mascotas">
+                                            <p class="badge badge-programada">Rocky</p>
+                                        </td>
+                                        <td data-label="Acciones">
+                                            <div class="table-actions">
+                                                <a href="#" class="btn btn-outline btn-sm">Editar</a>
+                                                <a href="#" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" data-label="Cédula">1715566778</th>
+                                        <td data-label="Propietario">Elena Gómez</td>
+                                        <td data-label="Teléfono">0995566778</td>
+                                        <td data-label="Correo">elena.gomez@email.com</td>
+                                        <td data-label="Dirección">Calle Guayaquil N12-34, Quito</td>
+                                        <td data-label="Mascotas">
+                                            <p class="badge badge-programada">Misi</p>
+                                        </td>
+                                        <td data-label="Acciones">
+                                            <div class="table-actions">
+                                                <a href="#" class="btn btn-outline btn-sm">Editar</a>
+                                                <a href="#" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" data-label="Cédula">1719988776</th>
+                                        <td data-label="Propietario">Sofía Ramos</td>
+                                        <td data-label="Teléfono">0989988776</td>
+                                        <td data-label="Correo">sofia.ramos@email.com</td>
+                                        <td data-label="Dirección">Av. La Prensa N45-67, Quito</td>
+                                        <td data-label="Mascotas">
+                                            <p class="badge badge-programada">Max</p>
+                                        </td>
+                                        <td data-label="Acciones">
+                                            <div class="table-actions">
+                                                <a href="#" class="btn btn-outline btn-sm">Editar</a>
+                                                <a href="#" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" data-label="Cédula">1721133557</th>
+                                        <td data-label="Propietario">Diego Castro</td>
+                                        <td data-label="Teléfono">0993355771</td>
+                                        <td data-label="Correo">diego.castro@email.com</td>
+                                        <td data-label="Dirección">Av. Ilaló y Los Laureles, Cumbayá</td>
+                                        <td data-label="Mascotas">
+                                            <p class="badge badge-programada">Thor</p>
+                                        </td>
+                                        <td data-label="Acciones">
+                                            <div class="table-actions">
+                                                <a href="#" class="btn btn-outline btn-sm">Editar</a>
+                                                <a href="#" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+
+                    </section>
+                </div>
+
+
+
+            </section>
+
+            <footer class="page-footer">
+                <p>&copy;2026 Clínica Veterinaria Huellitas - VetCare - Quito, Ecuador</p>
+            </footer>
+
+        </main>
+
+    </div>
+
+
+
+</body>
+
+</html>
