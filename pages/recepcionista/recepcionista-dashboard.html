@@ -16,14 +16,6 @@
 <body>
     <div class="app-layout">
 
-        <header class="app-header">
-            <p>Panel principal</p>
-
-            <p>Panel principal</p>
-
-            <p>Resumen de citas, propietarios y mascotas de la clínica</p>
-
-        </header>
         <nav class="app-sidebar d-flex flex-column" aria-label="Navegación principal">
 
             <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-hidden-focusable="true">
@@ -113,6 +105,166 @@
             </div>
 
         </nav>
+
+        <main class="app-main">
+            <header class="page-header">
+                <div class="d-flex flex-column gap-1">
+
+                    <nav aria-label="Ruta de navegación">
+                        <ol class="breadcrumbs">
+                            <li class="breadcrumb-item" aria-current="page">Panel principal</li>
+                        </ol>
+                    </nav>
+                    <h1 class="page-title">Panel principal</h1>
+                    <p class="page-subtitle">Resumen de citas, propietarios y mascotas de la clínica.</p>
+                </div>
+
+
+            </header>
+
+            <section class="page-content d-flex flex-column gap-6">
+                <div class="cards grid-12  ">
+                    <article class="metric-card   col-md-4">
+                        <p class="metric-label">Citas para hoy</p>
+                        <p class="metric-value">8</p>
+                        <p class="metric-description">5 pendientes y 3 atendidas</p>
+
+                    </article>
+                    <article class="metric-card metric-card-success  col-md-4">
+                        <p class="metric-label">mascotas registradas</p>
+                        <p class="metric-value">142</p>
+                        <p class="metric-description">Pacientes activos en el sistema</p>
+
+                    </article>
+                    <article class="metric-card metric-card-secondary  col-md-4">
+                        <p class="metric-label">propietarios registrados</p>
+                        <p class="metric-value">98</p>
+                        <p class="metric-description">Clientes con ficha vigente</p>
+
+                    </article>
+
+                </div>
+
+                <section class="card">
+
+                    <div class="card-header">
+                        <h2 id="citas-hoy-title" class="card-title">Citas programadas para hoy</h2>
+                        <a href="citas/citas-listado.html" class="btn btn-outline btn-sm">Ver todas</a>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="table-wrapper">
+                            <table class="table">
+                                <caption class="visually-hidden">
+                                    Listado de citas programadas para hoy con horario, paciente, propietario,
+                                    veterinario, servicio,
+                                    estado y acciones disponibles.
+                                </caption>
+
+                                <thead>
+                                    <tr>
+                                        <!-- scope="col" indica a lectores de pantalla que son encabezados de columna -->
+                                        <th scope="col">Hora</th>
+                                        <th scope="col">Paciente</th>
+                                        <th scope="col">Propietario</th>
+                                        <th scope="col">Veterinario</th>
+                                        <th scope="col">Servicio</th>
+                                        <th scope="col">Estado</th>
+                                        <th scope="col">Acciones</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+
+                                    <tr>
+
+                                        <th scope="row" data-label="Hora">08:30 - 09:00</th>
+                                        <td data-label="Paciente">Toby (Perro)</td>
+                                        <td data-label="Propietario">Carlos Mendoza</td>
+                                        <td data-label="Veterinario">Dr. Esteban Morales</td>
+                                        <td data-label="Servicio">Consulta general</td>
+                                        <td data-label="Estado">
+
+                                            <span class="badge badge-programada">Programada</span>
+                                        </td>
+                                        <td data-label="Acciones">
+
+                                            <div class="table-actions">
+                                                <a href="#" class="btn btn-outline btn-sm">Reprogramar</a>
+                                                <a href="#" class="btn btn-outline-danger btn-sm">Cancelar cita</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <th scope="row" data-label="Hora">09:00 - 09:30</th>
+                                        <td data-label="Paciente">Luna (Gato)</td>
+                                        <td data-label="Propietario">María López</td>
+                                        <td data-label="Veterinario">Dra. Camila Morales</td>
+                                        <td data-label="Servicio">Vacunación</td>
+                                        <td data-label="Estado">
+                                            <span class="badge badge-programada">Programada</span>
+
+                                        </td>
+                                        <td data-label="Acciones">
+                                            <div class="table-actions">
+                                                <a href="#" class="btn btn-outline btn-sm">Reprogramar</a>
+                                                <a href="#" class="btn btn-outline-danger btn-sm">Cancelar cita</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <th scope="row" data-label="Hora">09:30 - 10:00</th>
+                                        <td data-label="Paciente">Rocky (Perro)</td>
+                                        <td data-label="Propietario">Juan Pérez</td>
+                                        <td data-label="Veterinario">Dr. Esteban Morales</td>
+                                        <td data-label="Servicio">Desparasitación</td>
+                                        <td data-label="Estado">
+
+                                            <span class="badge badge-atendida">Atendida</span>
+                                        </td>
+                                        <td data-label="Acciones">
+                                            <span class="text-muted fs-xs">Sin acciones</span>
+                                        </td>
+                                    </tr>
+
+
+                                    <tr>
+                                        <th scope="row" data-label="Hora">10:30 - 11:00</th>
+                                        <td data-label="Paciente">Misi (Gato)</td>
+                                        <td data-label="Propietario">Elena Gómez</td>
+                                        <td data-label="Veterinario">Dra. Camila Morales</td>
+                                        <td data-label="Servicio">Profilaxis dental</td>
+                                        <td data-label="Estado">
+
+                                            <span class="badge badge-cancelada">Cancelada</span>
+                                        </td>
+                                        <td data-label="Acciones">
+                                            <span class="text-muted fs-xs">Sin acciones</span>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+            <footer class="page-footer">
+                <p>&copy;2026 Clínica Veterinaria Huellitas - VetCare - Quito, Ecuador</p>
+            </footer>
+
+    </div>
+
+
+
+    </main>
 
     </div>
 
