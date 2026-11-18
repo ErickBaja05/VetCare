@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="VetCare - Agendar una nueva cita médica en la Clínica Veterinaria Huellitas.">
+
+        <title>Agendar cita | VetCare - Clínica Huellitas</title>
+
+        <link rel="stylesheet" href="../../../css/normalize.css">
+        <link rel="stylesheet" href="../../../css/styles.css">
+    </head>
+
+    <body class="app-layout">
+        <nav class="app-sidebar d-flex flex-column">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+
+            <div class="d-flex items-center justify-between gap-2 p-4 border-bottom nav-border">
+                <a href="../recepcionista-dashboard.html" class="d-flex items-center gap-2">
+                    <span class="d-inline-flex items-center justify-center rounded-md bg-primary text-white fw-extrabold px-2 py-1">VC</span>
+                    <span class="fs-lg fw-extrabold text-white">VetCare</span>
+                    <span class="fs-xs fw-semibold text-uppercase text-nav-muted border nav-border rounded-sm px-2">Recepción</span>
+                </a>
+
+                <label for="nav-toggle" class="nav-toggle">
+                    <span class="nav-toggle-open">☰ Menú</span>
+                    <span class="nav-toggle-close">✕ Cerrar</span>
+                </label>
+            </div>
+
+            <div id="nav-menu" class="nav-collapse">
+                <div class="flex-1 p-3">
+                    <span class="d-flex fs-xs fw-bold text-uppercase text-nav-muted px-3 py-2">Recepción</span>
+                    <ul class="d-flex flex-column gap-1">
+                        <li><a class="nav-link" href="../recepcionista-dashboard.html">Panel principal</a></li>
+                        <li><a class="nav-link" href="../propietarios/propietarios-listado.html">Propietarios</a></li>
+                        <li><a class="nav-link" href="../mascotas/mascotas-listado.html">Mascotas</a></li>
+                        <li><a class="nav-link active" href="citas-listado.html">Citas</a></li>
+                    </ul>
+                </div>
+
+                <div class="navbar-user d-flex items-center justify-between gap-3 px-4 py-3">
+                    <div class="d-flex flex-column">
+                        <span class="fs-sm fw-semibold text-white">Ana Torres</span>
+                        <span class="fs-xs text-nav-muted">Recepcionista</span>
+                    </div>
+                    <a class="navbar-logout" href="../../../index.html">Cerrar sesión</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="app-main">
+            <header class="page-header">
+                <div class="d-flex flex-column gap-1">
+                    <nav>
+                        <ol class="breadcrumbs">
+                            <li class="breadcrumb-item"><a href="../recepcionista-dashboard.html">Inicio</a></li>
+                            <li class="breadcrumb-item"><a href="citas-listado.html">Citas</a></li>
+                            <li class="breadcrumb-item">Agendar cita</li>
+                        </ol>
+                    </nav>
+
+                    <h1 class="fs-xl">Agendar cita</h1>
+                    <p class="text-muted fs-sm">Ingrese la cédula del propietario, seleccione una de sus mascotas y complete los datos de la cita.</p>
+                </div>
+
+                <a href="citas-listado.html" class="btn btn-outline">Volver al listado</a>
+            </header>
+
+            <div class="page-content grid-12">
+                <!-- Aviso de registro previo -->
+                <section class="card col-lg-12 form-centered border-left-primary">
+                    <div class="card-body d-flex flex-column flex-md-row items-md-center justify-between gap-4">
+                        <div class="d-flex flex-column gap-1">
+                            <h2 class="card-title">Registro previo</h2>
+                            <p class="fs-sm text-muted">Si el propietario o la mascota aún no constan en el sistema, regístrelos primero.</p>
+                        </div>
+
+                        <div class="d-flex flex-column gap-2">
+                            <a href="../propietarios/propietarios-nuevo.html" class="btn btn-outline btn-sm">Nuevo propietario</a>
+                            <a href="../mascotas/mascotas-nuevo.html" class="btn btn-outline btn-sm">Nueva mascota</a>
+                        </div>
+                    </div>
+                </section>
+                <!-- Sección 1: Buscar propietario por cédula -->
+                <section class="card col-lg-12 form-centered">
+                    <div class="card-header">
+                        <h2 class="card-title">1. Buscar propietario por cédula</h2>
+                    </div>
+
+                    <div class="card-body">
+                        <form action="citas-agendar.html" method="get" class="grid-12 items-start">
+                            <div class="d-flex flex-column gap-1 col-md-8">
+                                <label for="cedula" class="fs-sm fw-semibold required">Cédula del propietario</label>
+                                <input class="form-control"
+                                    type="text"
+                                    id="cedula"
+                                    name="cedula"
+                                    required
+                                    pattern="[0-9]{10}"
+                                    minlength="10"
+                                    maxlength="10"
+                                    placeholder="Ej.: 1712345678"
+                                    title="Ingrese exactamente 10 dígitos numéricos sin guiones."
+                                    autocomplete="off">
+                                <p class="fs-xs text-muted">Ingrese los 10 dígitos de la cédula para desplegar sus mascotas asignadas.</p>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary col-md-4 mt-md-btn">Buscar mascotas</button>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Sección 2: Seleccionar mascota y datos de la cita -->
+                <section class="card col-lg-12 form-centered">
+                    <div class="card-header">
+                        <h2 class="card-title">2. Seleccionar mascota y datos de la cita</h2>
+                        <p class="fs-sm text-muted">Propietario: <strong>Carlos Mendoza (1712345678)</strong></p>
+                    </div>
+
+                    <div class="card-body">
+                        <form action="citas-listado.html" method="get">
+                            <!-- Mascotas -->
+                            <fieldset class="form-fieldset mb-4">
+                                <legend class="form-legend">Mascotas asignadas al propietario</legend>
+                                <div class="d-flex flex-column gap-2">
+                                    <div class="d-flex items-center gap-2">
+                                        <input type="radio" id="mascota-toby" name="mascota" value="toby" required class="form-check-input">
+                                        <label class="fs-sm" for="mascota-toby">Toby · Perro (Golden Retriever)</label>
+                                    </div>
+                                    <div class="d-flex items-center gap-2">
+                                        <input type="radio" id="mascota-kira" name="mascota" value="kira" required class="form-check-input">
+                                        <label class="fs-sm" for="mascota-kira">Kira · Gato (Mestizo)</label>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <!-- Veterinario y servicio -->
+                            <fieldset class="form-fieldset mb-4">
+                                <legend class="form-legend">Veterinario y servicio</legend>
+                                <div class="grid-12">
+                                    <div class="d-flex flex-column gap-1 col-md-6">
+                                        <label class="fs-sm fw-semibold required" for="veterinario">Veterinario</label>
+                                        <select id="veterinario" name="veterinario" required class="form-select">
+                                            <option value="" disabled selected>Seleccione...</option>
+                                            <option value="esteban-morales">Dr. Esteban Morales</option>
+                                            <option value="camila-morales">Dra. Camila Morales</option>
+                                            <option value="santiago-morales">Dr. Santiago Morales</option>
+                                            <option value="elena-paredes">Dra. Elena Paredes</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="d-flex flex-column gap-1 col-md-6">
+                                        <label class="fs-sm fw-semibold required" for="servicio">Servicio</label>
+                                        <select id="servicio" name="servicio" required class="form-select">
+                                            <option value="" disabled selected>Seleccione...</option>
+                                            <option value="consulta-general">Consulta general ($15.00)</option>
+                                            <option value="vacunacion">Vacunación ($25.00)</option>
+                                            <option value="desparasitacion">Desparasitación ($12.00)</option>
+                                            <option value="profilaxis-dental">Profilaxis dental ($45.00)</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <!-- Horario y motivo -->
+                            <fieldset class="form-fieldset mb-4">
+                                <legend class="form-legend">Horario y motivo</legend>
+                                <div class="grid-12">
+                                    <div class="d-flex flex-column gap-1 col-md-6">
+                                        <label class="fs-sm fw-semibold required" for="fecha">Fecha</label>
+                                        <input class="form-control"
+                                            type="date"
+                                            id="fecha"
+                                            name="fecha"
+                                            min="2026-11-16"
+                                            required
+                                            title="Seleccione una fecha válida de lunes a sábado.">
+                                        <p class="fs-xs text-muted">Atención de lunes a sábado.</p>
+                                    </div>
+
+                                    <div class="d-flex flex-column gap-1 col-md-6">
+                                        <label class="fs-sm fw-semibold required" for="hora">Hora</label>
+                                        <input class="form-control"
+                                            type="time"
+                                            id="hora"
+                                            name="hora"
+                                            min="08:00"
+                                            max="18:00"
+                                            step="1800"
+                                            required
+                                            title="Horario de atención de 08:00 a 18:00 en turnos cada 30 minutos.">
+                                        <p class="fs-xs text-muted">Turnos cada 30 minutos (08:00 a 18:00).</p>
+                                    </div>
+
+                                    <div class="d-flex flex-column gap-1 col-md-12">
+                                        <label class="fs-sm fw-semibold required" for="motivo">Motivo de consulta</label>
+                                        <textarea class="form-control"
+                                            id="motivo"
+                                            name="motivo"
+                                            maxlength="300"
+                                            required
+                                            placeholder="Describa brevemente el motivo de la visita..."></textarea>
+                                        <p class="fs-xs text-muted">Máximo 300 caracteres.</p>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <div class="btn-group mt-2">
+                                <button type="submit" class="btn btn-primary">Guardar</button>
+                                <a class="btn btn-outline" href="citas-listado.html">Cancelar</a>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+
+            <footer class="page-footer">
+                <p>© 2026 Clínica Veterinaria Huellitas · VetCare · Quito, Ecuador</p>
+            </footer>
+        </main>
+    </body>
+</html>
