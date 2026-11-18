@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="VetCare - Cancelar una cita médica en la Clínica Veterinaria Huellitas.">
+
+        <title>Cancelar cita | VetCare - Clínica Huellitas</title>
+
+        <link rel="stylesheet" href="../../../css/normalize.css">
+        <link rel="stylesheet" href="../../../css/styles.css">
+        <link rel="stylesheet" href="../../../css/customSabina.css">
+    </head>
+
+    <body>
+        <nav>
+            <input type="checkbox" id="nav-toggle">
+
+            <div>
+                <a href="../recepcionista-dashboard.html">
+                    <span>VC</span>
+                    <span>VetCare</span>
+                    <span>Recepción</span>
+                </a>
+
+                <label for="nav-toggle">
+                    <span>☰ Menú</span>
+                    <span>✕ Cerrar</span>
+                </label>
+            </div>
+
+            <div id="nav-menu">
+                <div>
+                    <span>Recepción</span>
+                    <ul>
+                        <li><a href="../recepcionista-dashboard.html">Panel principal</a></li>
+                        <li><a href="../propietarios/propietarios-listado.html">Propietarios</a></li>
+                        <li><a href="../mascotas/mascotas-listado.html">Mascotas</a></li>
+                        <li><a href="citas-listado.html">Citas</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div>
+                        <span>Ana Torres</span>
+                        <span>Recepcionista</span>
+                    </div>
+                    <a href="../../../index.html">Cerrar sesión</a>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            <header>
+                <div>
+                    <nav>
+                        <ol>
+                            <li><a href="../recepcionista-dashboard.html">Inicio</a></li>
+                            <li><a href="citas-listado.html">Citas</a></li>
+                            <li>Cancelar cita</li>
+                        </ol>
+                    </nav>
+
+                    <h1>Cancelar cita</h1>
+                    <p>Registre el motivo para anular la cita CIT-2026-089.</p>
+                </div>
+
+                <a href="citas-listado.html">Volver al listado</a>
+            </header>
+
+            <div>
+                <!-- Aviso superior -->
+                <div>
+                    <p><strong>Atención:</strong> Esta acción liberará el horario asignado en la agenda médica y requiere indicar un motivo de cancelación.</p>
+                </div>
+
+                <!-- Columna izquierda: Datos de la cita -->
+                <section>
+                    <div>
+                        <h2>Datos de la cita</h2>
+                        <span>Programada</span>
+                    </div>
+
+                    <div>
+                        <div>
+                            <div>
+                                <span>Código</span>
+                                <span>CIT-2026-089</span>
+                            </div>
+                            <div>
+                                <span>Fecha y hora</span>
+                                <span>15/11/2026 · 10:00</span>
+                            </div>
+                            <div>
+                                <span>Paciente</span>
+                                <span>Toby (Perro, Golden Retriever)</span>
+                            </div>
+                            <div>
+                                <span>Propietario</span>
+                                <span>Carlos Mendoza</span>
+                            </div>
+                            <div>
+                                <span>Veterinario</span>
+                                <span>Dr. Esteban Morales</span>
+                            </div>
+                            <div>
+                                <span>Servicio</span>
+                                <span>Consulta general ($15.00)</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Columna derecha: Motivo de cancelación -->
+                <section>
+                    <div>
+                        <h2>Motivo de cancelación</h2>
+                    </div>
+
+                    <div>
+                        <form action="citas-listado.html" method="get">
+                            <div>
+                                <label for="motivo-cancelacion">Motivo</label>
+                                <textarea
+                                    id="motivo-cancelacion"
+                                    name="motivo"
+                                    minlength="5"
+                                    maxlength="200"
+                                    required
+                                    placeholder="Describa el motivo de la cancelación..."></textarea>
+                                <p>Entre 5 y 200 caracteres.</p>
+                            </div>
+
+                            <div>
+                                <input type="checkbox" id="confirmar-cancelacion" name="confirmar" required>
+                                <label for="confirmar-cancelacion">Confirmo que deseo cancelar esta cita.</label>
+                            </div>
+
+                            <div>
+                                <button type="submit">Confirmar cancelación</button>
+                                <a href="citas-listado.html">Volver</a>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+
+            <footer>
+                <p>© 2026 Clínica Veterinaria Huellitas · VetCare · Quito, Ecuador</p>
+            </footer>
+        </main>
+    </body>
+</html>
