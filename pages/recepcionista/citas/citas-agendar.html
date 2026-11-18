@@ -40,7 +40,7 @@
                     </ul>
                 </div>
 
-                <div class="navbar-user d-flex items-center border-top nav-border justify-between gap-3 px-4 py-3">
+                <div class="navbar-user d-flex items-center justify-between gap-3 px-4 py-3">
                     <div class="d-flex flex-column">
                         <span class="fs-sm fw-semibold text-white">Ana Torres</span>
                         <span class="fs-xs text-nav-muted">Recepcionista</span>
@@ -76,10 +76,10 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="citas-agendar.html" method="get">
-                            <div>
-                                <label for="cedula">Cédula del propietario</label>
-                                <input
+                        <form action="citas-agendar.html" method="get" class="grid-12 items-start">
+                            <div class="d-flex flex-column gap-1 col-md-8">
+                                <label for="cedula" class="fs-sm fw-semibold required">Cédula del propietario</label>
+                                <input class="form-control"
                                     type="text"
                                     id="cedula"
                                     name="cedula"
@@ -90,10 +90,10 @@
                                     placeholder="Ej.: 1712345678"
                                     title="Ingrese exactamente 10 dígitos numéricos sin guiones."
                                     autocomplete="off">
-                                <p class="fs-sm text-muted">Ingrese los 10 dígitos de la cédula para desplegar sus mascotas asignadas.</p>
+                                <p class="fs-xs text-muted">Ingrese los 10 dígitos de la cédula para desplegar sus mascotas asignadas.</p>
                             </div>
 
-                            <button type="submit">Buscar mascotas</button>
+                            <button type="submit" class="btn btn-primary col-md-4 mt-md-btn">Buscar mascotas</button>
                         </form>
                     </div>
                 </section>
@@ -108,27 +108,27 @@
                     <div class="card-body">
                         <form action="citas-listado.html" method="get">
                             <!-- Mascotas -->
-                            <fieldset>
-                                <legend>Mascotas asignadas al propietario</legend>
-                                <div>
-                                    <div>
-                                        <input type="radio" id="mascota-toby" name="mascota" value="toby" required>
-                                        <label for="mascota-toby">Toby · Perro (Golden Retriever)</label>
+                            <fieldset class="form-fieldset mb-4">
+                                <legend class="form-legend">Mascotas asignadas al propietario</legend>
+                                <div class="d-flex flex-column gap-2">
+                                    <div class="d-flex items-center gap-2">
+                                        <input type="radio" id="mascota-toby" name="mascota" value="toby" required class="form-check-input">
+                                        <label class="fs-sm" for="mascota-toby">Toby · Perro (Golden Retriever)</label>
                                     </div>
-                                    <div>
-                                        <input type="radio" id="mascota-kira" name="mascota" value="kira" required>
-                                        <label for="mascota-kira">Kira · Gato (Mestizo)</label>
+                                    <div class="d-flex items-center gap-2">
+                                        <input type="radio" id="mascota-kira" name="mascota" value="kira" required class="form-check-input">
+                                        <label class="fs-sm" for="mascota-kira">Kira · Gato (Mestizo)</label>
                                     </div>
                                 </div>
                             </fieldset>
 
                             <!-- Veterinario y servicio -->
-                            <fieldset>
-                                <legend>Veterinario y servicio</legend>
-                                <div>
-                                    <div>
-                                        <label for="veterinario">Veterinario</label>
-                                        <select id="veterinario" name="veterinario" required>
+                            <fieldset class="form-fieldset mb-4">
+                                <legend class="form-legend">Veterinario y servicio</legend>
+                                <div class="grid-12">
+                                    <div class="d-flex flex-column gap-1 col-md-6">
+                                        <label class="fs-sm fw-semibold required" for="veterinario">Veterinario</label>
+                                        <select id="veterinario" name="veterinario" required class="form-select">
                                             <option value="" disabled selected>Seleccione...</option>
                                             <option value="esteban-morales">Dr. Esteban Morales</option>
                                             <option value="camila-morales">Dra. Camila Morales</option>
@@ -137,9 +137,9 @@
                                         </select>
                                     </div>
 
-                                    <div>
-                                        <label for="servicio">Servicio</label>
-                                        <select id="servicio" name="servicio" required>
+                                    <div class="d-flex flex-column gap-1 col-md-6">
+                                        <label class="fs-sm fw-semibold required" for="servicio">Servicio</label>
+                                        <select id="servicio" name="servicio" required class="form-select">
                                             <option value="" disabled selected>Seleccione...</option>
                                             <option value="consulta-general">Consulta general ($15.00)</option>
                                             <option value="vacunacion">Vacunación ($25.00)</option>
@@ -151,24 +151,24 @@
                             </fieldset>
 
                             <!-- Horario y motivo -->
-                            <fieldset>
-                                <legend>Horario y motivo</legend>
-                                <div>
-                                    <div>
-                                        <label for="fecha">Fecha</label>
-                                        <input
+                            <fieldset class="form-fieldset mb-4">
+                                <legend class="form-legend">Horario y motivo</legend>
+                                <div class="grid-12">
+                                    <div class="d-flex flex-column gap-1 col-md-6">
+                                        <label class="fs-sm fw-semibold required" for="fecha">Fecha</label>
+                                        <input class="form-control"
                                             type="date"
                                             id="fecha"
                                             name="fecha"
                                             min="2026-11-16"
                                             required
                                             title="Seleccione una fecha válida de lunes a sábado.">
-                                        <p>Atención de lunes a sábado.</p>
+                                        <p class="fs-xs text-muted">Atención de lunes a sábado.</p>
                                     </div>
 
-                                    <div>
-                                        <label for="hora">Hora</label>
-                                        <input
+                                    <div class="d-flex flex-column gap-1 col-md-6">
+                                        <label class="fs-sm fw-semibold required" for="hora">Hora</label>
+                                        <input class="form-control"
                                             type="time"
                                             id="hora"
                                             name="hora"
@@ -177,34 +177,7 @@
                                             step="1800"
                                             required
                                             title="Horario de atención de 08:00 a 18:00 en turnos cada 30 minutos.">
-                                        <p>Turnos cada 30 minutos (08:00 a 18:00).</p>
+                                        <p class="fs-xs text-muted">Turnos cada 30 minutos (08:00 a 18:00).</p>
                                     </div>
 
-                                    <div>
-                                        <label for="motivo">Motivo de consulta</label>
-                                        <textarea
-                                            id="motivo"
-                                            name="motivo"
-                                            maxlength="300"
-                                            required
-                                            placeholder="Describa brevemente el motivo de la visita..."></textarea>
-                                        <p>Máximo 300 caracteres.</p>
-                                    </div>
-                                </div>
-                            </fieldset>
-
-                            <div>
-                                <button type="submit">Guardar</button>
-                                <a href="citas-listado.html">Cancelar</a>
-                            </div>
-                        </form>
-                    </div>
-                </section>
-            </div>
-
-            <footer class="page-footer">
-                <p>© 2026 Clínica Veterinaria Huellitas · VetCare · Quito, Ecuador</p>
-            </footer>
-        </main>
-    </body>
-</html>
+                                    <div class="d-flex flex-column gap-
