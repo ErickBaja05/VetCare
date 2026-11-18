@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="VetCare - Gestión y listado de médicos veterinarios de la Clínica Veterinaria Huellitas.">
+
+        <title>Veterinarios | VetCare - Clínica Huellitas</title>
+
+        <link rel="stylesheet" href="../../../css/normalize.css">
+        <link rel="stylesheet" href="../../../css/styles.css">
+    </head>
+
+    <body class="app-layout">
+        <nav class="app-sidebar d-flex flex-column">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+
+            <div class="d-flex items-center justify-between gap-2 p-4 border-bottom nav-border">
+                <a href="../admin-dashboard.html" class="d-flex items-center gap-2">
+                    <span class="d-inline-flex items-center justify-center rounded-md bg-primary text-white fw-extrabold px-2 py-1">VC</span>
+                    <span class="fs-lg fw-extrabold text-white">VetCare</span>
+                    <span class="fs-xs fw-semibold text-uppercase text-nav-muted border nav-border rounded-sm px-2">Admin</span>
+                </a>
+
+                <label for="nav-toggle" class="nav-toggle">
+                    <span class="nav-toggle-open">☰ Menú</span>
+                    <span class="nav-toggle-close">✕ Cerrar</span>
+                </label>
+            </div>
+
+            <div id="nav-menu" class="nav-collapse">
+                <div class="flex-1 p-3">
+                    <span class="d-flex fs-xs fw-bold text-uppercase text-nav-muted px-3 py-2">Administración</span>
+                    <ul class="d-flex flex-column gap-1">
+                        <li><a class="nav-link" href="../admin-dashboard.html">Panel principal</a></li>
+                        <li><a class="nav-link active" href="veterinarios-listado.html">Veterinarios</a></li>
+                        <li><a class="nav-link" href="../servicios/servicios-listado.html">Servicios</a></li>
+                    </ul>
+                </div>
+
+                <div class="navbar-user d-flex items-center justify-between gap-3 px-4 py-3">
+                    <div class="d-flex flex-column">
+                        <span class="fs-sm fw-semibold text-white">Ing. Patricia Viteri</span>
+                        <span class="fs-xs text-nav-muted">Administradora</span>
+                    </div>
+                    <a class="navbar-logout" href="../../../index.html">Cerrar sesión</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="app-main">
+            <header class="page-header">
+                <div class="d-flex flex-column gap-1">
+                    <nav>
+                        <ol class="breadcrumbs">
+                            <li class="breadcrumb-item"><a href="../admin-dashboard.html">Inicio</a></li>
+                            <li class="breadcrumb-item">Veterinarios</li>
+                        </ol>
+                    </nav>
+
+                    <h1>Veterinarios</h1>
+                    <p class="text-muted fs-sm">Administre la plantilla de médicos veterinarios y sus horarios.</p>
+                </div>
+
+                <a href="veterinarios-nuevo.html" class="btn btn-primary">Nuevo veterinario</a>
+            </header>
+
+            <div class="page-content grid-12">
+                <!-- Tarjeta 1: Buscar veterinarios -->
+                <section class="card col-lg-12">
+                    <div class="card-header">
+                        <h2 class="card-title">Buscar veterinarios</h2>
+                    </div>
+
+                    <div class="card-body">
+                        <form action="veterinarios-listado.html" method="get" class="grid-12 items-end">
+                            <div class="d-flex flex-column gap-1 col-md-9">
+                                <label for="busqueda-veterinario" class="fs-sm fw-semibold">Nombre o registro SENESCYT</label>
+                                <input class="form-control"
+                                    type="search"
+                                    id="busqueda-veterinario"
+                                    name="q"
+                                    placeholder="Ej.: Esteban Morales">
+                            </div>
+
+                            <div class="btn-group col-md-3">
+                                <button type="submit" class="btn btn-primary">Buscar</button>
+                                <a href="veterinarios-listado.html" class="btn btn-outline">Limpiar</a>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Tarjeta 2: Listado de veterinarios -->
+                <section class="card col-lg-12">
+                    <div class="card-header">
+                        <h2 class="card-title">Listado de veterinarios</h2>
+                        <span class="fs-sm text-muted">4 registros</span>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>Cédula</th>
+                                        <th>Nombre</th>
+                                        <th>Registro SENESCYT</th>
+                                        <th>Horario</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><strong>1709876543</strong></td>
+                                        <td>Dr. Esteban Morales</td>
+                                        <td>SENESCYT-1008-2017</td>
+                                        <td>Lun - Vie 08:00 - 16:30</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="veterinarios-editar.html" class="btn btn-outline btn-sm">Editar</a>
+                                                <a href="veterinarios-eliminar.html" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>1718765432</strong></td>
+                                        <td>Dra. Camila Morales</td>
+                                        <td>SENESCYT-2045-2019</td>
+                                        <td>Mar - Sáb 09:00 - 17:30</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="veterinarios-editar.html" class="btn btn-outline btn-sm">Editar</a>
+                                                <a href="veterinarios-eliminar.html" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>1714455667</strong></td>
+                                        <td>Dr. Santiago Morales</td>
+                                        <td>SENESCYT-3110-2020</td>
+                                        <td>Lun - Vie 08:00 - 16:30</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="veterinarios-editar.html" class="btn btn-outline btn-sm">Editar</a>
+                                                <a href="veterinarios-eliminar.html" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>1720011223</strong></td>
+                                        <td>Dra. Elena Paredes</td>
+                                        <td>SENESCYT-4082-2021</td>
+                                        <td>Lun - Sáb 10:00 - 18:00</td>
+                                        <td>
+                                            <div class="btn-group">
+                                                <a href="veterinarios-editar.html" class="btn btn-outline btn-sm">Editar</a>
+                                                <a href="veterinarios-eliminar.html" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <footer class="page-footer">
+                <p>© 2026 Clínica Veterinaria Huellitas · VetCare · Quito, Ecuador</p>
+            </footer>
+        </main>
+    </body>
+</html>
