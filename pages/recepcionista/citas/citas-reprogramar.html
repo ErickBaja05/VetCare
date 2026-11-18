@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="VetCare - Reprogramar fecha y hora de una cita médica en la Clínica Veterinaria Huellitas.">
+
+        <title>Reprogramar cita | VetCare - Clínica Huellitas</title>
+
+        <link rel="stylesheet" href="../../../css/normalize.css">
+        <link rel="stylesheet" href="../../../css/styles.css">
+    </head>
+
+    <body class="app-layout">
+        <nav class="app-sidebar d-flex flex-column">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+
+            <div class="d-flex items-center justify-between gap-2 p-4 border-bottom nav-border">
+                <a href="../recepcionista-dashboard.html" class="d-flex items-center gap-2">
+                    <span class="d-inline-flex items-center justify-center rounded-md bg-primary text-white fw-extrabold px-2 py-1">VC</span>
+                    <span class="fs-lg fw-extrabold text-white">VetCare</span>
+                    <span class="fs-xs fw-semibold text-uppercase text-nav-muted border nav-border rounded-sm px-2">Recepción</span>
+                </a>
+
+                <label for="nav-toggle" class="nav-toggle">
+                    <span class="nav-toggle-open">☰ Menú</span>
+                    <span class="nav-toggle-close">✕ Cerrar</span>
+                </label>
+            </div>
+
+            <div id="nav-menu" class="nav-collapse">
+                <div class="flex-1 p-3">
+                    <span class="d-flex fs-xs fw-bold text-uppercase text-nav-muted px-3 py-2">Recepción</span>
+                    <ul class="d-flex flex-column gap-1">
+                        <li><a class="nav-link" href="../recepcionista-dashboard.html">Panel principal</a></li>
+                        <li><a class="nav-link" href="../propietarios/propietarios-listado.html">Propietarios</a></li>
+                        <li><a class="nav-link" href="../mascotas/mascotas-listado.html">Mascotas</a></li>
+                        <li><a class="nav-link active" href="citas-listado.html">Citas</a></li>
+                    </ul>
+                </div>
+
+                <div class="navbar-user d-flex items-center justify-between gap-3 px-4 py-3">
+                    <div class="d-flex flex-column">
+                        <span class="fs-sm fw-semibold text-white">Ana Torres</span>
+                        <span class="fs-xs text-nav-muted">Recepcionista</span>
+                    </div>
+                    <a class="navbar-logout" href="../../../index.html">Cerrar sesión</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="app-main">
+            <header class="page-header">
+                <div class="d-flex flex-column gap-1">
+                    <nav>
+                        <ol class="breadcrumbs">
+                            <li class="breadcrumb-item"><a href="../recepcionista-dashboard.html">Inicio</a></li>
+                            <li class="breadcrumb-item"><a href="citas-listado.html">Citas</a></li>
+                            <li class="breadcrumb-item">Reprogramar cita</li>
+                        </ol>
+                    </nav>
+
+                    <h1 class="fs-xl">Reprogramar cita</h1>
+                    <p class="text-muted fs-sm">Seleccione la nueva fecha y hora para la cita CIT-2026-089.</p>
+                </div>
+
+                <a href="citas-listado.html" class="btn btn-outline">Volver al listado</a>
+            </header>
+
+            <div class="page-content grid-12 items-start">
+                <!-- Columna izquierda: Resumen de la cita -->
+                <section class="card col-lg-5">
+                    <div class="card-header">
+                        <h2 class="card-title">Resumen de la cita</h2>
+                        <span class="badge badge-programada">Programada</span>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="data-list">
+                            <div class="data-item">
+                                <span class="data-label">Código</span>
+                                <span class="data-value">CIT-2026-089</span>
+                            </div>
+                            <div class="data-item">
+                                <span class="data-label">Paciente</span>
+                                <span class="data-value">Toby (Perro, Golden Retriever)</span>
+                            </div>
+                            <div class="data-item">
+                                <span class="data-label">Propietario</span>
+                                <span class="data-value">Carlos Mendoza</span>
+                            </div>
+                            <div class="data-item">
+                                <span class="data-label">Veterinario</span>
+                                <span class="data-value">Dr. Esteban Morales</span>
+                            </div>
+                            <div class="data-item">
+                                <span class="data-label">Servicio</span>
+                                <span class="data-value">Consulta general ($15.00)</span>
+                            </div>
+                            <div class="data-item">
+                                <span class="data-label">Horario actual</span>
+                                <span class="data-value">15/11/2026 · 10:00</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Columna derecha: Nuevo horario -->
+                <section class="card col-lg-7">
+                    <div class="card-header">
+                        <h2 class="card-title">Nuevo horario</h2>
+                    </div>
+
+                    <div class="card-body">
+                        <form action="citas-listado.html" method="get">
+                            <fieldset class="form-fieldset mb-4">
+                                <legend class="form-legend">Fecha y hora</legend>
+                                <div class="grid-12">
+                                    <div class="d-flex flex-column gap-1 col-md-6">
+                                        <label for="fecha" class="fs-sm fw-semibold required">Nueva fecha</label>
+                                        <input class="form-control"
+                                            type="date"
+                                            id="fecha"
+                                            name="fecha"
+                                            value="2026-11-16"
+                                            min="2026-11-15"
+                                            required
+                                            title="Seleccione una fecha válida de lunes a sábado.">
+                                        <p class="fs-xs text-muted">Atención de lunes a sábado.</p>
+                                    </div>
+
+                                    <div class="d-flex flex-column gap-1 col-md-6">
+                                        <label for="hora" class="fs-sm fw-semibold required">Nueva hora</label>
+                                        <input class="form-control"
+                                            type="time"
+                                            id="hora"
+                                            name="hora"
+                                            value="11:00"
+                                            min="08:00"
+                                            max="18:00"
+                                            step="1800"
+                                            required
+                                            title="Horario de atención de 08:00 a 18:00 en turnos cada 30 minutos.">
+                                        <p class="fs-xs text-muted">Turnos cada 30 minutos (08:00 a 18:00).</p>
+                                    </div>
+
+                                    <div class="d-flex flex-column gap-1 col-md-12">
+                                        <label for="motivo-cambio" class="fs-sm fw-semibold">Motivo del cambio</label>
+                                        <textarea class="form-control"
+                                            id="motivo-cambio"
+                                            name="motivoCambio"
+                                            maxlength="200"
+                                            placeholder="Opcional: indique el motivo de la reprogramación..."></textarea>
+                                        <p class="fs-xs text-muted">Máximo 200 caracteres.</p>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <div class="btn-group mt-2">
+                                <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                                <a href="citas-listado.html" class="btn btn-outline">Cancelar</a>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+
+            <footer class="page-footer">
+                <p>© 2026 Clínica Veterinaria Huellitas · VetCare · Quito, Ecuador</p>
+            </footer>
+        </main>
+    </body>
+</html>

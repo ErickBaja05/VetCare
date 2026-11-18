@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="VetCare - Panel principal de administración de la Clínica Veterinaria Huellitas.">
+
+        <title>Panel principal | VetCare - Clínica Huellitas</title>
+
+        <link rel="stylesheet" href="../../css/normalize.css">
+        <link rel="stylesheet" href="../../css/styles.css">
+    </head>
+
+    <body class="app-layout">
+        <nav class="app-sidebar d-flex flex-column">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+
+            <div class="d-flex items-center justify-between gap-2 p-4 border-bottom nav-border">
+                <a href="admin-dashboard.html" class="d-flex items-center gap-2">
+                    <span class="d-inline-flex items-center justify-center rounded-md bg-primary text-white fw-extrabold px-2 py-1">VC</span>
+                    <span class="fs-lg fw-extrabold text-white">VetCare</span>
+                    <span class="fs-xs fw-semibold text-uppercase text-nav-muted border nav-border rounded-sm px-2">Admin</span>
+                </a>
+
+                <label for="nav-toggle" class="nav-toggle">
+                    <span class="nav-toggle-open">☰ Menú</span>
+                    <span class="nav-toggle-close">✕ Cerrar</span>
+                </label>
+            </div>
+
+            <div id="nav-menu" class="nav-collapse">
+                <div class="flex-1 p-3">
+                    <span class="d-flex fs-xs fw-bold text-uppercase text-nav-muted px-3 py-2">Administración</span>
+                    <ul class="d-flex flex-column gap-1">
+                        <li><a class="nav-link active" href="admin-dashboard.html">Panel principal</a></li>
+                        <li><a class="nav-link" href="veterinarios/veterinarios-listado.html">Veterinarios</a></li>
+                        <li><a class="nav-link" href="servicios/servicios-listado.html">Servicios</a></li>
+                    </ul>
+                </div>
+
+                <div class="navbar-user d-flex items-center justify-between gap-3 px-4 py-3">
+                    <div class="d-flex flex-column">
+                        <span class="fs-sm fw-semibold text-white">Ing. Patricia Viteri</span>
+                        <span class="fs-xs text-nav-muted">Administradora</span>
+                    </div>
+                    <a class="navbar-logout" href="../../index.html">Cerrar sesión</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="app-main">
+            <header class="page-header">
+                <div class="d-flex flex-column gap-1">
+                    <nav>
+                        <ol class="breadcrumbs">
+                            <li class="breadcrumb-item">Panel principal</li>
+                        </ol>
+                    </nav>
+
+                    <h1>Panel principal</h1>
+                    <p class="text-muted fs-sm">Administración general de Clínica Veterinaria Huellitas.</p>
+                </div>
+            </header>
+
+            <div class="page-content grid-12">
+                <section class="card col-lg-12">
+                    <div class="card-body d-flex flex-column items-center text-center gap-3 py-6">
+                        <div class="d-flex items-center gap-2">
+                            <span class="d-inline-flex items-center justify-center rounded-md bg-primary text-white fw-extrabold fs-lg px-3 py-2">VC</span>
+                            <span class="fs-lg">VetCare</span>
+                        </div>
+
+                        <h2 class="fs-lg fw-bold">Clínica Veterinaria Huellitas</h2>
+                        <p class="text-muted">Cuidado integral, diagnóstico oportuno y bienestar para cada mascota.</p>
+                        <p class="fs-sm text-muted">Utilice el menú de navegación para gestionar el personal veterinario y el catálogo de servicios.</p>
+                    </div>
+                </section>
+            </div>
+
+            <footer class="page-footer">
+                <p>© 2026 Clínica Veterinaria Huellitas · VetCare · Quito, Ecuador</p>
+            </footer>
+        </main>
+    </body>
+</html>
