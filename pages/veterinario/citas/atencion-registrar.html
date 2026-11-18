@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="VetCare - Registrar atención médica y diagnóstico clínico en la Clínica Veterinaria Huellitas.">
+
+        <title>Registrar atención médica | VetCare - Clínica Huellitas</title>
+
+        <link rel="stylesheet" href="../../../css/normalize.css">
+        <link rel="stylesheet" href="../../../css/styles.css">
+    </head>
+
+    <body>
+        <nav>
+            <input type="checkbox" id="nav-toggle">
+
+            <div>
+                <a href="citas-listado.html">
+                    <span>VC</span>
+                    <span>VetCare</span>
+                    <span>Veterinario</span>
+                </a>
+
+                <label for="nav-toggle">
+                    <span>☰ Menú</span>
+                    <span>✕ Cerrar</span>
+                </label>
+            </div>
+
+            <div id="nav-menu">
+                <div>
+                    <span>Área clínica</span>
+                    <ul>
+                        <li><a href="citas-listado.html">Consultar citas</a></li>
+                        <li><a href="../historial/buscar-historial.html">Historial clínico</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div>
+                        <span>Dr. Esteban Morales</span>
+                        <span>Médico veterinario</span>
+                    </div>
+                    <a href="../../../index.html">Cerrar sesión</a>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            <header>
+                <div>
+                    <nav>
+                        <ol>
+                            <li><a href="citas-listado.html">Consultar citas</a></li>
+                            <li>Registrar atención</li>
+                        </ol>
+                    </nav>
+
+                    <h1>Registrar atención médica</h1>
+                    <p>Cita CIT-2026-089 · Toby (08:30)</p>
+                </div>
+
+                <a href="citas-listado.html">Volver al listado</a>
+            </header>
+
+            <div>
+                <!-- Tarjeta superior: Datos del paciente -->
+                <section>
+                    <div>
+                        <div>
+                            <h2>Datos del paciente</h2>
+                            <p>Toby · Perro, Golden Retriever</p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div>
+                            <div>
+                                <div>
+                                    <span>Edad y sexo</span>
+                                    <span>5 años · Macho</span>
+                                </div>
+                                <div>
+                                    <span>Último peso</span>
+                                    <span>28.5 kg</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div>
+                                    <span>Propietario</span>
+                                    <span>Carlos Mendoza</span>
+                                </div>
+                                <div>
+                                    <span>Teléfono</span>
+                                    <span>0998765432</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <div>
+                                    <span>Motivo</span>
+                                    <span>Vómitos y decaimiento</span>
+                                </div>
+                                <div>
+                                    <span>Alergias</span>
+                                    <span>Penicilina</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Columna izquierda: Registro de consulta -->
+                <section>
+                    <div>
+                        <h2>Registro de consulta</h2>
+                    </div>
+
+                    <div>
+                        <form action="citas-listado.html" method="get">
+                            <!-- Constantes fisiológicas -->
+                            <fieldset>
+                                <legend>Constantes fisiológicas</legend>
+                                <div>
+                                    <div>
+                                        <label for="peso-actual">Peso actual (kg)</label>
+                                        <input
+                                            type="number"
+                                            id="peso-actual"
+                                            name="pesoActual"
+                                            step="0.1"
+                                            min="0.1"
+                                            max="120"
+                                            required
+                                            placeholder="Ej.: 28.5"
+                                            title="Ingrese un peso válido entre 0.1 y 120 kg.">
+                                        <p>0.1 a 120 kg.</p>
+                                    </div>
+
+                                    <div>
+                                        <label for="temperatura">Temperatura (°C)</label>
+                                        <input
+                                            type="number"
+                                            id="temperatura"
+                                            name="temperatura"
+                                            step="0.1"
+                                            min="35.0"
+                                            max="43.0"
+                                            required
+                                            placeholder="Ej.: 38.6"
+                                            title="Ingrese una temperatura válida entre 35.0 y 43.0 °C.">
+                                        <p>35.0 a 43.0 °C.</p>
+                                    </div>
+
+                                    <div>
+                                        <label for="frecuencia-cardiaca">Frecuencia cardíaca (lpm)</label>
+                                        <input
+                                            type="number"
+                                            id="frecuencia-cardiaca"
+                                            name="frecuenciaCardiaca"
+                                            step="1"
+                                            min="40"
+                                            max="240"
+                                            placeholder="Ej.: 95"
+                                            title="Ingrese una frecuencia cardíaca entre 40 y 240 lpm.">
+                                        <p>40 a 240 lpm.</p>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <!-- Diagnóstico y tratamiento -->
+                            <fieldset>
+                                <legend>Diagnóstico y tratamiento</legend>
+                                <div>
+                                    <div>
+                                        <label for="diagnostico">Diagnóstico</label>
+                                        <textarea
+                                            id="diagnostico"
+                                            name="diagnostico"
+                                            minlength="10"
+                                            maxlength="500"
+                                            required
+                                            placeholder="Describa los hallazgos y el diagnóstico clínico..."></textarea>
+                                        <p>Entre 10 y 500 caracteres.</p>
+                                    </div>
+
+                                    <div>
+                                        <label for="tratamiento">Tratamiento</label>
+                                        <textarea
+                                            id="tratamiento"
+                                            name="tratamiento"
+                                            minlength="5"
+                                            maxlength="500"
+                                            required
+                                            placeholder="Medicamentos, dosis, vía y duración..."></textarea>
+                                        <p>Entre 5 y 500 caracteres.</p>
+                                    </div>
+
+                                    <div>
+                                        <label for="observaciones">Observaciones</label>
+                                        <textarea
+                                            id="observaciones"
+                                            name="observaciones"
+                                            maxlength="500"
+                                            placeholder="Recomendaciones para el propietario o próximo control..."></textarea>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <div>
+                                <button type="submit">Guardar</button>
+                                <a href="citas-listado.html">Cancelar</a>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Columna derecha: Valores de referencia -->
+                <section>
+                    <div>
+                        <h2>Valores de referencia</h2>
+                    </div>
+
+                    <div>
+                        <div>
+                            <div>
+                                <span>Temperatura canina</span>
+                                <span>38.0 - 39.2 °C</span>
+                            </div>
+                            <div>
+                                <span>Frecuencia cardíaca</span>
+                                <span>60 - 140 lpm</span>
+                            </div>
+                            <div>
+                                <span>Frecuencia respiratoria</span>
+                                <span>10 - 30 rpm</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <footer>
+                <p>© 2026 Clínica Veterinaria Huellitas · VetCare · Quito, Ecuador</p>
+            </footer>
+        </main>
+    </body>
+</html>
