@@ -1,0 +1,137 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VetCare - Confirmar eliminación de médico veterinario en la Clínica Veterinaria Huellitas.">
+    <title>Eliminar veterinario | VetCare - Clínica Huellitas</title>
+    <link rel="stylesheet" href="../../../css/normalize.css">
+    <link rel="stylesheet" href="../../../css/styles.css">
+    <link rel="stylesheet" href="../../../css/customFran.css">
+</head>
+
+<body class="app-layout">
+    <nav class="app-sidebar d-flex flex-column" aria-label="Navegación principal">
+        <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+
+        <div class="d-flex items-center justify-between gap-2 p-4 border-bottom nav-border">
+            <a href="../admin-dashboard.html" class="d-flex items-center gap-2 no-underline">
+                <span class="brand-mark d-inline-flex items-center justify-center rounded-md bg-primary text-white fw-extrabold" aria-hidden="true">VC</span>
+                <span class="fs-lg fw-extrabold text-white">VetCare</span>
+                <span class="fs-xs fw-semibold text-uppercase text-nav-muted border nav-border rounded-sm px-2">ADMIN</span>
+            </a>
+
+            <label for="nav-toggle" class="nav-toggle">
+                <span class="nav-toggle-open">☰ Menú</span>
+                <span class="nav-toggle-close">✕ Cerrar</span>
+            </label>
+        </div>
+
+        <div class="nav-collapse" id="nav-menu">
+            <div class="flex-1 p-3">
+                <span class="d-flex fs-xs fw-bold text-uppercase text-nav-muted px-3 py-2">Administración</span>
+                <ul class="d-flex flex-column gap-1">
+                    <li>
+                        <a href="../admin-dashboard.html" class="nav-link">Panel principal</a>
+                    </li>
+                    <li>
+                        <a href="veterinarios-listado.html" class="nav-link active" aria-current="page">Veterinarios</a>
+                    </li>
+                    <li>
+                        <a href="../servicios/servicios-listado.html" class="nav-link">Servicios</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="navbar-user d-flex items-center justify-between gap-3 px-4 py-3">
+                <div class="d-flex flex-column">
+                    <span class="fs-sm fw-semibold text-white">Ing. Patricia Viteri</span>
+                    <span class="fs-xs text-nav-muted">Administradora</span>
+                </div>
+                <a href="../../../index.html" class="navbar-logout">Cerrar sesión</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="app-main">
+        <header class="page-header">
+            <div class="d-flex flex-column gap-1">
+                <nav aria-label="Breadcrumb">
+                    <ol class="breadcrumbs">
+                        <li class="breadcrumb-item">
+                            <a href="../admin-dashboard.html">Inicio</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="veterinarios-listado.html">Veterinarios</a>
+                        </li>
+                        <li class="breadcrumb-item" aria-current="page">
+                            Eliminar veterinario
+                        </li>
+                    </ol>
+                </nav>
+
+                <h1 class="fs-xl">Eliminar veterinario</h1>
+                <p class="fs-sm text-muted">Confirme la eliminación del registro de Dr. Esteban Morales.</p>
+            </div>
+
+            <a href="veterinarios-listado.html" class="btn btn-outline">Volver al listado</a>
+        </header>
+
+        <div class="page-content grid-12">
+            <section class="col-lg-12 form-centered" aria-labelledby="confirmar-eliminar-title">
+                <form action="veterinarios-listado.html" method="get" class="card bg-surface border rounded-lg">
+                    <div class="card-header">
+                        <h2 id="confirmar-eliminar-title" class="card-title">Confirmar eliminación</h2>
+                    </div>
+
+                    <div class="card-body d-flex flex-column gap-4">
+                        <p class="alert alert-warning" role="alert">
+                            Esta acción no se puede deshacer.
+                        </p>
+
+                        <dl class="data-list">
+                            <div class="data-item">
+                                <dt class="data-label text-uppercase">Cédula</dt>
+                                <dd class="data-value">1709876543</dd>
+                            </div>
+                            <div class="data-item">
+                                <dt class="data-label text-uppercase">Veterinario</dt>
+                                <dd class="data-value">Dr. Esteban Morales</dd>
+                            </div>
+                            <div class="data-item">
+                                <dt class="data-label text-uppercase">Registro SENESCYT</dt>
+                                <dd class="data-value">SENESCYT-1008-2017</dd>
+                            </div>
+                            <div class="data-item">
+                                <dt class="data-label text-uppercase">Correo</dt>
+                                <dd class="data-value">esteban.morales@vetcare.com</dd>
+                            </div>
+                            <div class="data-item">
+                                <dt class="data-label text-uppercase">Horario</dt>
+                                <dd class="data-value">Lun - Vie 08:00 - 16:30</dd>
+                            </div>
+                        </dl>
+
+                        <div class="d-flex items-center gap-2">
+                            <input type="checkbox" id="confirmar-eliminar-veterinario" name="confirmar"
+                                class="form-check-input" required>
+                            <label for="confirmar-eliminar-veterinario" class="fs-sm">Confirmo que deseo eliminar este veterinario de forma permanente.</label>
+                        </div>
+
+                        <div class="btn-group">
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                            <a href="veterinarios-listado.html" class="btn btn-outline">Cancelar</a>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+
+        <footer class="page-footer">
+            <p>&copy; 2026 Clínica Veterinaria Huellitas &middot; VetCare &middot; Quito, Ecuador</p>
+        </footer>
+    </main>
+</body>
+
+</html>

@@ -1,0 +1,169 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VetCare - Editar datos del médico veterinario en la Clínica Veterinaria Huellitas.">
+    <title>Editar veterinario | VetCare - Clínica Huellitas</title>
+    <link rel="stylesheet" href="../../../css/normalize.css">
+    <link rel="stylesheet" href="../../../css/styles.css">
+    <link rel="stylesheet" href="../../../css/customFran.css">
+</head>
+
+<body class="app-layout">
+    <nav class="app-sidebar d-flex flex-column" aria-label="Navegación principal">
+        <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+
+        <div class="d-flex items-center justify-between gap-2 p-4 border-bottom nav-border">
+            <a href="../admin-dashboard.html" class="d-flex items-center gap-2 no-underline">
+                <span class="brand-mark d-inline-flex items-center justify-center rounded-md bg-primary text-white fw-extrabold" aria-hidden="true">VC</span>
+                <span class="fs-lg fw-extrabold text-white">VetCare</span>
+                <span class="fs-xs fw-semibold text-uppercase text-nav-muted border nav-border rounded-sm px-2">ADMIN</span>
+            </a>
+
+            <label for="nav-toggle" class="nav-toggle">
+                <span class="nav-toggle-open">☰ Menú</span>
+                <span class="nav-toggle-close">✕ Cerrar</span>
+            </label>
+        </div>
+
+        <div class="nav-collapse" id="nav-menu">
+            <div class="flex-1 p-3">
+                <span class="d-flex fs-xs fw-bold text-uppercase text-nav-muted px-3 py-2">Administración</span>
+                <ul class="d-flex flex-column gap-1">
+                    <li>
+                        <a href="../admin-dashboard.html" class="nav-link">Panel principal</a>
+                    </li>
+                    <li>
+                        <a href="veterinarios-listado.html" class="nav-link active" aria-current="page">Veterinarios</a>
+                    </li>
+                    <li>
+                        <a href="../servicios/servicios-listado.html" class="nav-link">Servicios</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="navbar-user d-flex items-center justify-between gap-3 px-4 py-3">
+                <div class="d-flex flex-column">
+                    <span class="fs-sm fw-semibold text-white">Ing. Patricia Viteri</span>
+                    <span class="fs-xs text-nav-muted">Administradora</span>
+                </div>
+                <a href="../../../index.html" class="navbar-logout">Cerrar sesión</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="app-main">
+        <header class="page-header">
+            <div class="d-flex flex-column gap-1">
+                <nav aria-label="Breadcrumb">
+                    <ol class="breadcrumbs">
+                        <li class="breadcrumb-item">
+                            <a href="../admin-dashboard.html">Inicio</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="veterinarios-listado.html">Veterinarios</a>
+                        </li>
+                        <li class="breadcrumb-item" aria-current="page">
+                            Editar veterinario
+                        </li>
+                    </ol>
+                </nav>
+
+                <h1 class="fs-xl">Editar veterinario</h1>
+                <p class="fs-sm text-muted">Actualice los datos de Dr. Esteban Morales.</p>
+            </div>
+
+            <a href="veterinarios-listado.html" class="btn btn-outline">Volver al listado</a>
+        </header>
+
+        <div class="page-content grid-12">
+            <section class="col-lg-12 form-centered" aria-labelledby="form-editar-veterinario-title">
+                <form action="veterinarios-listado.html" method="get" class="card bg-surface border rounded-lg">
+                    <div class="card-header">
+                        <h2 id="form-editar-veterinario-title" class="card-title">Datos del veterinario</h2>
+                        <span class="badge badge-success">Activo</span>
+                    </div>
+
+                    <div class="card-body">
+                        <fieldset class="form-fieldset mb-4">
+                            <legend class="form-legend">Identificación profesional</legend>
+                            <div class="grid-12">
+                                <div class="d-flex flex-column gap-1 col-md-6">
+                                    <label for="cedula" class="fs-sm fw-semibold">Cédula</label>
+                                    <input type="text" id="cedula" name="cedula" class="form-control"
+                                        value="1709876543" readonly>
+                                    <small class="fs-xs text-muted">Campo de solo lectura.</small>
+                                </div>
+
+                                <div class="d-flex flex-column gap-1 col-md-6">
+                                    <label for="registro-senescyt" class="fs-sm fw-semibold required">Registro SENESCYT</label>
+                                    <input type="text" id="registro-senescyt" name="registro_senescyt"
+                                        class="form-control" value="SENESCYT-1008-2017" required
+                                        pattern="[A-Za-z0-9-]{8,30}">
+                                </div>
+
+                                <div class="d-flex flex-column gap-1 col-md-12">
+                                    <label for="nombres" class="fs-sm fw-semibold required">Nombres y apellidos</label>
+                                    <input type="text" id="nombres" name="nombres" class="form-control"
+                                        value="Dr. Esteban Morales" required pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ.\s]{3,60}"
+                                        minlength="3" maxlength="60">
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset class="form-fieldset mb-4">
+                            <legend class="form-legend">Contacto y horario</legend>
+                            <div class="grid-12">
+                                <div class="d-flex flex-column gap-1 col-md-6">
+                                    <label for="celular" class="fs-sm fw-semibold required">Teléfono celular</label>
+                                    <input type="tel" id="celular" name="celular" class="form-control"
+                                        value="0991234567" required pattern="09[0-9]{8}" minlength="10" maxlength="10">
+                                </div>
+
+                                <div class="d-flex flex-column gap-1 col-md-6">
+                                    <label for="correo" class="fs-sm fw-semibold required">Correo institucional</label>
+                                    <input type="email" id="correo" name="correo" class="form-control"
+                                        value="esteban.morales@vetcare.com" required maxlength="80">
+                                </div>
+
+                                <div class="d-flex flex-column gap-1 col-md-6">
+                                    <label for="horario" class="fs-sm fw-semibold required">Horario de atención</label>
+                                    <select id="horario" name="horario" class="form-select" required>
+                                        <option value="lv-0800-1630" selected>Lunes a viernes &middot; 08:00 - 16:30</option>
+                                        <option value="matutino">Matutino (08:00 - 14:00)</option>
+                                        <option value="vespertino">Vespertino (14:00 - 20:00)</option>
+                                        <option value="completo">Jornada completa (08:00 - 17:00)</option>
+                                        <option value="fines-semana">Fines de semana (09:00 - 17:00)</option>
+                                    </select>
+                                </div>
+
+                                <div class="d-flex flex-column gap-1 col-md-6">
+                                    <label for="estado" class="fs-sm fw-semibold required">Estado</label>
+                                    <select id="estado" name="estado" class="form-select" required>
+                                        <option value="activo" selected>Activo</option>
+                                        <option value="inactivo">Inactivo</option>
+                                        <option value="vacaciones">En vacaciones</option>
+                                        <option value="licencia">Licencia médica</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <div class="btn-group mt-2">
+                            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                            <a href="veterinarios-listado.html" class="btn btn-outline">Cancelar</a>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+
+        <footer class="page-footer">
+            <p>&copy; 2026 Clínica Veterinaria Huellitas &middot; VetCare &middot; Quito, Ecuador</p>
+        </footer>
+    </main>
+</body>
+
+</html>
