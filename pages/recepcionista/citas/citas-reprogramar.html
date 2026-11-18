@@ -73,34 +73,34 @@
                 <section class="card col-lg-5">
                     <div class="card-header">
                         <h2 class="card-title">Resumen de la cita</h2>
-                        <span>Programada</span>
+                        <span class="badge badge-programada">Programada</span>
                     </div>
 
                     <div class="card-body">
-                        <div>
-                            <div>
-                                <span>Código</span>
-                                <span>CIT-2026-089</span>
+                        <div class="data-list">
+                            <div class="data-item">
+                                <span class="data-label">Código</span>
+                                <span class="data-value">CIT-2026-089</span>
                             </div>
-                            <div>
-                                <span>Paciente</span>
-                                <span>Toby (Perro, Golden Retriever)</span>
+                            <div class="data-item">
+                                <span class="data-label">Paciente</span>
+                                <span class="data-value">Toby (Perro, Golden Retriever)</span>
                             </div>
-                            <div>
-                                <span>Propietario</span>
-                                <span>Carlos Mendoza</span>
+                            <div class="data-item">
+                                <span class="data-label">Propietario</span>
+                                <span class="data-value">Carlos Mendoza</span>
                             </div>
-                            <div>
-                                <span>Veterinario</span>
-                                <span>Dr. Esteban Morales</span>
+                            <div class="data-item">
+                                <span class="data-label">Veterinario</span>
+                                <span class="data-value">Dr. Esteban Morales</span>
                             </div>
-                            <div>
-                                <span>Servicio</span>
-                                <span>Consulta general ($15.00)</span>
+                            <div class="data-item">
+                                <span class="data-label">Servicio</span>
+                                <span class="data-value">Consulta general ($15.00)</span>
                             </div>
-                            <div>
-                                <span>Horario actual</span>
-                                <span>15/11/2026 · 10:00</span>
+                            <div class="data-item">
+                                <span class="data-label">Horario actual</span>
+                                <span class="data-value">15/11/2026 · 10:00</span>
                             </div>
                         </div>
                     </div>
@@ -114,12 +114,12 @@
 
                     <div class="card-body">
                         <form action="citas-listado.html" method="get">
-                            <fieldset>
-                                <legend>Fecha y hora</legend>
-                                <div>
-                                    <div>
-                                        <label for="fecha">Nueva fecha</label>
-                                        <input
+                            <fieldset class="form-fieldset mb-4">
+                                <legend class="form-legend">Fecha y hora</legend>
+                                <div class="grid-12">
+                                    <div class="d-flex flex-column gap-1 col-md-6">
+                                        <label for="fecha" class="fs-sm fw-semibold required">Nueva fecha</label>
+                                        <input class="form-control"
                                             type="date"
                                             id="fecha"
                                             name="fecha"
@@ -127,12 +127,12 @@
                                             min="2026-11-15"
                                             required
                                             title="Seleccione una fecha válida de lunes a sábado.">
-                                        <p>Atención de lunes a sábado.</p>
+                                        <p class="fs-xs text-muted">Atención de lunes a sábado.</p>
                                     </div>
 
-                                    <div>
-                                        <label for="hora">Nueva hora</label>
-                                        <input
+                                    <div class="d-flex flex-column gap-1 col-md-6">
+                                        <label for="hora" class="fs-sm fw-semibold required">Nueva hora</label>
+                                        <input class="form-control"
                                             type="time"
                                             id="hora"
                                             name="hora"
@@ -142,24 +142,24 @@
                                             step="1800"
                                             required
                                             title="Horario de atención de 08:00 a 18:00 en turnos cada 30 minutos.">
-                                        <p>Turnos cada 30 minutos (08:00 a 18:00).</p>
+                                        <p class="fs-xs text-muted">Turnos cada 30 minutos (08:00 a 18:00).</p>
                                     </div>
 
-                                    <div>
-                                        <label for="motivo-cambio">Motivo del cambio</label>
-                                        <textarea
+                                    <div class="d-flex flex-column gap-1 col-md-12">
+                                        <label for="motivo-cambio" class="fs-sm fw-semibold">Motivo del cambio</label>
+                                        <textarea class="form-control"
                                             id="motivo-cambio"
                                             name="motivoCambio"
                                             maxlength="200"
                                             placeholder="Opcional: indique el motivo de la reprogramación..."></textarea>
-                                        <p>Máximo 200 caracteres.</p>
+                                        <p class="fs-xs text-muted">Máximo 200 caracteres.</p>
                                     </div>
                                 </div>
                             </fieldset>
 
-                            <div>
-                                <button type="submit">Guardar cambios</button>
-                                <a href="citas-listado.html">Cancelar</a>
+                            <div class="btn-group mt-2">
+                                <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                                <a href="citas-listado.html" class="btn btn-outline">Cancelar</a>
                             </div>
                         </form>
                     </div>
