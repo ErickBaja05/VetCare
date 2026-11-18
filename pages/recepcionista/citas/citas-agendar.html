@@ -12,71 +12,70 @@
         <link rel="stylesheet" href="../../../css/customSabina.css">
     </head>
 
-    <body>
-        <nav>
-            <input type="checkbox" id="nav-toggle">
+    <body class="app-layout">
+        <nav class="app-sidebar d-flex flex-column">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
 
-            <div>
-                <a href="../recepcionista-dashboard.html">
-                    <span>VC</span>
-                    <span>VetCare</span>
-                    <span>Recepción</span>
+            <div class="d-flex items-center justify-between gap-2 p-4 border-bottom nav-border">
+                <a href="../recepcionista-dashboard.html" class="d-flex items-center gap-2">
+                    <span class="d-inline-flex items-center justify-center rounded-md bg-primary text-white fw-extrabold px-2 py-1">VC</span>
+                    <span class="fs-lg fw-extrabold text-white">VetCare</span>
+                    <span class="fs-xs fw-semibold text-uppercase text-nav-muted border nav-border rounded-sm px-2">Recepción</span>
                 </a>
 
-                <label for="nav-toggle">
-                    <span>☰ Menú</span>
-                    <span>✕ Cerrar</span>
+                <label for="nav-toggle" class="nav-toggle">
+                    <span class="nav-toggle-open">☰ Menú</span>
+                    <span class="nav-toggle-close">✕ Cerrar</span>
                 </label>
             </div>
 
-            <div id="nav-menu">
-                <div>
-                    <span>Recepción</span>
-                    <ul>
-                        <li><a href="../recepcionista-dashboard.html">Panel principal</a></li>
-                        <li><a href="../propietarios/propietarios-listado.html">Propietarios</a></li>
-                        <li><a href="../mascotas/mascotas-listado.html">Mascotas</a></li>
-                        <li><a href="citas-listado.html">Citas</a></li>
+            <div id="nav-menu" class="nav-collapse">
+                <div class="flex-1 p-3">
+                    <span class="d-flex fs-xs fw-bold text-uppercase text-nav-muted px-3 py-2">Recepción</span>
+                    <ul class="d-flex flex-column gap-1">
+                        <li><a class="nav-link" href="../recepcionista-dashboard.html">Panel principal</a></li>
+                        <li><a class="nav-link" href="../propietarios/propietarios-listado.html">Propietarios</a></li>
+                        <li><a class="nav-link" href="../mascotas/mascotas-listado.html">Mascotas</a></li>
+                        <li><a class="nav-link active" href="citas-listado.html">Citas</a></li>
                     </ul>
                 </div>
 
-                <div>
-                    <div>
-                        <span>Ana Torres</span>
-                        <span>Recepcionista</span>
+                <div class="navbar-user d-flex items-center border-top nav-border justify-between gap-3 px-4 py-3">
+                    <div class="d-flex flex-column">
+                        <span class="fs-sm fw-semibold text-white">Ana Torres</span>
+                        <span class="fs-xs text-nav-muted">Recepcionista</span>
                     </div>
-                    <a href="../../../index.html">Cerrar sesión</a>
+                    <a class="navbar-logout" href="../../../index.html">Cerrar sesión</a>
                 </div>
             </div>
         </nav>
 
-        <main>
-            
-            <header>
-                <div>
+        <main class="app-main">
+            <header class="page-header">
+                <div class="d-flex flex-column gap-1">
                     <nav>
-                        <ol>
-                            <li><a href="../recepcionista-dashboard.html">Inicio</a></li>
-                            <li><a href="citas-listado.html">Citas</a></li>
-                            <li>Agendar cita</li>
+                        <ol class="breadcrumbs">
+                            <li class="breadcrumb-item"><a href="../recepcionista-dashboard.html">Inicio</a></li>
+                            <li class="breadcrumb-item"><a href="citas-listado.html">Citas</a></li>
+                            <li class="breadcrumb-item">Agendar cita</li>
                         </ol>
                     </nav>
 
-                    <h1>Agendar cita</h1>
-                    <p>Ingrese la cédula del propietario, seleccione una de sus mascotas y complete los datos de la cita.</p>
+                    <h1 class="fs-xl">Agendar cita</h1>
+                    <p class="text-muted fs-sm">Ingrese la cédula del propietario, seleccione una de sus mascotas y complete los datos de la cita.</p>
                 </div>
 
-                <a href="citas-listado.html">Volver al listado</a>
+                <a href="citas-listado.html" class="btn btn-outline">Volver al listado</a>
             </header>
 
-            <div>
+            <div class="page-content grid-12">
                 <!-- Sección 1: Buscar propietario por cédula -->
-                <section>
-                    <div>
-                        <h2> 1. Buscar propietario por cédula </h2>
+                <section class="card col-lg-12 form-centered">
+                    <div class="card-header">
+                        <h2 class="card-title">1. Buscar propietario por cédula</h2>
                     </div>
 
-                    <div>
+                    <div class="card-body">
                         <form action="citas-agendar.html" method="get">
                             <div>
                                 <label for="cedula">Cédula del propietario</label>
@@ -91,7 +90,7 @@
                                     placeholder="Ej.: 1712345678"
                                     title="Ingrese exactamente 10 dígitos numéricos sin guiones."
                                     autocomplete="off">
-                                <p> Ingrese los 10 dígitos de la cédula para desplegar sus mascotas asignadas.</p>
+                                <p class="fs-sm text-muted">Ingrese los 10 dígitos de la cédula para desplegar sus mascotas asignadas.</p>
                             </div>
 
                             <button type="submit">Buscar mascotas</button>
@@ -100,13 +99,13 @@
                 </section>
 
                 <!-- Sección 2: Seleccionar mascota y datos de la cita -->
-                <section>
-                    <div>
-                        <h2> 2. Seleccionar mascota y datos de la cita</h2>
-                        <p>Propietario: <strong>Carlos Mendoza (1712345678)</strong></p>
+                <section class="card col-lg-12 form-centered">
+                    <div class="card-header">
+                        <h2 class="card-title">2. Seleccionar mascota y datos de la cita</h2>
+                        <p class="fs-sm text-muted">Propietario: <strong>Carlos Mendoza (1712345678)</strong></p>
                     </div>
 
-                    <div>
+                    <div class="card-body">
                         <form action="citas-listado.html" method="get">
                             <!-- Mascotas -->
                             <fieldset>
@@ -125,7 +124,7 @@
 
                             <!-- Veterinario y servicio -->
                             <fieldset>
-                                <legend> Veterinario y servicio</legend>
+                                <legend>Veterinario y servicio</legend>
                                 <div>
                                     <div>
                                         <label for="veterinario">Veterinario</label>
@@ -164,7 +163,7 @@
                                             min="2026-11-16"
                                             required
                                             title="Seleccione una fecha válida de lunes a sábado.">
-                                        <p> Atención de lunes a sábado.</p>
+                                        <p>Atención de lunes a sábado.</p>
                                     </div>
 
                                     <div>
@@ -178,7 +177,7 @@
                                             step="1800"
                                             required
                                             title="Horario de atención de 08:00 a 18:00 en turnos cada 30 minutos.">
-                                        <p> Turnos cada 30 minutos (08:00 a 18:00).</p>
+                                        <p>Turnos cada 30 minutos (08:00 a 18:00).</p>
                                     </div>
 
                                     <div>
@@ -203,7 +202,7 @@
                 </section>
             </div>
 
-            <footer>
+            <footer class="page-footer">
                 <p>© 2026 Clínica Veterinaria Huellitas · VetCare · Quito, Ecuador</p>
             </footer>
         </main>
