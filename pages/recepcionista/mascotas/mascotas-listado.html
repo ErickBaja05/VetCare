@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="../../../css/normalize.css" as="style">
+    <link rel="preload" href="../../../css/styles.css" as="style">
+    <link rel="stylesheet" href="../../../css/normalize.css">
+    <link rel="stylesheet" href="../../../css/styles.css">
+    <link rel="stylesheet" href="../../../css/customErick.css">
+    <title>Listado de Mascotas</title>
+</head>
+
+<body>
+    <div class="app-layout">
+        <nav class="app-sidebar d-flex flex-column" aria-label="Navegación principal">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-hidden-focusable="true">
+
+            <div class="d-flex items-center justify-between gap-2 p-4 border-bottom nav-border">
+                <div class="d-flex items-center gap-2">
+                    <span
+                        class="brand-mark d-inline-flex items-center justify-center rounded-md bg-primary text-white fw-extrabold"
+                        aria-hidden="true">VC</span>
+                    <span class="fs-lg fw-extrabold text-white">VetCare</span>
+                    <span
+                        class="fs-xs fw-semibold text-uppercase text-nav-muted border nav-border rounded-sm px-2">Recepción</span>
+                </div>
+
+                <label for="nav-toggle" class="nav-toggle">
+                    <span class="nav-toggle-open">☰ Menú</span>
+                    <span class="nav-toggle-close">✕ Cerrar</span>
+                </label>
+            </div>
+
+            <div class="nav-collapse" id="nav-menu">
+                <div class="flex-1 p-3">
+                    <span class="d-flex fs-xs fw-bold text-uppercase text-nav-muted px-3 py-2">Recepción</span>
+                    <ul class="d-flex flex-column gap-1">
+                        <li>
+                            <a href="../recepcionista-dashboard.html" class="nav-link">Panel principal</a>
+                        </li>
+                        <li>
+                            <a href="../propietarios/propietarios-listado.html" class="nav-link">Propietarios</a>
+                        </li>
+                        <li>
+                            <a href="mascotas-listado.html" class="nav-link active" aria-current="page">Mascotas</a>
+                        </li>
+                        <li>
+                            <a href="../citas/citas-listado.html" class="nav-link">Citas</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="navbar-user d-flex items-center justify-between gap-3 px-4 py-3">
+                    <div class="d-flex flex-column">
+                        <span class="fs-sm fw-semibold text-white">Ana Torres</span>
+                        <span class="fs-xs text-nav-muted">Recepcionista</span>
+                    </div>
+                    <a href="../../../index.html" class="navbar-logout">Cerrar sesión</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="app-main">
+            <header class="page-header">
+                <div>
+                    <nav aria-label="Migas de pan">
+                        <ul class="breadcrumbs">
+                            <li class="breadcrumb-item"><a href="../recepcionista-dashboard.html">Inicio</a></li>
+                            <li class="breadcrumb-item">Mascotas</li>
+                        </ul>
+                    </nav>
+                    <h1 class="page-title">Mascotas</h1>
+                    <p class="page-subtitle">Consulte, registre o actualice las fichas de los pacientes.</p>
+                </div>
+
+                <div>
+                    <a href="mascota-formulario.html" class="btn btn-primary">Nueva mascota</a>
+                </div>
+            </header>
+
+            <section class="page-content">
+                <div class="d-flex flex-column gap-6">
+                    <section class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Consultar mascotas por propietario</h2>
+                        </div>
+
+                        <form class="card-body" action="mascotas-listado.html" method="get">
+                            <div class="grid-12 items-end">
+                                <div class="form-group mb-0 col-md-5 col-lg-5">
+                                    <label for="buscar-cedula" class="form-label required">
+                                        Cédula del propietario
+                                    </label>
+                                    <input type="search" class="form-control" id="buscar-cedula" name="cedula"
+                                        maxlength="10" placeholder="Ej.: 1712345678">
+                                </div>
+
+                                <div class="form-group mb-0 col-md-4 col-lg-4">
+                                    <label for="filtro-especie" class="form-label">
+                                        Especie
+                                    </label>
+                                    <select id="filtro-especie" name="especie" class="form-select">
+                                        <option value="">Todas</option>
+                                        <option value="perro">Perro</option>
+                                        <option value="gato">Gato</option>
+                                        <option value="otro">Otro</option>
+                                    </select>
+                                </div>
+
+                                <div class="btn-group col-md-3 col-lg-3">
+                                    <button type="submit" class="btn btn-primary">Buscar</button>
+                                    <a href="mascotas-listado.html" class="btn btn-outline">Limpiar</a>
+                                </div>
+                            </div>
+                            <small class="form-hint d-block mt-1">Ingrese los 10 dígitos de la cédula para ver sus
+                                mascotas asignadas.</small>
+                        </form>
+                    </section>
+
+                    <section class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Listado de mascotas</h2>
+                            <p class="text-muted">6 registros</p>
+                        </div>
+
+                        <div class="table-wrapper">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Mascota</th>
+                                        <th scope="col">Especie</th>
+                                        <th scope="col">Raza</th>
+                                        <th scope="col">Sexo</th>
+                                        <th scope="col">Nacimiento</th>
+                                        <th scope="col">Peso</th>
+                                        <th scope="col">Propietario</th>
+                                        <th scope="col">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" data-label="Mascota">Toby</th>
+                                        <td data-label="Especie">Perro</td>
+                                        <td data-label="Raza">Golden Retriever</td>
+                                        <td data-label="Sexo">Macho</td>
+                                        <td data-label="Nacimiento">10/04/2021</td>
+                                        <td data-label="Peso">28.5 kg</td>
+                                        <td data-label="Propietario">Carlos Mendoza</td>
+                                        <td data-label="Acciones">
+                                            <div class="table-actions">
+                                                <a href="#" class="btn btn-outline btn-sm">Editar</a>
+                                                <a href="#" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" data-label="Mascota">Luna</th>
+                                        <td data-label="Especie">Gato</td>
+                                        <td data-label="Raza">Siamés</td>
+                                        <td data-label="Sexo">Hembra</td>
+                                        <td data-label="Nacimiento">15/08/2022</td>
+                                        <td data-label="Peso">4.2 kg</td>
+                                        <td data-label="Propietario">María López</td>
+                                        <td data-label="Acciones">
+                                            <div class="table-actions">
+                                                <a href="#" class="btn btn-outline btn-sm">Editar</a>
+                                                <a href="#" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" data-label="Mascota">Rocky</th>
+                                        <td data-label="Especie">Perro</td>
+                                        <td data-label="Raza">Pastor Alemán</td>
+                                        <td data-label="Sexo">Macho</td>
+                                        <td data-label="Nacimiento">03/11/2020</td>
+                                        <td data-label="Peso">31.0 kg</td>
+                                        <td data-label="Propietario">Juan Pérez</td>
+                                        <td data-label="Acciones">
+                                            <div class="table-actions">
+                                                <a href="#" class="btn btn-outline btn-sm">Editar</a>
+                                                <a href="#" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" data-label="Mascota">Misi</th>
+                                        <td data-label="Especie">Gato</td>
+                                        <td data-label="Raza">Angora</td>
+                                        <td data-label="Sexo">Hembra</td>
+                                        <td data-label="Nacimiento">20/01/2023</td>
+                                        <td data-label="Peso">3.8 kg</td>
+                                        <td data-label="Propietario">Elena Gómez</td>
+                                        <td data-label="Acciones">
+                                            <div class="table-actions">
+                                                <a href="#" class="btn btn-outline btn-sm">Editar</a>
+                                                <a href="#" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" data-label="Mascota">Max</th>
+                                        <td data-label="Especie">Perro</td>
+                                        <td data-label="Raza">Schnauzer</td>
+                                        <td data-label="Sexo">Macho</td>
+                                        <td data-label="Nacimiento">12/06/2019</td>
+                                        <td data-label="Peso">8.4 kg</td>
+                                        <td data-label="Propietario">Sofía Ramos</td>
+                                        <td data-label="Acciones">
+                                            <div class="table-actions">
+                                                <a href="#" class="btn btn-outline btn-sm">Editar</a>
+                                                <a href="#" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" data-label="Mascota">Thor</th>
+                                        <td data-label="Especie">Perro</td>
+                                        <td data-label="Raza">Labrador</td>
+                                        <td data-label="Sexo">Macho</td>
+                                        <td data-label="Nacimiento">05/03/2022</td>
+                                        <td data-label="Peso">29.0 kg</td>
+                                        <td data-label="Propietario">Diego Castro</td>
+                                        <td data-label="Acciones">
+                                            <div class="table-actions">
+                                                <a href="#" class="btn btn-outline btn-sm">Editar</a>
+                                                <a href="#" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+            </section>
+
+            <footer class="page-footer">
+                <p>&copy;2026 Clínica Veterinaria Huellitas - VetCare - Quito, Ecuador</p>
+            </footer>
+        </main>
+    </div>
+</body>
+
+</html>

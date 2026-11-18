@@ -1,0 +1,198 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VetCare - Catálogo de servicios clínicos, duración y tarifas de la Clínica Veterinaria Huellitas.">
+    <title>Servicios | VetCare - Clínica Huellitas</title>
+    <link rel="stylesheet" href="../../../css/normalize.css">
+    <link rel="stylesheet" href="../../../css/styles.css">
+    <link rel="stylesheet" href="../../../css/customFran.css">
+</head>
+
+<body class="app-layout">
+    <nav class="app-sidebar d-flex flex-column" aria-label="Navegación principal">
+        <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+
+        <div class="d-flex items-center justify-between gap-2 p-4 border-bottom nav-border">
+            <a href="../admin-dashboard.html" class="d-flex items-center gap-2 no-underline">
+                <span class="brand-mark d-inline-flex items-center justify-center rounded-md bg-primary text-white fw-extrabold" aria-hidden="true">VC</span>
+                <span class="fs-lg fw-extrabold text-white">VetCare</span>
+                <span class="fs-xs fw-semibold text-uppercase text-nav-muted border nav-border rounded-sm px-2">ADMIN</span>
+            </a>
+
+            <label for="nav-toggle" class="nav-toggle">
+                <span class="nav-toggle-open">☰ Menú</span>
+                <span class="nav-toggle-close">✕ Cerrar</span>
+            </label>
+        </div>
+
+        <div class="nav-collapse" id="nav-menu">
+            <div class="flex-1 p-3">
+                <span class="d-flex fs-xs fw-bold text-uppercase text-nav-muted px-3 py-2">Administración</span>
+                <ul class="d-flex flex-column gap-1">
+                    <li>
+                        <a href="../admin-dashboard.html" class="nav-link">Panel principal</a>
+                    </li>
+                    <li>
+                        <a href="../veterinarios/veterinarios-listado.html" class="nav-link">Veterinarios</a>
+                    </li>
+                    <li>
+                        <a href="servicios-listado.html" class="nav-link active" aria-current="page">Servicios</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="navbar-user d-flex items-center justify-between gap-3 px-4 py-3">
+                <div class="d-flex flex-column">
+                    <span class="fs-sm fw-semibold text-white">Ing. Patricia Viteri</span>
+                    <span class="fs-xs text-nav-muted">Administradora</span>
+                </div>
+                <a href="../../../index.html" class="navbar-logout">Cerrar sesión</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="app-main">
+        <header class="page-header">
+            <div class="d-flex flex-column gap-1">
+                <nav aria-label="Breadcrumb">
+                    <ol class="breadcrumbs">
+                        <li class="breadcrumb-item">
+                            <a href="../admin-dashboard.html">Inicio</a>
+                        </li>
+                        <li class="breadcrumb-item" aria-current="page">
+                            Servicios
+                        </li>
+                    </ol>
+                </nav>
+
+                <h1 class="fs-xl">Servicios</h1>
+                <p class="fs-sm text-muted">Administre el catálogo de servicios clínicos, duración y tarifas.</p>
+            </div>
+
+            <a href="servicios-nuevo.html" class="btn btn-primary">Nuevo servicio</a>
+        </header>
+
+        <div class="page-content d-flex flex-column gap-6">
+            <section class="card" aria-labelledby="buscar-servicios-title">
+                <div class="card-header">
+                    <h2 id="buscar-servicios-title" class="card-title">Buscar servicios</h2>
+                </div>
+
+                <form action="servicios-listado.html" method="get" class="card-body">
+                    <div class="grid-12 items-end">
+                        <div class="d-flex flex-column gap-1 col-md-5">
+                            <label for="buscar-texto" class="fs-sm fw-semibold">Código o nombre del servicio</label>
+                            <input type="search" id="buscar-texto" name="q" class="form-control"
+                                placeholder="Ej.: Consulta general">
+                        </div>
+
+                        <div class="d-flex flex-column gap-1 col-md-4">
+                            <label for="buscar-categoria" class="fs-sm fw-semibold">Categoría</label>
+                            <select id="buscar-categoria" name="categoria" class="form-select">
+                                <option value="" selected>Todas</option>
+                                <option value="Consulta">Consulta</option>
+                                <option value="Vacunación">Vacunación</option>
+                                <option value="Medicina preventiva">Medicina preventiva</option>
+                                <option value="Odontología">Odontología</option>
+                                <option value="Cirugía">Cirugía</option>
+                            </select>
+                        </div>
+
+                        <div class="d-flex gap-2 col-md-3">
+                            <button type="submit" class="btn btn-primary">Buscar</button>
+                            <a href="servicios-listado.html" class="btn btn-outline">Limpiar</a>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <section class="card" aria-labelledby="listado-servicios-title">
+                <div class="card-header">
+                    <h2 id="listado-servicios-title" class="card-title">Listado de servicios</h2>
+                    <span class="fs-sm text-muted">4 registros</span>
+                </div>
+
+                <div class="card-body">
+                    <div class="table-wrapper">
+                        <table class="table">
+                            <caption class="visually-hidden">Catálogo de servicios disponibles en la clínica</caption>
+                            <thead>
+                                <tr>
+                                    <th scope="col">CÓDIGO</th>
+                                    <th scope="col">SERVICIO</th>
+                                    <th scope="col">CATEGORÍA</th>
+                                    <th scope="col">DURACIÓN</th>
+                                    <th scope="col">TARIFA</th>
+                                    <th scope="col">ACCIONES</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row" data-label="Código">SRV-001</th>
+                                    <td data-label="Servicio">Consulta general</td>
+                                    <td data-label="Categoría">Consulta</td>
+                                    <td data-label="Duración">30 min</td>
+                                    <td data-label="Tarifa">$15.00</td>
+                                    <td data-label="Acciones">
+                                        <div class="table-actions">
+                                            <a href="servicios-editar.html" class="btn btn-outline btn-sm">Editar</a>
+                                            <a href="servicios-eliminar.html" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" data-label="Código">SRV-002</th>
+                                    <td data-label="Servicio">Vacunación</td>
+                                    <td data-label="Categoría">Vacunación</td>
+                                    <td data-label="Duración">30 min</td>
+                                    <td data-label="Tarifa">$22.50</td>
+                                    <td data-label="Acciones">
+                                        <div class="table-actions">
+                                            <a href="servicios-editar.html" class="btn btn-outline btn-sm">Editar</a>
+                                            <a href="servicios-eliminar.html" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" data-label="Código">SRV-003</th>
+                                    <td data-label="Servicio">Desparasitación</td>
+                                    <td data-label="Categoría">Medicina preventiva</td>
+                                    <td data-label="Duración">30 min</td>
+                                    <td data-label="Tarifa">$12.00</td>
+                                    <td data-label="Acciones">
+                                        <div class="table-actions">
+                                            <a href="servicios-editar.html" class="btn btn-outline btn-sm">Editar</a>
+                                            <a href="servicios-eliminar.html" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row" data-label="Código">SRV-004</th>
+                                    <td data-label="Servicio">Profilaxis dental</td>
+                                    <td data-label="Categoría">Odontología</td>
+                                    <td data-label="Duración">60 min</td>
+                                    <td data-label="Tarifa">$45.00</td>
+                                    <td data-label="Acciones">
+                                        <div class="table-actions">
+                                            <a href="servicios-editar.html" class="btn btn-outline btn-sm">Editar</a>
+                                            <a href="servicios-eliminar.html" class="btn btn-outline-danger btn-sm">Eliminar</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <footer class="page-footer">
+            <p>&copy; 2026 Clínica Veterinaria Huellitas &middot; VetCare &middot; Quito, Ecuador</p>
+        </footer>
+    </main>
+</body>
+
+</html>

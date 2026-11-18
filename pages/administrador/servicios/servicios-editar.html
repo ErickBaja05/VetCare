@@ -1,0 +1,167 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VetCare - Editar datos del servicio clínico en la Clínica Veterinaria Huellitas.">
+    <title>Editar servicio | VetCare - Clínica Huellitas</title>
+    <link rel="stylesheet" href="../../../css/normalize.css">
+    <link rel="stylesheet" href="../../../css/styles.css">
+    <link rel="stylesheet" href="../../../css/customFran.css">
+</head>
+
+<body class="app-layout">
+    <nav class="app-sidebar d-flex flex-column" aria-label="Navegación principal">
+        <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+
+        <div class="d-flex items-center justify-between gap-2 p-4 border-bottom nav-border">
+            <a href="../admin-dashboard.html" class="d-flex items-center gap-2 no-underline">
+                <span class="brand-mark d-inline-flex items-center justify-center rounded-md bg-primary text-white fw-extrabold" aria-hidden="true">VC</span>
+                <span class="fs-lg fw-extrabold text-white">VetCare</span>
+                <span class="fs-xs fw-semibold text-uppercase text-nav-muted border nav-border rounded-sm px-2">ADMIN</span>
+            </a>
+
+            <label for="nav-toggle" class="nav-toggle">
+                <span class="nav-toggle-open">☰ Menú</span>
+                <span class="nav-toggle-close">✕ Cerrar</span>
+            </label>
+        </div>
+
+        <div class="nav-collapse" id="nav-menu">
+            <div class="flex-1 p-3">
+                <span class="d-flex fs-xs fw-bold text-uppercase text-nav-muted px-3 py-2">Administración</span>
+                <ul class="d-flex flex-column gap-1">
+                    <li>
+                        <a href="../admin-dashboard.html" class="nav-link">Panel principal</a>
+                    </li>
+                    <li>
+                        <a href="../veterinarios/veterinarios-listado.html" class="nav-link">Veterinarios</a>
+                    </li>
+                    <li>
+                        <a href="servicios-listado.html" class="nav-link active" aria-current="page">Servicios</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="navbar-user d-flex items-center justify-between gap-3 px-4 py-3">
+                <div class="d-flex flex-column">
+                    <span class="fs-sm fw-semibold text-white">Ing. Patricia Viteri</span>
+                    <span class="fs-xs text-nav-muted">Administradora</span>
+                </div>
+                <a href="../../../index.html" class="navbar-logout">Cerrar sesión</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="app-main">
+        <header class="page-header">
+            <div class="d-flex flex-column gap-1">
+                <nav aria-label="Breadcrumb">
+                    <ol class="breadcrumbs">
+                        <li class="breadcrumb-item">
+                            <a href="../admin-dashboard.html">Inicio</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a href="servicios-listado.html">Servicios</a>
+                        </li>
+                        <li class="breadcrumb-item" aria-current="page">
+                            Editar servicio
+                        </li>
+                    </ol>
+                </nav>
+
+                <h1 class="fs-xl">Editar servicio</h1>
+                <p class="fs-sm text-muted">Actualice los datos de Consulta general (SRV-001).</p>
+            </div>
+
+            <a href="servicios-listado.html" class="btn btn-outline">Volver al listado</a>
+        </header>
+
+        <div class="page-content grid-12">
+            <section class="col-lg-12 form-centered" aria-labelledby="form-editar-servicio-title">
+                <form action="servicios-listado.html" method="get" class="card bg-surface border rounded-lg">
+                    <div class="card-header">
+                        <h2 id="form-editar-servicio-title" class="card-title">Datos del servicio</h2>
+                        <span class="badge badge-success">Activo</span>
+                    </div>
+
+                    <div class="card-body">
+                        <fieldset class="form-fieldset mb-4">
+                            <legend class="form-legend">Información general y tarifa</legend>
+                            <div class="grid-12">
+                                <div class="d-flex flex-column gap-1 col-md-6">
+                                    <label for="codigo" class="fs-sm fw-semibold">Código</label>
+                                    <input type="text" id="codigo" name="codigo" class="form-control"
+                                        value="SRV-001" readonly>
+                                    <small class="fs-xs text-muted">Campo de solo lectura.</small>
+                                </div>
+
+                                <div class="d-flex flex-column gap-1 col-md-6">
+                                    <label for="nombre" class="fs-sm fw-semibold required">Nombre del servicio</label>
+                                    <input type="text" id="nombre" name="nombre" class="form-control"
+                                        value="Consulta general" required minlength="3" maxlength="60">
+                                </div>
+
+                                <div class="d-flex flex-column gap-1 col-md-6">
+                                    <label for="categoria" class="fs-sm fw-semibold required">Categoría</label>
+                                    <select id="categoria" name="categoria" class="form-select" required>
+                                        <option value="Consulta" selected>Consulta</option>
+                                        <option value="Vacunación">Vacunación</option>
+                                        <option value="Medicina preventiva">Medicina preventiva</option>
+                                        <option value="Odontología">Odontología</option>
+                                        <option value="Cirugía">Cirugía</option>
+                                        <option value="Diagnóstico">Diagnóstico</option>
+                                    </select>
+                                </div>
+
+                                <div class="d-flex flex-column gap-1 col-md-6">
+                                    <label for="duracion" class="fs-sm fw-semibold required">Duración estimada</label>
+                                    <select id="duracion" name="duracion" class="form-select" required>
+                                        <option value="15 min">15 minutos</option>
+                                        <option value="30 min" selected>30 minutos</option>
+                                        <option value="45 min">45 minutos</option>
+                                        <option value="60 min">60 minutos</option>
+                                        <option value="90 min">90 minutos</option>
+                                        <option value="120 min">120 minutos</option>
+                                    </select>
+                                </div>
+
+                                <div class="d-flex flex-column gap-1 col-md-6">
+                                    <label for="tarifa" class="fs-sm fw-semibold required">Tarifa (USD)</label>
+                                    <input type="number" id="tarifa" name="tarifa" class="form-control"
+                                        value="15.00" required min="1.00" max="500.00" step="0.01">
+                                </div>
+
+                                <div class="d-flex flex-column gap-1 col-md-6">
+                                    <label for="estado" class="fs-sm fw-semibold required">Estado</label>
+                                    <select id="estado" name="estado" class="form-select" required>
+                                        <option value="Activo" selected>Activo</option>
+                                        <option value="Inactivo">Inactivo</option>
+                                    </select>
+                                </div>
+
+                                <div class="d-flex flex-column gap-1 col-md-12">
+                                    <label for="descripcion" class="fs-sm fw-semibold required">Descripción</label>
+                                    <textarea id="descripcion" name="descripcion" class="form-control" required
+                                        minlength="5" maxlength="250" rows="3">Evaluación médica veterinaria de constantes fisiológicas y diagnóstico general.</textarea>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <div class="btn-group mt-2">
+                            <button type="submit" class="btn btn-primary">Guardar cambios</button>
+                            <a href="servicios-listado.html" class="btn btn-outline">Cancelar</a>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+
+        <footer class="page-footer">
+            <p>&copy; 2026 Clínica Veterinaria Huellitas &middot; VetCare &middot; Quito, Ecuador</p>
+        </footer>
+    </main>
+</body>
+
+</html>

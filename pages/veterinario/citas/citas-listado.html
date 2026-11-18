@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="../../../css/normalize.css" as="style">
+    <link rel="preload" href="../../../css/styles.css" as="style">
+    <link rel="stylesheet" href="../../../css/normalize.css">
+    <link rel="stylesheet" href="../../../css/styles.css">
+    <link rel="stylesheet" href="../../../css/customErick.css">
+    <title>Consultar Citas</title>
+</head>
+
+<body>
+    <div class="app-layout">
+        <nav class="app-sidebar d-flex flex-column" aria-label="Navegación principal">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-hidden-focusable="true">
+
+            <div class="d-flex items-center justify-between gap-2 p-4 border-bottom nav-border">
+                <div class="d-flex items-center gap-2">
+                    <span
+                        class="brand-mark d-inline-flex items-center justify-center rounded-md bg-primary text-white fw-extrabold"
+                        aria-hidden="true">VC</span>
+                    <span class="fs-lg fw-extrabold text-white">VetCare</span>
+                    <span
+                        class="fs-xs fw-semibold text-uppercase text-nav-muted border nav-border rounded-sm px-2">Veterinario</span>
+                </div>
+
+                <label for="nav-toggle" class="nav-toggle">
+                    <span class="nav-toggle-open">☰ Menú</span>
+                    <span class="nav-toggle-close">✕ Cerrar</span>
+                </label>
+            </div>
+
+            <div class="nav-collapse" id="nav-menu">
+                <div class="flex-1 p-3">
+                    <span class="d-flex fs-xs fw-bold text-uppercase text-nav-muted px-3 py-2">Área clínica</span>
+                    <ul class="d-flex flex-column gap-1">
+                        <li>
+                            <a href="../citas/citas-listado.html" class="nav-link active" aria-current="page">Consultar
+                                citas</a>
+                        </li>
+                        <li>
+                            <a href="../historial/buscar-historial.html" class="nav-link">Historial clínico</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="navbar-user d-flex items-center justify-between gap-3 px-4 py-3">
+                    <div class="d-flex flex-column">
+                        <span class="fs-sm fw-semibold text-white">Dr. Esteban Morales</span>
+                        <span class="fs-xs text-nav-muted">Médico veterinario</span>
+                    </div>
+                    <a href="../../../index.html" class="navbar-logout">Cerrar sesión</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="app-main">
+            <header class="page-header">
+                <div>
+                    <nav aria-label="Migas de pan">
+                        <ul class="breadcrumbs">
+                            <li class="breadcrumb-item">Consultar citas</li>
+                        </ul>
+                    </nav>
+                    <h1 class="page-title">Consultar citas</h1>
+                    <p class="page-subtitle">Consulte las citas programadas por fecha.</p>
+                </div>
+            </header>
+
+            <section class="page-content">
+                <div class="d-flex flex-column gap-6">
+                    <section class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Filtrar citas por fecha</h2>
+                        </div>
+
+                        <form class="card-body grid-12 items-end" action="citas-listado.html" method="get">
+                            <div class="form-group mb-0 col-md-8 col-lg-9">
+                                <label for="buscar-fecha" class="form-label">
+                                    Fecha
+                                </label>
+                                <input type="date" class="form-control" id="buscar-fecha" name="fecha"
+                                    value="2026-11-15">
+                            </div>
+
+                            <div class="btn-group col-md-4 col-lg-3">
+                                <button type="submit" class="btn btn-primary">Buscar</button>
+                                <a href="citas-listado.html" class="btn btn-outline">Limpiar</a>
+                            </div>
+                        </form>
+                    </section>
+
+                    <section class="card">
+                        <div class="card-header">
+                            <h2 class="card-title">Turnos de hoy (15/11/2026)</h2>
+                            <p class="text-muted">4 citas</p>
+                        </div>
+
+                        <div class="table-wrapper">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Hora</th>
+                                        <th scope="col">Paciente</th>
+                                        <th scope="col">Especie y raza</th>
+                                        <th scope="col">Propietario</th>
+                                        <th scope="col">Servicio</th>
+                                        <th scope="col">Estado</th>
+                                        <th scope="col">Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <th scope="row" data-label="Hora">08:30</th>
+                                        <td data-label="Paciente">Toby</td>
+                                        <td data-label="Especie y raza">Perro &middot; Golden Retriever</td>
+                                        <td data-label="Propietario">Carlos Mendoza</td>
+                                        <td data-label="Servicio">Consulta general</td>
+                                        <td data-label="Estado">
+                                            <span class="badge badge-programada">Programada</span>
+                                        </td>
+                                        <td data-label="Acciones">
+                                            <div class="table-actions">
+                                                <a href="#" class="btn btn-primary btn-sm">Atender</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" data-label="Hora">09:30</th>
+                                        <td data-label="Paciente">Luna</td>
+                                        <td data-label="Especie y raza">Gato &middot; Siamés</td>
+                                        <td data-label="Propietario">María López</td>
+                                        <td data-label="Servicio">Vacunación</td>
+                                        <td data-label="Estado">
+                                            <span class="badge badge-programada">Programada</span>
+                                        </td>
+                                        <td data-label="Acciones">
+                                            <div class="table-actions">
+                                                <a href="#" class="btn btn-primary btn-sm">Atender</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" data-label="Hora">11:00</th>
+                                        <td data-label="Paciente">Rocky</td>
+                                        <td data-label="Especie y raza">Perro &middot; Pastor Alemán</td>
+                                        <td data-label="Propietario">Juan Pérez</td>
+                                        <td data-label="Servicio">Desparasitación</td>
+                                        <td data-label="Estado">
+                                            <span class="badge badge-atendida">Atendida</span>
+                                        </td>
+                                        <td data-label="Acciones">
+                                            <span class="text-muted fs-xs">Sin acciones</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" data-label="Hora">15:00</th>
+                                        <td data-label="Paciente">Misi</td>
+                                        <td data-label="Especie y raza">Gato &middot; Angora</td>
+                                        <td data-label="Propietario">Elena Gómez</td>
+                                        <td data-label="Servicio">Profilaxis dental</td>
+                                        <td data-label="Estado">
+                                            <span class="badge badge-programada">Programada</span>
+                                        </td>
+                                        <td data-label="Acciones">
+                                            <div class="table-actions">
+                                                <a href="#" class="btn btn-primary btn-sm">Atender</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </section>
+                </div>
+            </section>
+
+            <footer class="page-footer">
+                <p>&copy;2026 Clínica Veterinaria Huellitas - VetCare - Quito, Ecuador</p>
+            </footer>
+        </main>
+    </div>
+</body>
+
+</html>

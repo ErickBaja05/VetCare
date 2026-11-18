@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Panel principal de recepción de VetCare - Clínica Veterinaria Huellitas.">
+  <title>Panel principal | VetCare - Clínica Huellitas</title>
+
+  <!--
+    ORDEN DE CARGA DEL CSS (muy importante por la cascada):
+    1. normalize.css  -> unifica estilos por defecto entre navegadores.
+    2. styles.css     -> el framework de VetCare (tokens, layout, grid, componentes, utilidades).
+    3. customErick.css -> tus excepciones personales (siempre al final para poder sobreescribir si hace falta).
+  -->
+  <link rel="preload" href="../../css/normalize.css" as="style">
+  <link rel="preload" href="../../css/styles.css" as="style">
+  <link rel="stylesheet" href="../../css/normalize.css">
+  <link rel="stylesheet" href="../../css/styles.css">
+  <link rel="stylesheet" href="../../css/customErick.css">
+</head>
+
+<body>
+  <!--
+    ACCESIBILIDAD (.skip-link):
+    Enlace oculto arriba de la pantalla que solo aparece al presionar Tab.
+    Permite a usuarios de teclado saltar directo al contenido principal sin recorrer todo el menú.
+  -->
+  <a href="#contenido-principal" class="skip-link">Saltar al contenido principal</a>
+
+  <!--
+    ==========================================================================
+    1. CONTENEDOR MAESTRO DE LA APLICACIÓN: .app-layout
+    ==========================================================================
+    ¿Por qué aquí?
+    En styles.css, .app-layout usa display: flex y min-height: 100vh:
+      - En móvil (< 1024px): flex-direction: column -> el menú queda ARRIBA y el contenido ABAJO.
+      - En escritorio (>= 1024px): flex-direction: row -> el menú queda a la IZQUIERDA y el contenido a la DERECHA.
+
+    REGLA DE ORO: .app-layout SOLO debe tener DOS hijos directos:
+      1) <nav class="app-sidebar ...">  (la barra lateral/superior)
+      2) <main class="app-main">        (todo lo demás: header, contenido y footer)
+
+    (En recepcionista-dashboard.html te faltaba <main class="app-main"> y habías puesto
+    un <header> antes del <nav>, por eso no se posicionaba bien).
+  -->
+  <div class="app-layout">
+
+    <!--
+      ========================================================================
+      2. BARRA DE NAVEGACIÓN LATERAL / SUPERIOR: .app-sidebar
+      ========================================================================
+      - .app-sidebar: le da el fondo oscuro (--color-nav-bg), position: sticky,
+        y en escritorio (>= 1024px) ancho fijo de 16rem (256px) y alto 100vh.
+      - .d-flex .flex-column: organiza internamente el encabezado del menú y
+        el bloque colapsable uno debajo del otro.
+    -->
+    <nav class="app-sidebar d-flex flex-column" aria-label="Navegación principal">
+
+      <!--
+        Truco CSS sin JavaScript para el menú hamburguesa en móvil:
+        Este checkbox oculto (.nav-toggle-input) controla si se muestra .nav-collapse
+        cuando el usuario hace clic en el <label for="nav-toggle"> de abajo.
+      -->
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-hidden="true">
+
+      <!--
+        Encabezado de la marca dentro del sidebar:
+        - .d-flex .items-center .justify-between: pone el logo a la izquierda y el botón "Menú" a la derecha.
+        - .gap-2: separación de 8px entre elementos hijos.
+        - .p-4: padding de 16px en los cuatro lados.
+        - .border-bottom .nav-border: línea divisoria inferior usando el color oscuro del nav.
+      -->
+      <div class="d-flex items-center justify-between gap-2 p-4 border-bottom nav-border">
+        <!--
+          Grupo izquierdo (logo + nombre + etiqueta de rol):
+          .d-flex .items-center .gap-2 los alinea en fila, centrados verticalmente y con 8px de espacio.
+        -->
+        <div class="d-flex items-center gap-2">
+          <!--
+            .brand-mark (en customErick.css): le da tamaño cuadrado 2rem x 2rem.
+            .d-inline-flex .items-center .justify-center: centra las letras "VC" dentro del cuadro.
+            .flex-shrink-0: evita que el cuadro se aplaste si falta espacio.
+            .rounded-md .bg-primary .text-white .fw-extrabold: bordes redondeados, fondo turquesa, texto blanco grueso.
+          -->
+          <span
+            class="brand-mark d-inline-flex items-center justify-center flex-shrink-0 rounded-md bg-primary text-white fw-extrabold"
+            aria-hidden="true">VC</span>
+
+          <!-- Nombre de la app: tamaño grande (.fs-lg), extra negrita (.fw-extrabold), blanco (.text-white) -->
+          <span class="font-display fs-lg fw-extrabold text-white">VetCare</span>
+
+          <!-- Etiqueta del módulo: texto pequeño en mayúsculas con borde sutil -->
+          <span
+            class="fs-xs fw-semibold text-uppercase text-nav-muted border nav-border rounded-sm px-2">Recepción</span>
+        </div>
+
+        <!--
+          Botón hamburguesa visible SOLO en móvil/tablet (< 1024px):
+          En >= 1024px, styles.css oculta .nav-toggle con display: none.
+        -->
+        <label for="nav-toggle" class="nav-toggle">
+          <span class="nav-toggle-open">☰ Menú</span>
+          <span class="nav-toggle-close">✕ Cerrar</span>
+        </label>
+      </div>
+
+      <!--
+        Contenedor colapsable (.nav-collapse):
+        - En móvil está oculto hasta marcar el checkbox #nav-toggle.
+        - En escritorio (>= 1024px) siempre está visible como columna flex (flex: 1).
+      -->
+      <div class="nav-collapse" id="nav-menu">
+
+        <!--
+          Zona de enlaces:
+          - .flex-1: crece para ocupar todo el espacio sobrante vertical,
+            EMPUJANDO el bloque .navbar-user hasta el fondo del sidebar.
+          - .p-3: padding de 12px alrededor de la lista.
+        -->
+        <div class="flex-1 p-3">
+          <span class="d-flex fs-xs fw-bold text-uppercase text-nav-muted px-3 py-2">Recepción</span>
+
+          <!--
+            Lista de navegación:
+            - .d-flex .flex-column .gap-1: apila los <li> verticalmente con 4px de separación.
+            - .nav-link: estilo de cada enlace del sidebar (padding, esquinas redondeadas, hover).
+            - .nav-link.active + aria-current="page": marca la página actual en color primario.
+          -->
+          <ul class="d-flex flex-column gap-1">
+            <li>
+              <a href="recepcionista-dashboard.html" class="nav-link active" aria-current="page">Panel principal</a>
+            </li>
+            <li>
+              <a href="propietarios/propietarios-nuevos.html" class="nav-link">Propietarios</a>
+            </li>
+            <li>
+              <a href="mascotas/mascotas-listado.html" class="nav-link">Mascotas</a>
+            </li>
+            <li>
+              <a href="citas/citas-listado.html" class="nav-link">Citas</a>
+            </li>
+          </ul>
+        </div>
+
+        <!--
+          Pie del sidebar con datos del usuario logueado (.navbar-user):
+          - .navbar-user: fondo más oscuro (#0B1120) y borde superior.
+          - .d-flex .items-center .justify-between .gap-3: nombre a la izquierda, "Cerrar sesión" a la derecha.
+          - .px-4 .py-3: padding horizontal 16px, vertical 12px.
+        -->
+        <div class="navbar-user d-flex items-center justify-between gap-3 px-4 py-3">
+          <!-- Nombre y rol apilados en columna -->
+          <div class="d-flex flex-column">
+            <span class="fs-sm fw-semibold text-white">Ana Torres</span>
+            <span class="fs-xs text-nav-muted">Recepcionista</span>
+          </div>
+
+          <!-- .navbar-logout: enlace rojo suave con fondo sutil al pasar el mouse -->
+          <a href="../../index.html" class="navbar-logout">Cerrar sesión</a>
+        </div>
+
+      </div>
+    </nav>
+
+    <!--
+      ========================================================================
+      3. ÁREA PRINCIPAL DERECHA: <main class="app-main">
+      ========================================================================
+      ¿Por qué <main class="app-main">?
+      - .app-main tiene flex: 1 (ocupa todo el ancho restante junto al sidebar),
+        min-width: 0 (evita que tablas anchas desborden el layout) y
+        display: flex; flex-direction: column (para apilar header, content y footer).
+    -->
+    <main id="contenido-principal" class="app-main">
+
+      <!--
+        3.1 ENCABEZADO DE LA PÁGINA: .page-header
+        - NO se llama .app-header, en styles.css la clase es .page-header.
+        - Tiene fondo blanco, borde inferior y padding responsivo.
+        - En >= 768px cambia a flex-direction: row + justify-content: space-between,
+          por si algún día pones un botón de acción a la derecha (dentro de .page-actions).
+      -->
+      <header class="page-header">
+        <!-- Agrupamos migas de pan + título + subtítulo en columna para que queden juntos a la izquierda -->
+        <div class="d-flex flex-column gap-1">
+          <!-- Migas de pan semánticas (.breadcrumbs + .breadcrumb-item) -->
+          <nav aria-label="Ruta de navegación">
+            <ol class="breadcrumbs">
+              <li class="breadcrumb-item" aria-current="page">Panel principal</li>
+            </ol>
+          </nav>
+
+          <!-- .page-title y .page-subtitle aplican la tipografía y color definidos en styles.css -->
+          <h1 class="page-title">Panel principal</h1>
+          <p class="page-subtitle">Resumen de citas, propietarios y mascotas de la clínica.</p>
+        </div>
+      </header>
+
+      <!--
+        3.2 CONTENIDO CENTRAL: .page-content
+        - .page-content tiene flex: 1, lo que hace que ocupe todo el alto disponible
+          y empuje al <footer> hasta el borde inferior de la pantalla.
+        - .d-flex .flex-column .gap-6: apila las secciones (primero tarjetas, luego tabla)
+          con 24px de separación vertical entre ellas.
+      -->
+      <div class="page-content d-flex flex-column gap-6">
+
+        <!--
+          ====================================================================
+          SECCIÓN A: TARJETAS DE MÉTRICAS (uso de .grid-12)
+          ====================================================================
+          ¿Por qué aquí SÍ va .grid-12 y no flex?
+          Porque queremos columnas proporcionales en una grilla de 12 columnas:
+            - En móvil (< 768px): cada hijo de .grid-12 ocupa 12 columnas por defecto (1 tarjeta por fila).
+            - En tablet/escritorio (>= 768px): cada <article> tiene .col-md-4 -> 4 + 4 + 4 = 12 columnas
+              (3 tarjetas iguales en una misma fila).
+          Nota: .col-md-4 SOLO funciona si el elemento es hijo directo de .grid-12.
+        -->
+        <section class="grid-12" aria-label="Indicadores principales del día">
+
+          <!-- Tarjeta 1: borde izquierdo turquesa por defecto en .metric-card -->
+          <article class="metric-card col-md-4">
+            <span class="metric-label">Citas para hoy</span>
+            <span class="metric-value">8</span>
+            <span class="metric-description">5 pendientes y 3 atendidas</span>
+          </article>
+
+          <!-- Tarjeta 2: .metric-card-success cambia el borde izquierdo a verde -->
+          <article class="metric-card metric-card-success col-md-4">
+            <span class="metric-label">Mascotas registradas</span>
+            <span class="metric-value">142</span>
+            <span class="metric-description">Pacientes activos en el sistema</span>
+          </article>
+
+          <!-- Tarjeta 3: .metric-card-secondary cambia el borde izquierdo a azul oscuro -->
+          <article class="metric-card metric-card-secondary col-md-4">
+            <span class="metric-label">Propietarios registrados</span>
+            <span class="metric-value">98</span>
+            <span class="metric-description">Clientes con ficha vigente</span>
+          </article>
+
+        </section>
+
+        <!--
+          ====================================================================
+          SECCIÓN B: TARJETA CON TABLA DE CITAS (.card + .table)
+          ====================================================================
+          ¿Por qué <section class="card">?
+          - <section> es la etiqueta semántica para un bloque temático con encabezado (<h2>).
+          - .card le da el fondo blanco, borde gris, sombra suave y esquinas redondeadas.
+          - NO necesita .grid-12 porque ocupa todo el ancho disponible dentro de .page-content.
+        -->
+        <section class="card" aria-labelledby="citas-hoy-title">
+
+          <!--
+            Encabezado de la tarjeta (.card-header):
+            En >= 768px ya tiene display: flex; justify-content: space-between; align-items: center.
+            Por eso el <h2> queda a la izquierda y el botón "Ver todas" a la derecha automáticamente.
+          -->
+          <header class="card-header">
+            <h2 id="citas-hoy-title" class="card-title">Citas programadas para hoy</h2>
+            <!-- .btn (base) + .btn-outline (borde gris, fondo blanco) + .btn-sm (botón compacto) -->
+            <a href="citas/citas-listado.html" class="btn btn-outline btn-sm">Ver todas</a>
+          </header>
+
+          <!-- Cuerpo de la tarjeta (.card-body): agrega el padding interno uniforme -->
+          <div class="card-body">
+
+            <!--
+              .table-wrapper envuelve la tabla para controlar el ancho (y scroll horizontal
+              si fuera necesario en pantallas medianas).
+            -->
+            <div class="table-wrapper">
+              <!--
+                .table es responsiva por defecto en styles.css:
+                - En móvil (< 1024px): oculta el <thead> y convierte cada <tr> en una tarjeta
+                  mostrando el texto de data-label="..." a la izquierda de cada celda.
+                - En escritorio (>= 1024px): vuelve a mostrarse como tabla tradicional.
+              -->
+              <table class="table">
+                <caption class="visually-hidden">
+                  Listado de citas programadas para hoy con horario, paciente, propietario, veterinario, servicio,
+                  estado y acciones disponibles.
+                </caption>
+
+                <thead>
+                  <tr>
+                    <!-- scope="col" indica a lectores de pantalla que son encabezados de columna -->
+                    <th scope="col">Hora</th>
+                    <th scope="col">Paciente</th>
+                    <th scope="col">Propietario</th>
+                    <th scope="col">Veterinario</th>
+                    <th scope="col">Servicio</th>
+                    <th scope="col">Estado</th>
+                    <th scope="col">Acciones</th>
+                  </tr>
+                </thead>
+
+                <tbody>
+                  <!-- Fila 1 -->
+                  <tr>
+                    <!-- scope="row" marca la celda principal de la fila (styles.css la pone en negrita) -->
+                    <!-- data-label="..." es OBLIGATORIO para que se vea el título en móvil -->
+                    <th scope="row" data-label="Hora">08:30 - 09:00</th>
+                    <td data-label="Paciente">Toby (Perro)</td>
+                    <td data-label="Propietario">Carlos Mendoza</td>
+                    <td data-label="Veterinario">Dr. Esteban Morales</td>
+                    <td data-label="Servicio">Consulta general</td>
+                    <td data-label="Estado">
+                      <!-- .badge (píldora base) + .badge-programada (azul informativo) -->
+                      <span class="badge badge-programada">Programada</span>
+                    </td>
+                    <td data-label="Acciones">
+                      <!-- .table-actions alinea los botones en fila con gap-2 -->
+                      <div class="table-actions">
+                        <a href="citas/reprogramar-cita.html" class="btn btn-outline btn-sm">Reprogramar</a>
+                        <a href="citas/cancelar-cita.html" class="btn btn-outline-danger btn-sm">Cancelar cita</a>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!-- Fila 2 -->
+                  <tr>
+                    <th scope="row" data-label="Hora">09:00 - 09:30</th>
+                    <td data-label="Paciente">Luna (Gato)</td>
+                    <td data-label="Propietario">María López</td>
+                    <td data-label="Veterinario">Dra. Camila Morales</td>
+                    <td data-label="Servicio">Vacunación</td>
+                    <td data-label="Estado">
+                      <span class="badge badge-programada">Programada</span>
+
+                    </td>
+                    <td data-label="Acciones">
+                      <div class="table-actions">
+                        <a href="citas/reprogramar-cita.html" class="btn btn-outline btn-sm">Reprogramar</a>
+                        <a href="citas/cancelar-cita.html" class="btn btn-outline-danger btn-sm">Cancelar cita</a>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <!-- Fila 3 -->
+                  <tr>
+                    <th scope="row" data-label="Hora">09:30 - 10:00</th>
+                    <td data-label="Paciente">Rocky (Perro)</td>
+                    <td data-label="Propietario">Juan Pérez</td>
+                    <td data-label="Veterinario">Dr. Esteban Morales</td>
+                    <td data-label="Servicio">Desparasitación</td>
+                    <td data-label="Estado">
+                      <!-- .badge-atendida aplica verde de éxito -->
+                      <span class="badge badge-atendida">Atendida</span>
+                    </td>
+                    <td data-label="Acciones">
+                      <span class="text-muted fs-xs">Sin acciones</span>
+                    </td>
+                  </tr>
+
+                  <!-- Fila 4 -->
+                  <tr>
+                    <th scope="row" data-label="Hora">10:30 - 11:00</th>
+                    <td data-label="Paciente">Misi (Gato)</td>
+                    <td data-label="Propietario">Elena Gómez</td>
+                    <td data-label="Veterinario">Dra. Camila Morales</td>
+                    <td data-label="Servicio">Profilaxis dental</td>
+                    <td data-label="Estado">
+                      <!-- .badge-cancelada aplica rojo de peligro/cancelación -->
+                      <span class="badge badge-cancelada">Cancelada</span>
+                    </td>
+                    <td data-label="Acciones">
+                      <span class="text-muted fs-xs">Sin acciones</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+          </div>
+        </section>
+
+      </div>
+
+      <!--
+        3.3 PIE DE PÁGINA: .page-footer
+        - Siempre va como último hijo dentro de <main class="app-main">.
+        - Gracias a que .page-content tiene flex: 1, el footer queda abajo de todo.
+      -->
+      <footer class="page-footer">
+        <p>&copy; 2026 Clínica Veterinaria Huellitas &middot; VetCare &middot; Quito, Ecuador</p>
+      </footer>
+
+    </main>
+
+  </div>
+</body>
+
+</html>
