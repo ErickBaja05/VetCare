@@ -1,0 +1,16 @@
+﻿/* ==========================================================================
+   VetCare - Personalizaciones de Fran (customFran.css)
+   ========================================================================== */
+
+/* Tamaño y tipografía del cuadro del logo "VC" */
+.brand-mark {
+  width: 2rem;
+  height: 2rem;
+  font-size: var(--fs-sm);
+}
+
+/* Enlaces sin subrayado decorativo */
+.no-underline,
+.no-underline:hover {
+  text-decoration: none;
+}
