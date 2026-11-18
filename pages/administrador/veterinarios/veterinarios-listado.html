@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="VetCare - Gestión y listado de médicos veterinarios de la Clínica Veterinaria Huellitas.">
+
+        <title>Veterinarios | VetCare - Clínica Huellitas</title>
+
+        <link rel="stylesheet" href="../../../css/normalize.css">
+        <link rel="stylesheet" href="../../../css/styles.css">
+    </head>
+
+    <body>
+        <nav>
+            <input type="checkbox" id="nav-toggle">
+
+            <div>
+                <a href="../admin-dashboard.html">
+                    <span>VC</span>
+                    <span>VetCare</span>
+                    <span>Admin</span>
+                </a>
+
+                <label for="nav-toggle">
+                    <span>☰ Menú</span>
+                    <span>✕ Cerrar</span>
+                </label>
+            </div>
+
+            <div id="nav-menu">
+                <div>
+                    <span>Administración</span>
+                    <ul>
+                        <li><a href="../admin-dashboard.html">Panel principal</a></li>
+                        <li><a href="veterinarios-listado.html">Veterinarios</a></li>
+                        <li><a href="../servicios/servicios-listado.html">Servicios</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div>
+                        <span>Ing. Patricia Viteri</span>
+                        <span>Administradora</span>
+                    </div>
+                    <a href="../../../index.html">Cerrar sesión</a>
+                </div>
+            </div>
+        </nav>
+
+        <main>
+            <header>
+                <div>
+                    <nav>
+                        <ol>
+                            <li><a href="../admin-dashboard.html">Inicio</a></li>
+                            <li>Veterinarios</li>
+                        </ol>
+                    </nav>
+
+                    <h1>Veterinarios</h1>
+                    <p>Administre la plantilla de médicos veterinarios y sus horarios.</p>
+                </div>
+
+                <a href="veterinarios-nuevo.html">Nuevo veterinario</a>
+            </header>
+
+            <div>
+                <!-- Tarjeta 1: Buscar veterinarios -->
+                <section>
+                    <div>
+                        <h2>Buscar veterinarios</h2>
+                    </div>
+
+                    <div>
+                        <form action="veterinarios-listado.html" method="get">
+                            <div>
+                                <label for="busqueda-veterinario">Nombre o registro SENESCYT</label>
+                                <input
+                                    type="search"
+                                    id="busqueda-veterinario"
+                                    name="q"
+                                    placeholder="Ej.: Esteban Morales">
+                            </div>
+
+                            <div>
+                                <button type="submit">Buscar</button>
+                                <a href="veterinarios-listado.html">Limpiar</a>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Tarjeta 2: Listado de veterinarios -->
+                <section>
+                    <div>
+                        <h2>Listado de veterinarios</h2>
+                        <span>4 registros</span>
+                    </div>
+
+                    <div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Cédula</th>
+                                    <th>Nombre</th>
+                                    <th>Registro SENESCYT</th>
+                                    <th>Horario</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>1709876543</strong></td>
+                                    <td>Dr. Esteban Morales</td>
+                                    <td>SENESCYT-1008-2017</td>
+                                    <td>Lun - Vie 08:00 - 16:30</td>
+                                    <td>
+                                        <div>
+                                            <a href="veterinarios-editar.html">Editar</a>
+                                            <a href="veterinarios-eliminar.html">Eliminar</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>1718765432</strong></td>
+                                    <td>Dra. Camila Morales</td>
+                                    <td>SENESCYT-2045-2019</td>
+                                    <td>Mar - Sáb 09:00 - 17:30</td>
+                                    <td>
+                                        <div>
+                                            <a href="veterinarios-editar.html">Editar</a>
+                                            <a href="veterinarios-eliminar.html">Eliminar</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>1714455667</strong></td>
+                                    <td>Dr. Santiago Morales</td>
+                                    <td>SENESCYT-3110-2020</td>
+                                    <td>Lun - Vie 08:00 - 16:30</td>
+                                    <td>
+                                        <div>
+                                            <a href="veterinarios-editar.html">Editar</a>
+                                            <a href="veterinarios-eliminar.html">Eliminar</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><strong>1720011223</strong></td>
+                                    <td>Dra. Elena Paredes</td>
+                                    <td>SENESCYT-4082-2021</td>
+                                    <td>Lun - Sáb 10:00 - 18:00</td>
+                                    <td>
+                                        <div>
+                                            <a href="veterinarios-editar.html">Editar</a>
+                                            <a href="veterinarios-eliminar.html">Eliminar</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+
+            <footer>
+                <p>© 2026 Clínica Veterinaria Huellitas · VetCare · Quito, Ecuador</p>
+            </footer>
+        </main>
+    </body>
+</html>
