@@ -1,0 +1,192 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VetCare - Registrar una nueva prestación médica y su tarifa en la Clínica Veterinaria Huellitas.">
+    <title>Nuevo servicio | VetCare - Clínica Huellitas</title>
+</head>
+
+<body>
+    <nav aria-label="Navegación principal">
+        <input type="checkbox" id="nav-toggle">
+
+        <div>
+            <a href="../admin-dashboard.html">
+                <span aria-hidden="true">VC</span>
+                <span>VetCare</span>
+                <span>ADMIN</span>
+            </a>
+
+            <label for="nav-toggle">
+                <span>☰ Menú</span>
+                <span>✕ Cerrar</span>
+            </label>
+        </div>
+
+        <div id="nav-menu">
+            <div>
+                <span>Administración</span>
+                <ul>
+                    <li>
+                        <a href="../admin-dashboard.html">Panel principal</a>
+                    </li>
+                    <li>
+                        <a href="../veterinarios/veterinarios-listado.html">Veterinarios</a>
+                    </li>
+                    <li>
+                        <a href="servicios-listado.html" aria-current="page">Servicios</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <div>
+                    <span>Ing. Patricia Viteri</span>
+                    <span>Administradora</span>
+                </div>
+                <a href="../../../index.html">Cerrar sesión</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <header>
+            <div>
+                <nav aria-label="Breadcrumb">
+                    <ol>
+                        <li>
+                            <a href="../admin-dashboard.html">Inicio</a>
+                        </li>
+                        <li>
+                            <a href="servicios-listado.html">Servicios</a>
+                        </li>
+                        <li aria-current="page">
+                            Nuevo servicio
+                        </li>
+                    </ol>
+                </nav>
+
+                <h1>Nuevo servicio</h1>
+                <p>Registre una nueva prestación médica y su tarifa.</p>
+            </div>
+
+            <a href="servicios-listado.html">Volver al listado</a>
+        </header>
+
+        <div>
+            <section aria-labelledby="form-servicio-title">
+                <form action="servicios-listado.html" method="get">
+                    <div>
+                        <h2 id="form-servicio-title">Datos del servicio</h2>
+                    </div>
+
+                    <div>
+                        <fieldset>
+                            <legend>Información general y tarifa</legend>
+                            <div>
+                                <div>
+                                    <label for="codigo">Código *</label>
+                                    <input type="text" id="codigo" name="codigo" placeholder="Ej.: SRV-005" required
+                                        pattern="SRV-[0-9]{3}" autocomplete="off">
+                                    <small>Formato: SRV-000.</small>
+                                </div>
+
+                                <div>
+                                    <label for="nombre">Nombre del servicio *</label>
+                                    <input type="text" id="nombre" name="nombre" placeholder="Ej.: Ecografía abdominal"
+                                        required minlength="3" maxlength="60">
+                                </div>
+
+                                <div>
+                                    <label for="categoria">Categoría *</label>
+                                    <select id="categoria" name="categoria" required>
+                                        <option value="" disabled selected>Seleccione...</option>
+                                        <option value="Consulta">Consulta</option>
+                                        <option value="Vacunación">Vacunación</option>
+                                        <option value="Medicina preventiva">Medicina preventiva</option>
+                                        <option value="Odontología">Odontología</option>
+                                        <option value="Cirugía">Cirugía</option>
+                                        <option value="Diagnóstico">Diagnóstico</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label for="duracion">Duración estimada *</label>
+                                    <select id="duracion" name="duracion" required>
+                                        <option value="" disabled selected>Seleccione...</option>
+                                        <option value="15 min">15 min</option>
+                                        <option value="30 min">30 min</option>
+                                        <option value="45 min">45 min</option>
+                                        <option value="60 min">60 min</option>
+                                        <option value="90 min">90 min</option>
+                                        <option value="120 min">120 min</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label for="tarifa">Tarifa (USD) *</label>
+                                    <input type="number" id="tarifa" name="tarifa" placeholder="Ej.: 35.00" required
+                                        min="1.00" max="500.00" step="0.01">
+                                    <small>Entre $1.00 y $500.00.</small>
+                                </div>
+
+                                <div>
+                                    <label for="estado">Estado *</label>
+                                    <select id="estado" name="estado" required>
+                                        <option value="" disabled selected>Seleccione...</option>
+                                        <option value="Activo">Activo</option>
+                                        <option value="Inactivo">Inactivo</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label for="descripcion">Descripción *</label>
+                                    <textarea id="descripcion" name="descripcion" placeholder="Describa el alcance del servicio e indicaciones..."
+                                        required minlength="5" maxlength="250"></textarea>
+                                    <small>Entre 5 y 250 caracteres.</small>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <div>
+                            <button type="submit">Guardar</button>
+                            <a href="servicios-listado.html">Cancelar</a>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <aside aria-labelledby="indicaciones-servicio-title">
+                <div>
+                    <div>
+                        <h2 id="indicaciones-servicio-title">Indicaciones</h2>
+                    </div>
+                    <div>
+                        <dl>
+                            <div>
+                                <dt>CÓDIGO</dt>
+                                <dd>Debe seguir el formato SRV-000.</dd>
+                            </div>
+                            <div>
+                                <dt>DURACIÓN</dt>
+                                <dd>En bloques de 30 minutos para agenda médica.</dd>
+                            </div>
+                            <div>
+                                <dt>TARIFA</dt>
+                                <dd>Expresada en dólares estadounidenses (USD).</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Clínica Veterinaria Huellitas &middot; VetCare &middot; Quito, Ecuador</p>
+        </footer>
+    </main>
+</body>
+
+</html>
