@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="VetCare - Registrar un nuevo médico veterinario en la Clínica Veterinaria Huellitas.">
+    <title>Nuevo veterinario | VetCare - Clínica Huellitas</title>
+</head>
+
+<body>
+    <nav aria-label="Navegación principal">
+        <input type="checkbox" id="nav-toggle">
+
+        <div>
+            <a href="../admin-dashboard.html">
+                <span aria-hidden="true">VC</span>
+                <span>VetCare</span>
+                <span>ADMIN</span>
+            </a>
+
+            <label for="nav-toggle">
+                <span>☰ Menú</span>
+                <span>✕ Cerrar</span>
+            </label>
+        </div>
+
+        <div id="nav-menu">
+            <div>
+                <span>Administración</span>
+                <ul>
+                    <li>
+                        <a href="../admin-dashboard.html">Panel principal</a>
+                    </li>
+                    <li>
+                        <a href="veterinarios-listado.html" aria-current="page">Veterinarios</a>
+                    </li>
+                    <li>
+                        <a href="../servicios/servicios-listado.html">Servicios</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <div>
+                    <span>Ing. Patricia Viteri</span>
+                    <span>Administradora</span>
+                </div>
+                <a href="../../../index.html">Cerrar sesión</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <header>
+            <div>
+                <nav aria-label="Breadcrumb">
+                    <ol>
+                        <li>
+                            <a href="../admin-dashboard.html">Inicio</a>
+                        </li>
+                        <li>
+                            <a href="veterinarios-listado.html">Veterinarios</a>
+                        </li>
+                        <li aria-current="page">
+                            Nuevo veterinario
+                        </li>
+                    </ol>
+                </nav>
+
+                <h1>Nuevo veterinario</h1>
+                <p>Registre un médico veterinario y su horario de atención.</p>
+            </div>
+
+            <a href="veterinarios-listado.html">Volver al listado</a>
+        </header>
+
+        <div>
+            <section aria-labelledby="form-veterinario-title">
+                <form action="veterinarios-listado.html" method="get">
+                    <div>
+                        <h2 id="form-veterinario-title">Datos del veterinario</h2>
+                    </div>
+
+                    <div>
+                        <fieldset>
+                            <legend>Identificación profesional</legend>
+                            <div>
+                                <div>
+                                    <label for="cedula">Cédula *</label>
+                                    <input type="text" id="cedula" name="cedula" placeholder="Ej.: 1709876543" required
+                                        pattern="[0-9]{10}" minlength="10" maxlength="10" inputmode="numeric"
+                                        autocomplete="off">
+                                    <small>10 dígitos numéricos.</small>
+                                </div>
+
+                                <div>
+                                    <label for="registro-senescyt">Registro SENESCYT *</label>
+                                    <input type="text" id="registro-senescyt" name="registro_senescyt"
+                                        placeholder="Ej.: SENESCYT-1008-2017" required pattern="[A-Za-z0-9-]{8,30}"
+                                        autocomplete="off">
+                                </div>
+
+                                <div>
+                                    <label for="nombres">Nombres y apellidos *</label>
+                                    <input type="text" id="nombres" name="nombres"
+                                        placeholder="Ej.: Dr. Esteban Morales" required
+                                        pattern="[A-Za-zÁÉÍÓÚáéíóúÑñ.\s]{3,60}" minlength="3" maxlength="60"
+                                        autocomplete="name">
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <fieldset>
+                            <legend>Contacto y horario</legend>
+                            <div>
+                                <div>
+                                    <label for="celular">Teléfono celular *</label>
+                                    <input type="tel" id="celular" name="celular" placeholder="Ej.: 0991234567"
+                                        required pattern="09[0-9]{8}" minlength="10" maxlength="10" inputmode="tel"
+                                        autocomplete="tel">
+                                    <small>10 dígitos iniciando con 09.</small>
+                                </div>
+
+                                <div>
+                                    <label for="correo">Correo institucional *</label>
+                                    <input type="email" id="correo" name="correo"
+                                        placeholder="Ej.: esteban.morales@vetcare.com" required maxlength="80"
+                                        autocomplete="email">
+                                </div>
+
+                                <div>
+                                    <label for="horario">Horario de atención *</label>
+                                    <select id="horario" name="horario" required>
+                                        <option value="" disabled selected>Seleccione...</option>
+                                        <option value="matutino">Matutino (08:00 - 14:00)</option>
+                                        <option value="vespertino">Vespertino (14:00 - 20:00)</option>
+                                        <option value="completo">Jornada completa (08:00 - 17:00)</option>
+                                        <option value="fines-semana">Fines de semana (09:00 - 17:00)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <div>
+                            <button type="submit">Guardar</button>
+                            <a href="veterinarios-listado.html">Cancelar</a>
+                        </div>
+                    </div>
+                </form>
+            </section>
+
+            <aside aria-labelledby="requisitos-veterinario-title">
+                <div>
+                    <div>
+                        <h2 id="requisitos-veterinario-title">Requisitos</h2>
+                    </div>
+                    <div>
+                        <dl>
+                            <div>
+                                <dt>ACREDITACIÓN</dt>
+                                <dd>Título profesional registrado en SENESCYT.</dd>
+                            </div>
+                            <div>
+                                <dt>DISPONIBILIDAD</dt>
+                                <dd>El profesional quedará disponible para asignar citas.</dd>
+                            </div>
+                        </dl>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 Clínica Veterinaria Huellitas &middot; VetCare &middot; Quito, Ecuador</p>
+        </footer>
+    </main>
+</body>
+
+</html>
