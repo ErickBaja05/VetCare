@@ -14,3 +14,8 @@
 .no-underline:hover {
   text-decoration: none;
 }
+
+/* Evita que una tabla ancha desborde la tarjeta en pantallas pequeñas o medianas */
+.table-wrapper {
+  overflow-x: auto;
+}
