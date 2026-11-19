@@ -88,24 +88,26 @@
                     </div>
 
                     <div class="card-body">
-                        <form action="citas-agendar.html" method="get" class="grid-12 items-start">
-                            <div class="d-flex flex-column gap-1 col-md-8">
-                                <label for="cedula" class="fs-sm fw-semibold required">Cédula del propietario</label>
-                                <input class="form-control"
-                                    type="text"
-                                    id="cedula"
-                                    name="cedula"
-                                    required
-                                    pattern="[0-9]{10}"
-                                    minlength="10"
-                                    maxlength="10"
-                                    placeholder="Ej.: 1712345678"
-                                    title="Ingrese exactamente 10 dígitos numéricos sin guiones."
-                                    autocomplete="off">
-                                <p class="fs-xs text-muted">Ingrese los 10 dígitos de la cédula para desplegar sus mascotas asignadas.</p>
-                            </div>
+                        <form action="citas-agendar.html" method="get">
+                            <div class="grid-12 items-end">
+                                <div class="d-flex flex-column gap-1 col-md-8">
+                                    <label for="cedula" class="fs-sm fw-semibold required">Cédula del propietario</label>
+                                    <input class="form-control"
+                                        type="text"
+                                        id="cedula"
+                                        name="cedula"
+                                        required
+                                        pattern="[0-9]{10}"
+                                        minlength="10"
+                                        maxlength="10"
+                                        placeholder="Ej.: 1712345678"
+                                        title="Ingrese exactamente 10 dígitos numéricos sin guiones."
+                                        autocomplete="off">
+                                </div>
 
-                            <button type="submit" class="btn btn-primary col-md-4 mt-md-btn">Buscar mascotas</button>
+                                <button type="submit" class="btn btn-primary col-md-4">Buscar mascotas</button>
+                            </div>
+                            <p class="fs-xs text-muted mt-1">Ingrese los 10 dígitos de la cédula para desplegar sus mascotas asignadas.</p>
                         </form>
                     </div>
                 </section>

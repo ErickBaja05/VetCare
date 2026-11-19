@@ -1,0 +1,167 @@
+@startuml MapaNavegacional
+title Mapa Navegacional VetCare (FSM Actualizado)
+
+hide empty description
+top to bottom direction
+
+skinparam nodesep 60
+skinparam ranksep 80
+skinparam padding 12
+skinparam ArrowThickness 1.2
+skinparam StateBackgroundColor #FFFDF5
+skinparam StateBorderColor #8B2635
+
+state "index" as index
+
+[*] --> index
+index --> recepcionista_dashboard : 1
+index --> consultar_citas : 2
+index --> admin_dashboard : 3
+
+' =========================================================
+' ROL: ADMINISTRADOR
+' =========================================================
+state "Administrador" as mod_admin {
+  state "admin-dashboard" as admin_dashboard
+
+  state "Gestion Veterinarios" as sub_vet {
+    state "veterinarios-listado" as veterinarios_listado
+    state "veterinarios-nuevo" as veterinarios_nuevo
+    state "veterinarios-editar" as veterinarios_editar
+    state "veterinarios-eliminar" as veterinarios_eliminar
+  }
+
+  state "Gestion Servicios" as sub_serv {
+    state "servicios-listado" as servicios_listado
+    state "servicios-nuevo" as servicios_nuevo
+    state "servicios-editar" as servicios_editar
+    state "servicios-eliminar" as servicios_eliminar
+  }
+
+  admin_dashboard --> admin_dashboard : 5
+  admin_dashboard --> veterinarios_listado : 6
+  admin_dashboard --> servicios_listado : 7
+
+  veterinarios_listado --> veterinarios_listado : 8
+  veterinarios_listado --> veterinarios_nuevo : 9
+  veterinarios_listado --> veterinarios_editar : 10
+  veterinarios_listado --> veterinarios_eliminar : 11
+  veterinarios_nuevo --> veterinarios_listado : 12
+  veterinarios_editar --> veterinarios_listado : 13
+  veterinarios_eliminar --> veterinarios_listado : 14
+
+  servicios_listado --> servicios_listado : 15
+  servicios_listado --> servicios_nuevo : 16
+  servicios_listado --> servicios_editar : 17
+  servicios_listado --> servicios_eliminar : 18
+  servicios_nuevo --> servicios_listado : 19
+  servicios_editar --> servicios_listado : 20
+  servicios_eliminar --> servicios_listado : 21
+
+  veterinarios_listado --> servicios_listado : 22
+  servicios_listado --> veterinarios_listado : 23
+}
+
+mod_admin --> index : 4
+
+' =========================================================
+' ROL: VETERINARIO
+' =========================================================
+state "Veterinario" as mod_vet {
+  state "Citas" as sub_vet_citas {
+    state "citas-listado" as consultar_citas
+    state "atencion-registrar" as atencion_registrar
+  }
+
+  state "Historial clinico" as sub_vet_hist {
+    state "buscar-historial" as historial_buscar
+    state "historial-detalle" as historial_detalle
+  }
+
+  consultar_citas --> consultar_citas : 25
+  consultar_citas --> atencion_registrar : 26
+  atencion_registrar --> consultar_citas : 27
+  consultar_citas --> historial_buscar : 28
+  historial_buscar --> consultar_citas : 29
+  historial_buscar --> historial_buscar : 30
+  historial_buscar --> historial_detalle : 31
+  historial_detalle --> historial_buscar : 32
+}
+
+mod_vet --> index : 24
+
+' =========================================================
+' ROL: RECEPCIONISTA
+' =========================================================
+state "Recepcionista" as mod_recepcion {
+  state "recepcionista-dashboard" as recepcionista_dashboard
+
+  state "Propietarios" as sub_prop {
+    state "propietarios-listado" as propietarios_listado
+    state "propietarios-nuevos" as propietarios_nuevo
+    state "propietarios-editar" as propietarios_editar
+    state "propietarios-eliminar" as propietarios_eliminar
+  }
+
+  state "Mascotas" as sub_masc {
+    state "mascotas-listado" as mascotas_listado
+    state "mascotas-nuevo" as mascotas_nuevo
+    state "mascotas-editar" as mascotas_editar
+    state "mascotas-eliminar" as mascotas_eliminar
+  }
+
+  state "Citas" as sub_citas {
+    state "citas-listado" as citas_listado
+    state "citas-agendar" as citas_agendar
+    state "citas-reprogramar" as citas_reprogramar
+    state "citas-cancelar" as citas_cancelar
+  }
+
+  recepcionista_dashboard --> recepcionista_dashboard : 34
+  recepcionista_dashboard --> propietarios_listado : 35
+  recepcionista_dashboard --> mascotas_listado : 36
+  recepcionista_dashboard --> citas_listado : 37
+  recepcionista_dashboard --> citas_reprogramar : 38
+  recepcionista_dashboard --> citas_cancelar : 39
+
+  propietarios_listado --> propietarios_listado : 40
+  propietarios_listado --> propietarios_nuevo : 41
+  propietarios_listado --> propietarios_editar : 42
+  propietarios_listado --> propietarios_eliminar : 43
+  propietarios_nuevo --> propietarios_listado : 44
+  propietarios_nuevo --> mascotas_nuevo : 45
+  propietarios_editar --> propietarios_listado : 46
+  propietarios_eliminar --> propietarios_listado : 47
+
+  mascotas_listado --> mascotas_listado : 48
+  mascotas_listado --> mascotas_nuevo : 49
+  mascotas_listado --> mascotas_editar : 50
+  mascotas_listado --> mascotas_eliminar : 51
+  mascotas_nuevo --> mascotas_listado : 52
+  mascotas_nuevo --> citas_agendar : 53
+  mascotas_editar --> mascotas_listado : 54
+  mascotas_eliminar --> mascotas_listado : 55
+
+  citas_listado --> citas_listado : 56
+  citas_listado --> citas_agendar : 57
+  citas_listado --> citas_reprogramar : 58
+  citas_listado --> citas_cancelar : 59
+  citas_agendar --> citas_agendar : 60
+  citas_agendar --> citas_listado : 61
+  citas_agendar --> propietarios_nuevo : 62
+  citas_agendar --> mascotas_nuevo : 63
+  citas_reprogramar --> citas_listado : 64
+  citas_cancelar --> citas_listado : 65
+}
+
+mod_recepcion --> index : 33
+
+' =========================================================
+' LEYENDA DE TRANSICIONES
+' =========================================================
+legend bottom
+  |= General y Administrador (1 - 23) |= Veterinario (24 - 32) |= Recepcion: Panel y Propietarios (33 - 47) |= Recepcion: Mascotas y Citas (48 - 65) |
+  | **1.** index -> recepcionista-dashboard\n**2.** index -> citas-listado (vet)\n**3.** index -> admin-dashboard\n**4.** Administrador -> index\n**5.** admin-dashboard -> admin-dashboard\n**6.** admin-dashboard -> veterinarios-listado\n**7.** admin-dashboard -> servicios-listado\n**8.** veterinarios-listado -> veterinarios-listado\n**9.** veterinarios-listado -> veterinarios-nuevo\n**10.** veterinarios-listado -> veterinarios-editar\n**11.** veterinarios-listado -> veterinarios-eliminar\n**12.** veterinarios-nuevo -> veterinarios-listado\n**13.** veterinarios-editar -> veterinarios-listado\n**14.** veterinarios-eliminar -> veterinarios-listado\n**15.** servicios-listado -> servicios-listado\n**16.** servicios-listado -> servicios-nuevo\n**17.** servicios-listado -> servicios-editar\n**18.** servicios-listado -> servicios-eliminar\n**19.** servicios-nuevo -> servicios-listado\n**20.** servicios-editar -> servicios-listado\n**21.** servicios-eliminar -> servicios-listado\n**22.** veterinarios-listado -> servicios-listado\n**23.** servicios-listado -> veterinarios-listado | **24.** Veterinario -> index\n**25.** citas-listado (vet) -> citas-listado (vet)\n**26.** citas-listado (vet) -> atencion-registrar\n**27.** atencion-registrar -> citas-listado (vet)\n**28.** citas-listado (vet) -> buscar-historial\n**29.** buscar-historial -> citas-listado (vet)\n**30.** buscar-historial -> buscar-historial\n**31.** buscar-historial -> historial-detalle\n**32.** historial-detalle -> buscar-historial | **33.** Recepcionista -> index\n**34.** recepcionista-dashboard -> recepcionista-dashboard\n**35.** recepcionista-dashboard -> propietarios-listado\n**36.** recepcionista-dashboard -> mascotas-listado\n**37.** recepcionista-dashboard -> citas-listado\n**38.** recepcionista-dashboard -> citas-reprogramar\n**39.** recepcionista-dashboard -> citas-cancelar\n**40.** propietarios-listado -> propietarios-listado\n**41.** propietarios-listado -> propietarios-nuevos\n**42.** propietarios-listado -> propietarios-editar\n**43.** propietarios-listado -> propietarios-eliminar\n**44.** propietarios-nuevos -> propietarios-listado\n**45.** propietarios-nuevos -> mascotas-nuevo\n**46.** propietarios-editar -> propietarios-listado\n**47.** propietarios-eliminar -> propietarios-listado | **48.** mascotas-listado -> mascotas-listado\n**49.** mascotas-listado -> mascotas-nuevo\n**50.** mascotas-listado -> mascotas-editar\n**51.** mascotas-listado -> mascotas-eliminar\n**52.** mascotas-nuevo -> mascotas-listado\n**53.** mascotas-nuevo -> citas-agendar\n**54.** mascotas-editar -> mascotas-listado\n**55.** mascotas-eliminar -> mascotas-listado\n**56.** citas-listado -> citas-listado\n**57.** citas-listado -> citas-agendar\n**58.** citas-listado -> citas-reprogramar\n**59.** citas-listado -> citas-cancelar\n**60.** citas-agendar -> citas-agendar\n**61.** citas-agendar -> citas-listado\n**62.** citas-agendar -> propietarios-nuevos\n**63.** citas-agendar -> mascotas-nuevo\n**64.** citas-reprogramar -> citas-listado\n**65.** citas-cancelar -> citas-listado |
+endlegend
+
+@enduml
