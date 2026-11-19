@@ -6,7 +6,7 @@ Sistema web de gestión de citas, pacientes, propietarios, servicios y atención
 
 ## 🌐 Enlace a GitHub Pages
 
-> 🔗 **Demo en vivo:** `[Enlace pendiente — agregar URL de GitHub Pages aquí]`
+> 🔗 **Demo en vivo:** <https://erickbaja05.github.io/VetCare/>
 
 ---
 
