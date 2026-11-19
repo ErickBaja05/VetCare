@@ -1,0 +1,10 @@
+.no-underline,
+.no-underline:hover {
+  text-decoration: none;
+}
+
+.brand-mark {
+  width: 2rem;
+  height: 2rem;
+  font-size: var(--fs-sm);
+}
