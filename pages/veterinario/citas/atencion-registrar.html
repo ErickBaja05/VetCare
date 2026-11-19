@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="VetCare - Registrar atención médica y diagnóstico clínico en la Clínica Veterinaria Huellitas.">
+
+        <title>Registrar atención médica | VetCare - Clínica Huellitas</title>
+
+        <link rel="stylesheet" href="../../../css/normalize.css">
+        <link rel="stylesheet" href="../../../css/styles.css">
+    </head>
+
+    <body class="app-layout">
+        <nav class="app-sidebar d-flex flex-column">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
+
+            <div class="d-flex items-center justify-between gap-2 p-4 border-bottom nav-border">
+                <a href="citas-listado.html" class="d-flex items-center gap-2">
+                    <span class="d-inline-flex items-center justify-center rounded-md bg-primary text-white fw-extrabold px-2 py-1">VC</span>
+                    <span class="fs-lg fw-extrabold text-white">VetCare</span>
+                    <span class="fs-xs fw-semibold text-uppercase text-nav-muted border nav-border rounded-sm px-2">Veterinario</span>
+                </a>
+
+                <label for="nav-toggle" class="nav-toggle">
+                    <span class="nav-toggle-open">☰ Menú</span>
+                    <span class="nav-toggle-close">✕ Cerrar</span>
+                </label>
+            </div>
+
+            <div id="nav-menu" class="nav-collapse">
+                <div class="flex-1 p-3">
+                    <span class="d-flex fs-xs fw-bold text-uppercase text-nav-muted px-3 py-2">Área clínica</span>
+                    <ul class="d-flex flex-column gap-1">
+                        <li><a class="nav-link active" href="citas-listado.html">Consultar citas</a></li>
+                        <li><a class="nav-link" href="../historial/buscar-historial.html">Historial clínico</a></li>
+                    </ul>
+                </div>
+
+                <div class="navbar-user d-flex items-center justify-between gap-3 px-4 py-3">
+                    <div class="d-flex flex-column">
+                        <span class="fs-sm fw-semibold text-white">Dr. Esteban Morales</span>
+                        <span class="fs-xs text-nav-muted">Médico veterinario</span>
+                    </div>
+                    <a class="navbar-logout" href="../../../index.html">Cerrar sesión</a>
+                </div>
+            </div>
+        </nav>
+
+        <main class="app-main">
+            <header class="page-header">
+                <div class="d-flex flex-column gap-1">
+                    <nav>
+                        <ol class="breadcrumbs">
+                            <li class="breadcrumb-item"><a href="citas-listado.html">Consultar citas</a></li>
+                            <li class="breadcrumb-item">Registrar atención</li>
+                        </ol>
+                    </nav>
+
+                    <h1>Registrar atención médica</h1>
+                    <p class="text-muted fs-sm">Cita CIT-2026-089 · Toby (08:30)</p>
+                </div>
+
+                <a href="citas-listado.html" class="btn btn-outline">Volver al listado</a>
+            </header>
+
+            <div class="page-content grid-12 items-start">
+                <!-- Tarjeta superior: Datos del paciente -->
+                <section class="card col-lg-12">
+                    <div class="card-header">
+                        <div class="d-flex flex-column gap-1">
+                            <h2 class="card-title">Datos del paciente</h2>
+                            <p class="fs-sm text-muted">Toby · Perro, Golden Retriever</p>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="grid-12">
+                            <div class="data-list col-md-4">
+                                <div class="data-item">
+                                    <span class="data-label">Edad y sexo</span>
+                                    <span class="data-value">5 años · Macho</span>
+                                </div>
+                                <div class="data-item">
+                                    <span class="data-label">Último peso</span>
+                                    <span class="data-value">28.5 kg</span>
+                                </div>
+                            </div>
+
+                            <div class="data-list col-md-4">
+                                <div class="data-item">
+                                    <span class="data-label">Propietario</span>
+                                    <span class="data-value">Carlos Mendoza</span>
+                                </div>
+                                <div class="data-item">
+                                    <span class="data-label">Teléfono</span>
+                                    <span class="data-value">0998765432</span>
+                                </div>
+                            </div>
+
+                            <div class="data-list col-md-4">
+                                <div class="data-item">
+                                    <span class="data-label">Motivo</span>
+                                    <span class="data-value">Vómitos y decaimiento</span>
+                                </div>
+                                <div class="data-item">
+                                    <span class="data-label">Alergias</span>
+                                    <span class="badge badge-cancelada">Penicilina</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Columna izquierda: Registro de consulta -->
+                <section class="card col-lg-8">
+                    <div class="card-header">
+                        <h2 class="card-title">Registro de consulta</h2>
+                    </div>
+
+                    <div class="card-body">
+                        <form action="citas-listado.html" method="get">
+                            <!-- Constantes fisiológicas -->
+                            <fieldset class="form-fieldset mb-4">
+                                <legend class="form-legend">Constantes fisiológicas</legend>
+                                <div class="grid-12">
+                                    <div class="d-flex flex-column gap-1 col-md-4">
+                                        <label for="peso-actual" class="fs-sm fw-semibold required">Peso actual (kg)</label>
+                                        <input class="form-control"
+                                            type="number"
+                                            id="peso-actual"
+                                            name="pesoActual"
+                                            step="0.1"
+                                            min="0.1"
+                                            max="120"
+                                            required
+                                            placeholder="Ej.: 28.5"
+                                            title="Ingrese un peso válido entre 0.1 y 120 kg.">
+                                        <p class="fs-xs text-muted">0.1 a 120 kg.</p>
+                                    </div>
+
+                                    <div class="d-flex flex-column gap-1 col-md-4">
+                                        <label for="temperatura" class="fs-sm fw-semibold required">Temperatura (°C)</label>
+                                        <input  class="form-control"
+                                            type="number"
+                                            id="temperatura"
+                                            name="temperatura"
+                                            step="0.1"
+                                            min="35.0"
+                                            max="43.0"
+                                            required
+                                            placeholder="Ej.: 38.6"
+                                            title="Ingrese una temperatura válida entre 35.0 y 43.0 °C.">
+                                        <p class="fs-xs text-muted">35.0 a 43.0 °C.</p>
+                                    </div>
+
+                                    <div class="d-flex flex-column gap-1 col-md-4">
+                                        <label for="frecuencia-cardiaca" class="fs-sm fw-semibold">Frecuencia cardíaca (lpm)</label>
+                                        <input class="form-control"
+                                            type="number"
+                                            id="frecuencia-cardiaca"
+                                            name="frecuenciaCardiaca"
+                                            step="1"
+                                            min="40"
+                                            max="240"
+                                            placeholder="Ej.: 95"
+                                            title="Ingrese una frecuencia cardíaca entre 40 y 240 lpm.">
+                                        <p class="fs-xs text-muted">40 a 240 lpm.</p>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <!-- Diagnóstico y tratamiento -->
+                            <fieldset class="form-fieldset mb-4">
+                                <legend class="form-legend">Diagnóstico y tratamiento</legend>
+                                <div class="d-flex flex-column gap-4">
+                                    <div class="d-flex flex-column gap-1">
+                                        <label for="diagnostico" class="fs-sm fw-semibold required">Diagnóstico</label>
+                                        <textarea class="form-control"
+                                            id="diagnostico"
+                                            name="diagnostico"
+                                            minlength="10"
+                                            maxlength="500"
+                                            required
+                                            placeholder="Describa los hallazgos y el diagnóstico clínico..."></textarea>
+                                        <p class="fs-xs text-muted">Entre 10 y 500 caracteres.</p>
+                                    </div>
+
+                                    <div class="d-flex flex-column gap-1">
+                                        <label for="tratamiento" class="fs-sm fw-semibold required">Tratamiento</label>
+                                        <textarea class="form-control"
+                                            id="tratamiento"
+                                            name="tratamiento"
+                                            minlength="5"
+                                            maxlength="500"
+                                            required
+                                            placeholder="Medicamentos, dosis, vía y duración..."></textarea>
+                                        <p class="fs-xs text-muted">Entre 5 y 500 caracteres.</p>
+                                    </div>
+
+                                    <div class="d-flex flex-column gap-1">
+                                        <label for="observaciones" class="fs-sm fw-semibold">Observaciones</label>
+                                        <textarea class="form-control"
+                                            id="observaciones"
+                                            name="observaciones"
+                                            maxlength="500"
+                                            placeholder="Recomendaciones para el propietario o próximo control..."></textarea>
+                                    </div>
+                                </div>
+                            </fieldset>
+
+                            <div class="btn-group mt-2">
+                                <button type="submit" class="btn btn-primary">Guardar</button>
+                                <a href="citas-listado.html" class="btn btn-outline">Cancelar</a>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- Columna derecha: Valores de referencia -->
+                <section class="card col-lg-4">
+                    <div class="card-header">
+                        <h2 class="card-title">Valores de referencia</h2>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="data-list">
+                            <div class="data-item">
+                                <span class="data-label">Temperatura canina</span>
+                                <span class="data-value">38.0 - 39.2 °C</span>
+                            </div>
+                            <div class="data-item">
+                                <span class="data-label">Frecuencia cardíaca</span>
+                                <span class="data-value">60 - 140 lpm</span>
+                            </div>
+                            <div class="data-item">
+                                <span class="data-label">Frecuencia respiratoria</span>
+                                <span class="data-value">10 - 30 rpm</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <footer class="page-footer">
+                <p>© 2026 Clínica Veterinaria Huellitas · VetCare · Quito, Ecuador</p>
+            </footer>
+        </main>
+    </body>
+</html>
