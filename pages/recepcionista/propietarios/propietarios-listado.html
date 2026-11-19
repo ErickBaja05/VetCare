@@ -2,31 +2,22 @@
 <html lang="es">
 
 <head>
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="preload" href="../../../css/normalize.css" as="style">
-        <link rel="preload" href="../../../css/styles.css" as="style">
-        <link rel="stylesheet" href="../../../css/normalize.css">
-        <link rel="stylesheet" href="../../../css/styles.css">
-        <link rel="stylesheet" href="../../../css/customErick.css">
-        <title>Listado de Propietarios</title>
-
-    </head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../../css/styles.css">
+    <title>Listado de Propietarios</title>
 </head>
 
 <body>
     <div class="app-layout">
         <nav class="app-sidebar d-flex flex-column" aria-label="Navegación principal">
 
-            <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-hidden-focusable="true">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
 
 
             <div class="d-flex items-center justify-between gap-2 p-4 border-bottom nav-border">
 
-                <div class="d-flex items-center gap-2">
-
+                <a href="../recepcionista-dashboard.html" class="d-flex items-center gap-2 no-underline">
                     <span
                         class="brand-mark d-inline-flex items-center justify-center rounded-md bg-primary text-white fw-extrabold"
                         aria-hidden="true">VC</span>
@@ -35,8 +26,7 @@
 
                     <span
                         class="fs-xs fw-semibold text-uppercase text-nav-muted border nav-border rounded-sm px-2">Recepción</span>
-
-                </div>
+                </a>
 
 
 
@@ -124,7 +114,7 @@
                 </div>
 
                 <div>
-                    <a href="propietario-formulario.html" class="btn btn-primary">Nuevo propietario</a>
+                    <a href="propietarios-nuevos.html" class="btn btn-primary">Nuevo propietario</a>
                 </div>
             </header>
 

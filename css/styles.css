@@ -283,6 +283,17 @@ ol {
   outline-color: #38BDF8;
 }
 
+.brand-mark {
+  width: 2rem;
+  height: 2rem;
+  font-size: var(--fs-sm);
+}
+
+.logo {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
 
 .nav-link {
   display: flex;
@@ -1365,6 +1376,11 @@ form:has(.next-step-toggle:checked) .btn-submit-next {
 
 .text-break {
   overflow-wrap: anywhere;
+}
+
+.no-underline,
+.no-underline:hover {
+  text-decoration: none;
 }
 
 /* 8.8 Colores de texto */

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="VetCare - Editar datos del médico veterinario en la Clínica Veterinaria Huellitas.">
     <title>Editar veterinario | VetCare - Clínica Huellitas</title>
-    <link rel="stylesheet" href="../../../css/normalize.css">
     <link rel="stylesheet" href="../../../css/styles.css">
-    <link rel="stylesheet" href="../../../css/customFran.css">
 </head>
 
 <body class="app-layout">
@@ -131,6 +129,7 @@
                                 <div class="d-flex flex-column gap-1 col-md-6">
                                     <label for="horario" class="fs-sm fw-semibold required">Horario de atención</label>
                                     <select id="horario" name="horario" class="form-select" required>
+                                        <option value="" disabled>Seleccione...</option>
                                         <option value="lv-0800-1630" selected>Lunes a viernes &middot; 08:00 - 16:30</option>
                                         <option value="matutino">Matutino (08:00 - 14:00)</option>
                                         <option value="vespertino">Vespertino (14:00 - 20:00)</option>
@@ -142,6 +141,7 @@
                                 <div class="d-flex flex-column gap-1 col-md-6">
                                     <label for="estado" class="fs-sm fw-semibold required">Estado</label>
                                     <select id="estado" name="estado" class="form-select" required>
+                                        <option value="" disabled>Seleccione...</option>
                                         <option value="activo" selected>Activo</option>
                                         <option value="inactivo">Inactivo</option>
                                         <option value="vacaciones">En vacaciones</option>

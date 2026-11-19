@@ -13,11 +13,7 @@
     2. styles.css     -> el framework de VetCare (tokens, layout, grid, componentes, utilidades).
     3. customErick.css -> tus excepciones personales (siempre al final para poder sobreescribir si hace falta).
   -->
-  <link rel="preload" href="../../css/normalize.css" as="style">
-  <link rel="preload" href="../../css/styles.css" as="style">
-  <link rel="stylesheet" href="../../css/normalize.css">
   <link rel="stylesheet" href="../../css/styles.css">
-  <link rel="stylesheet" href="../../css/customErick.css">
 </head>
 
 <body>
@@ -62,7 +58,7 @@
         Este checkbox oculto (.nav-toggle-input) controla si se muestra .nav-collapse
         cuando el usuario hace clic en el <label for="nav-toggle"> de abajo.
       -->
-      <input type="checkbox" id="nav-toggle" class="nav-toggle-input" aria-hidden="true">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle-input">
 
       <!--
         Encabezado de la marca dentro del sidebar:
@@ -314,8 +310,8 @@
                     <td data-label="Acciones">
                       <!-- .table-actions alinea los botones en fila con gap-2 -->
                       <div class="table-actions">
-                        <a href="citas/reprogramar-cita.html" class="btn btn-outline btn-sm">Reprogramar</a>
-                        <a href="citas/cancelar-cita.html" class="btn btn-outline-danger btn-sm">Cancelar cita</a>
+                        <a href="citas/citas-reprogramar.html" class="btn btn-outline btn-sm">Reprogramar</a>
+                        <a href="citas/citas-cancelar.html" class="btn btn-outline-danger btn-sm">Cancelar cita</a>
                       </div>
                     </td>
                   </tr>
@@ -333,8 +329,8 @@
                     </td>
                     <td data-label="Acciones">
                       <div class="table-actions">
-                        <a href="citas/reprogramar-cita.html" class="btn btn-outline btn-sm">Reprogramar</a>
-                        <a href="citas/cancelar-cita.html" class="btn btn-outline-danger btn-sm">Cancelar cita</a>
+                        <a href="citas/citas-reprogramar.html" class="btn btn-outline btn-sm">Reprogramar</a>
+                        <a href="citas/citas-cancelar.html" class="btn btn-outline-danger btn-sm">Cancelar cita</a>
                       </div>
                     </td>
                   </tr>

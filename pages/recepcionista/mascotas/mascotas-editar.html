@@ -6,9 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="VetCare - Editar ficha de mascota en la Clínica Veterinaria Huellitas.">
     <title>Editar mascota | VetCare - Clínica Huellitas</title>
-    <link rel="stylesheet" href="../../../css/normalize.css">
     <link rel="stylesheet" href="../../../css/styles.css">
-    <link rel="stylesheet" href="../../../css/customAndres.css">
 </head>
 
 <body class="app-layout">
@@ -102,6 +100,7 @@
                                 <div class="d-flex flex-column gap-1 col-md-6">
                                     <label for="especie" class="fs-sm fw-semibold required">Especie</label>
                                     <select id="especie" name="especie" class="form-select" required>
+                                        <option value="" disabled>Seleccione...</option>
                                         <option value="Perro" selected>Perro</option>
                                         <option value="Gato">Gato</option>
                                         <option value="Ave">Ave</option>
@@ -115,14 +114,14 @@
                                     <input type="text" id="raza" name="raza" list="razas-comunes" class="form-control"
                                         value="Golden Retriever" maxlength="40" required>
                                     <datalist id="razas-comunes">
-                                        <option value="Golden Retriever">
-                                        <option value="Labrador">
-                                        <option value="Pastor Alemán">
-                                        <option value="Poodle">
-                                        <option value="Schnauzer">
-                                        <option value="Siamés">
-                                        <option value="Angora">
-                                        <option value="Mestizo">
+                                        <option value="Golden Retriever"></option>
+                                        <option value="Labrador"></option>
+                                        <option value="Pastor Alemán"></option>
+                                        <option value="Poodle"></option>
+                                        <option value="Schnauzer"></option>
+                                        <option value="Siamés"></option>
+                                        <option value="Angora"></option>
+                                        <option value="Mestizo"></option>
                                     </datalist>
                                 </div>
 
@@ -163,6 +162,7 @@
                             <div class="d-flex flex-column gap-1 mb-4">
                                 <label for="id_propietario" class="fs-sm fw-semibold required">Propietario</label>
                                 <select id="id_propietario" name="id_propietario" class="form-select" required>
+                                    <option value="" disabled>Seleccione...</option>
                                     <option value="1712345678" selected>Carlos Mendoza &middot; 1712345678</option>
                                     <option value="1723456789">María López &middot; 1723456789</option>
                                     <option value="1711223344">Juan Pérez &middot; 1711223344</option>
