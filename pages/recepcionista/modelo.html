@@ -46,7 +46,7 @@
       ========================================================================
       2. BARRA DE NAVEGACIÓN LATERAL / SUPERIOR: .app-sidebar
       ========================================================================
-      - .app-sidebar: le da el fondo oscuro (--color-nav-bg), position: sticky,
+      - .app-sidebar: le da el fondo oscuro (-color-nav-bg), position: sticky,
         y en escritorio (>= 1024px) ancho fijo de 16rem (256px) y alto 100vh.
       - .d-flex .flex-column: organiza internamente el encabezado del menú y
         el bloque colapsable uno debajo del otro.
@@ -213,30 +213,30 @@
               (3 tarjetas iguales en una misma fila).
           Nota: .col-md-4 SOLO funciona si el elemento es hijo directo de .grid-12.
         -->
-        <section class="grid-12" aria-label="Indicadores principales del día">
+        <div class="grid-12">
 
           <!-- Tarjeta 1: borde izquierdo turquesa por defecto en .metric-card -->
-          <article class="metric-card col-md-4">
+          <div class="metric-card col-md-4">
             <span class="metric-label">Citas para hoy</span>
             <span class="metric-value">8</span>
             <span class="metric-description">5 pendientes y 3 atendidas</span>
-          </article>
+          </div>
 
           <!-- Tarjeta 2: .metric-card-success cambia el borde izquierdo a verde -->
-          <article class="metric-card metric-card-success col-md-4">
+          <div class="metric-card metric-card-success col-md-4">
             <span class="metric-label">Mascotas registradas</span>
             <span class="metric-value">142</span>
             <span class="metric-description">Pacientes activos en el sistema</span>
-          </article>
+          </div>
 
           <!-- Tarjeta 3: .metric-card-secondary cambia el borde izquierdo a azul oscuro -->
-          <article class="metric-card metric-card-secondary col-md-4">
+          <div class="metric-card metric-card-secondary col-md-4">
             <span class="metric-label">Propietarios registrados</span>
             <span class="metric-value">98</span>
             <span class="metric-description">Clientes con ficha vigente</span>
-          </article>
+          </div>
 
-        </section>
+        </div>
 
         <!--
           ====================================================================
